@@ -1,0 +1,12 @@
+.esport-login {
+  width: 50%;
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+}
+
+@media (max-width: 576px) {
+  .esport-login {
+    width: 100%;
+  }
+}
