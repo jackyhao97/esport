@@ -24,7 +24,7 @@
       </ul>
       <ul class="navbar-nav flex-row justify-content-between mt-5 mt-sm-0">
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="#"><i class="fa-solid fa-circle-user"></i> PROFIL</a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'login/'?>"><i class="fa-solid fa-circle-user"></i> PROFIL</a>
         </li>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="#"><i class="fa-regular fa-bell"></i></a>
