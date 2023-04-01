@@ -28,9 +28,20 @@
       <div class="row mt-5">
         <div class="col-12 col-md-6 col-lg-6 text-center d-flex justify-content-between flex-column">
           <div>
+            <?php 
+              if ($row['path'] == '') :
+            ?>
             <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" alt="User" class="img-user">
+            <?php 
+              else :
+            ?>
+            <img src="<?=BASE_URL.DS.'assets/img/profile/'.$row['path']?>" alt="User" class="img-user">
+            <?php 
+              endif;
+            ?>
           </div>
-          <button type="submit" class="btn btn-dark" name="btn_profile">Edit Profile</button>
+          <!-- <button type="submit" class="btn btn-dark" name="btn_profile">Edit Profile</button> -->
+          <a href="editProfile.php?id=<?=$row['id']?>" class="btn btn-dark">Edit Profile</a>
         </div>
         <div class="col-12 col-md-6 col-lg-6 mt-5 mt-sm-0">
           <div class="mb-3">

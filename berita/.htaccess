@@ -1,0 +1,8 @@
+RewriteEngine on
+
+Options -Indexes
+
+## Begin - SEO Friendly Link Blog
+RewriteRule ^([a-zA-Z0-9-/]+)$ detail.php?url=$1
+RewriteRule ^([a-zA-Z0-9-/]+)/$ detail.php?url=$1
+## End

@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse p-3 p-sm-0" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" aria-current="page" href="#"><i class="fa-solid fa-newspaper"></i> BERITA</a>
+          <a class="nav-link text-dark" aria-current="page" href="<?=BASE_URL.DS.'berita/'?>"><i class="fa-solid fa-newspaper"></i> BERITA</a>
         </li>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="#"><i class="fa-solid fa-calendar"></i> EVENT</a>
@@ -28,11 +28,12 @@
       ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Hello, Jacky
+            Hello, <?=$_SESSION['username']?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="<?=BASE_URL.DS.'logout.php'?>">Logout</a></li>
             <li><a class="dropdown-item" href="<?=BASE_URL.DS.'profile/'?>">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="<?=BASE_URL.DS.'profile/ubahpassword.php'?>">Ubah Password</a></li>
           </ul>
         </li>
       <?php
