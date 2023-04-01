@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand me-5" href="#"><i class="fa-solid fa-house"></i> HOME</a>
+    <a class="navbar-brand me-5" href="<?=BASE_URL?>"><i class="fa-solid fa-house"></i> HOME</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,9 +23,27 @@
         </li>
       </ul>
       <ul class="navbar-nav flex-row justify-content-between mt-5 mt-sm-0">
+      <?php 
+        if (isset($_SESSION['id'])) :
+      ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hello, Jacky
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<?=BASE_URL.DS.'logout.php'?>">Logout</a></li>
+            <li><a class="dropdown-item" href="<?=BASE_URL.DS.'profile/'?>">Edit Profile</a></li>
+          </ul>
+        </li>
+      <?php
+        else :
+      ?>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="<?=BASE_URL.DS.'login/'?>"><i class="fa-solid fa-circle-user"></i> PROFIL</a>
         </li>
+      <?php
+        endif;
+      ?>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="#"><i class="fa-regular fa-bell"></i></a>
         </li>

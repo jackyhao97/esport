@@ -17,14 +17,12 @@
         $_SESSION["login"] = false;
         $_SESSION['status'] = "";
         $_SESSION['username'] = "";
-        $_SESSION['id'] = "";
         echo "<script>alert('Password Salah!')</script>";
       }
     } else {
       $_SESSION["login"] = false;
       $_SESSION['status'] = "";
       $_SESSION['username'] = "";
-      $_SESSION['id'] = "";
       echo "<script>alert('Username tidak tersedia!')</script>";
     }
   }
