@@ -10,16 +10,16 @@
           <a class="nav-link text-dark" aria-current="page" href="<?=BASE_URL.DS.'berita/'?>"><i class="fa-solid fa-newspaper"></i> BERITA</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="#"><i class="fa-solid fa-calendar"></i> EVENT</a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar"></i> EVENT</a>
         </li>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="#">Create Event</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="#">Event Organizer</a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event-organizer/'?>">Event Organizer</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="#">History</a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'history/'?>">History</a>
         </li>
       </ul>
       <ul class="navbar-nav flex-row justify-content-between mt-5 mt-sm-0">
