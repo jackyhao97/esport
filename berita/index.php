@@ -36,7 +36,7 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <a href="./detail2.php">
+                <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
                   <img src="<?=BASE_URL.DS.'assets/img/home/esports.jpg'?>" class="d-block w-100" alt="..." style="cursor:pointer">
                 </a>
               </div>
