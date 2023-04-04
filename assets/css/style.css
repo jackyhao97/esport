@@ -1,10 +1,36 @@
-.esport-login {
+.esport-login,
+.esport-create-event {
   width: 50%;
 }
 
 .img-user {
   border-radius: 50%;
   width: 200px;
+}
+
+.my-gallery {
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.my-gallery figure {
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 120px;
+  height: 150px;
+  overflow: hidden;
+  background-color: lightgray;
+  text-align: center;
+  line-height: 150px;
+  font-weight: 500;
+  color: white;
+}
+
+.my-gallery figure.figures {
+  background-color: white !important;
+  border: 1px solid #a29d9d;
+  color: black !important;
 }
 
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {

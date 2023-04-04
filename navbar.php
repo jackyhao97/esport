@@ -13,7 +13,7 @@
           <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar"></i> EVENT</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="#">Create Event</a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'create-event/'?>">Create Event</a>
         </li>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event-organizer/'?>">Event Organizer</a>
