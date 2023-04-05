@@ -5,22 +5,20 @@
 
   if (isset($_POST["btn_submit"])) {
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
-    $tipe_event = isset($_POST['txt_tipe_event']) ? $_POST['txt_tipe_event'] : '';
-    $jenis_event = isset($_POST['txt_jenis_event']) ? $_POST['txt_jenis_event'] : '';
-    $prize_pool = isset($_POST['txt_prize_pool']) ? $_POST['txt_prize_pool'] : '';
-    $max_slot = isset($_POST['txt_max_slot']) ? $_POST['txt_max_slot'] : '';
-    $genre_game = isset($_POST['txt_genre_game']) ? $_POST['txt_genre_game'] : '';
-    $lokasi = isset($_POST['txt_lokasi']) ? mysqli_real_escape_string($conn, $_POST['txt_lokasi']) : '';
+    $jenis_eo = isset($_POST['txt_jenis_eo']) ? $_POST['txt_jenis_eo'] : '';
+    $harga_paket_event = isset($_POST['txt_harga_paket_event']) ? $_POST['txt_harga_paket_event'] : '';
+    $custom_event = isset($_POST['rdo_custom_event']) ? $_POST['rdo_custom_event'] : '';
+    $foto_event = $_FILES['fil_upload_event'];
     $createdon = date('Y-m-d H:i:s');
 
-    if ($nama != "" and $prize_pool != "" and $max_slot != "" and $lokasi != "") {
-      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, genre, lokasi, is_active, created_on, created_by) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$genre_game', '$lokasi', 1, '$createdon', '$id')");
+    if ($nama != "" and $jenis_eo != "" and $harga_paket_event != "" and $custom_event != "") {
+      $insert = $conn->query("INSERT INTO tb_event_organizer (nama, jenis, harga_paket_event, is_custom, path, is_active, created_on, created_by) VALUES ('$nama', '$jenis_eo', '$harga_paket_event', '$custom_event', '$foto_event', 1, '$createdon', '$id')");
   
       if ($insert) {
-        echo "<script>alert('Event berhasil ditambah!')</script>";
+        echo "<script>alert('Event Organizer berhasil ditambah!')</script>";
       }
       else {
-        echo "<script>alert('Event gagal ditambah!')</script>";
+        echo "<script>alert('Event Organizer gagal ditambah!')</script>";
       }
     }
   }
@@ -43,63 +41,54 @@
     <div class="container">
       <form class="esport-posting-eo m-auto mt-5" method="post">
         <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <label for="txt_nama" class="col-sm-2 form-label">Nama</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3">
+            <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
-        </div>
-        <div class="mb-3">
-          <label for="txt_jenis_eo" class="form-label">Jenis EO</label>
-          <select class="form-select" aria-label="Default select example" id="txt_jenis_eo" name="txt_jenis_eo">
-            <?php 
-              $sql = $conn->query("SELECT id, deskripsi FROM tb_tipe_event");
-              while ($rowTipe = $sql->fetch_array()) :
-            ?>
-              <option value="<?=$rowTipe['id']?>" selected><?=$rowTipe['deskripsi']?></option>
-            <?php
-              endwhile;
-            ?>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="txt_penanganan_event" class="form-label">Penanganan Event</label>
-          <select class="form-select" aria-label="Default select example" id="txt_penanganan_event" name="txt_penanganan_event">
-          <?php 
-              $sql = $conn->query("SELECT id, jenis FROM tb_jenis_event");
-              while ($rowJenis = $sql->fetch_array()) :
-            ?>
-              <option value="<?=$rowJenis['id']?>" selected><?=$rowJenis['jenis']?></option>
-            <?php
-              endwhile;
-            ?>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="txt_harga_paket_event" class="form-label">Harga Paket Event</label>
-          <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event" name="txt_harga_paket_event" required></textarea>
-          <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_2" name="txt_harga_paket_event_2" required></textarea>
-        </div>
-        <div class="mb-3">
-          <label for="txt_custom_event" class="form-label">Custom Event</label>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Ya</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+        <div class="row mb-3">
+          <label for="txt_jenis_eo" class="col-sm-2 form-label">Jenis EO</label>
+          <div class="col-sm-10">
+            <select class="form-select" aria-label="Default select example" id="txt_jenis_eo" name="txt_jenis_eo">
+              <?php 
+                $sql = $conn->query("SELECT id, deskripsi FROM tb_tipe_event");
+                while ($rowTipe = $sql->fetch_array()) :
+              ?>
+                <option value="<?=$rowTipe['id']?>" selected><?=$rowTipe['deskripsi']?></option>
+              <?php
+                endwhile;
+              ?>
+            </select>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_foto_event" class="form-label">Foto Event</label>
-          <input type="file" name="fil_upload_event" id="fil_upload_event" data-filename-placement="inside" onchange="resizeAndRead(this)">
-          <div class="col-md-8 col-sm-8 col-xs-8">
-            <div class="my-gallery">
-              <figure id="fil_upload_event_card">No Image</figure>
+        <div class="row mb-3">
+          <label for="txt_harga_paket_event" class="col-sm-2 form-label">Harga Paket Event</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event" name="txt_harga_paket_event" required></textarea>
+            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_2" name="txt_harga_paket_event_2" required></textarea>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="txt_custom_event" class="col-sm-2 form-label">Custom Event</label>
+          <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rdo_custom_event" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Ya</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rdo_custom_event" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Tidak</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="txt_foto_event" class="col-sm-2 form-label">Foto Event</label>
+          <div class="col-sm-10">
+            <input type="file" name="fil_upload_event" id="fil_upload_event" data-filename-placement="inside" onchange="resizeAndRead(this)">
+            <div class="col-md-8 col-sm-8 col-xs-8">
+              <div class="my-gallery">
+                <figure id="fil_upload_event_card">No Image</figure>
+              </div>
             </div>
           </div>
         </div>
