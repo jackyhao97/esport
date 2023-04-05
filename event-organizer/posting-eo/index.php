@@ -6,16 +6,22 @@
   if (isset($_POST["btn_submit"])) {
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
     $jenis_eo = isset($_POST['txt_jenis_eo']) ? $_POST['txt_jenis_eo'] : '';
-    $harga_paket_event = isset($_POST['txt_harga_paket_event']) ? $_POST['txt_harga_paket_event'] : '';
+    $harga_paket_event_a = isset($_POST['txt_harga_paket_event_a']) ? $_POST['txt_harga_paket_event_a'] : '';
+    $harga_paket_event_b = isset($_POST['txt_harga_paket_event_b']) ? $_POST['txt_harga_paket_event_b'] : '';
     $custom_event = isset($_POST['rdo_custom_event']) ? $_POST['rdo_custom_event'] : '';
-    $foto_event = $_FILES['fil_upload_event'];
+    $file = $_FILES['fil_upload_event'];
     $createdon = date('Y-m-d H:i:s');
 
-    if ($nama != "" and $jenis_eo != "" and $harga_paket_event != "" and $custom_event != "") {
-      $insert = $conn->query("INSERT INTO tb_event_organizer (nama, jenis, harga_paket_event, is_custom, path, is_active, created_on, created_by) VALUES ('$nama', '$jenis_eo', '$harga_paket_event', '$custom_event', '$foto_event', 1, '$createdon', '$id')");
+    if ($nama != "" and $jenis_eo != 0 and $harga_paket_event_a != "" and $harga_paket_event_b != "" and $custom_event != "") {
+      $new_filename = "EO_".rand(1,1000)."_".time().".jpg";
+      $upload = move_uploaded_file($file['tmp_name'], "../../assets/img/event-organizer/".$new_filename);
+      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, harga_paket_a, harga_paket_b, is_custom, path, is_active, created_on, created_by) VALUES ('$nama', '$jenis_eo', '$harga_paket_event_a', '$harga_paket_event_b', '$custom_event', '$new_filename', 1, '$createdon', '$id')");
   
-      if ($insert) {
+      if ($insert && $upload) {
         echo "<script>alert('Event Organizer berhasil ditambah!')</script>";
+      }
+      else if (!$insert && $upload) {
+        echo "<script>alert('Gambar berhasil diupload namun gagal disimpan ke database')</script>";
       }
       else {
         echo "<script>alert('Event Organizer gagal ditambah!')</script>";
@@ -39,7 +45,7 @@
 
     <!-- Tampilan Posting Event Organizer -->
     <div class="container">
-      <form class="esport-posting-eo m-auto mt-5" method="post">
+      <form class="esport-posting-eo m-auto mt-5" method="post" enctype="multipart/form-data">
         <div class="row mb-3">
           <label for="txt_nama" class="col-sm-2 form-label">Nama</label>
           <div class="col-sm-10">
@@ -62,21 +68,21 @@
           </div>
         </div>
         <div class="row mb-3">
-          <label for="txt_harga_paket_event" class="col-sm-2 form-label">Harga Paket Event</label>
+          <label for="txt_harga_paket_event_a" class="col-sm-2 form-label">Harga Paket Event</label>
           <div class="col-sm-10">
-            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event" name="txt_harga_paket_event" required></textarea>
-            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_2" name="txt_harga_paket_event_2" required></textarea>
+            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_a" name="txt_harga_paket_event_a" required></textarea>
+            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_b" name="txt_harga_paket_event_b" required></textarea>
           </div>
         </div>
         <div class="row mb-3">
           <label for="txt_custom_event" class="col-sm-2 form-label">Custom Event</label>
           <div class="col-sm-10">
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rdo_custom_event" value="option1">
+              <input class="form-check-input" type="radio" name="rdo_custom_event" id="rdo_custom_event" value="1">
               <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rdo_custom_event" value="option2">
+              <input class="form-check-input" type="radio" name="rdo_custom_event" id="rdo_custom_event" value="0">
               <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
           </div>
