@@ -15,22 +15,22 @@
       require_once '../navbar.php';
     ?>
 
-    <div class="container mt-5">
+    <div class="container mt-100">
       <div class="row">
         <div class="col-12 col-md-4">
           <h3 class="fw-bold">Berita Utama</h3>
           <div class="mt-5 overflow-auto" style="height: 100vh">
-            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
             </a>
-            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100 mt-4" alt="...">
             </a>
-            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100 mt-4" alt="...">
             </a>
-            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100 mt-4" alt="...">
             </a>
           </div>
         </div>
@@ -44,18 +44,18 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="..." style="cursor:pointer">
+                <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="..." style="cursor:pointer">
                 </a>
               </div>
               <div class="carousel-item">
-                <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+                <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
                 </a>
               </div>
               <div class="carousel-item">
-                <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
-                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+                <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
                 </a>
               </div>
             </div>

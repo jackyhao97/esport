@@ -33,11 +33,44 @@
   color: black !important;
 }
 
+.carousel-custom {
+  height: 500px;
+}
+
+footer .img-footer {
+  width: 200px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.width-news {
+  width: 50%;
+}
+
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 }
 
 @media (max-width: 576px) {
   .esport-login {
+    width: 100%;
+  }
+
+  footer .text-center-custom {
+    text-align: center;
+  }
+
+  .width-news {
     width: 100%;
   }
 }
