@@ -46,7 +46,7 @@
         endif;
       ?>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="#"><i class="fa-regular fa-bell"></i></a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'notifikasi/'?>"><i class="fa-regular fa-bell"></i></a>
         </li>
       </ul>
     </div>

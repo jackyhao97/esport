@@ -20,10 +20,18 @@
         <div class="col-12 col-md-4">
           <h3 class="fw-bold">Berita Utama</h3>
           <div class="mt-5 overflow-auto" style="height: 100vh">
-            <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
-            <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
-            <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
-            <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+            </a>
+            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            </a>
+            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            </a>
+            <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100 mt-4" alt="...">
+            </a>
           </div>
         </div>
         <div class="col-12 col-md-8">
@@ -41,10 +49,14 @@
                 </a>
               </div>
               <div class="carousel-item">
-                <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+                <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
+                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+                </a>
               </div>
               <div class="carousel-item">
-                <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+                <a href="./rrq-siap-mengalahkan-evos-pada-mpl-season-selanjutnya/">
+                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.jpg'?>" class="d-block w-100" alt="...">
+                </a>
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
