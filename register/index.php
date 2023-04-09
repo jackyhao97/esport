@@ -1,33 +1,50 @@
 <?php 
   require_once '../config.php';
   if (isset($_POST['btn_submit'])) {
-    $nama = isset($_POST['txt_nama']) ? $_POST['txt_nama'] : '';
-    $username = isset($_POST['txt_username']) ? $_POST['txt_username'] : '';
-    $password = isset($_POST['txt_password']) ? md5($_POST['txt_password']) : '';
-    $konfirmasipassword = isset($_POST['txt_konfirmasi_password']) ? md5($_POST['txt_konfirmasi_password']) : '';
-    $emailaddress = isset($_POST['txt_email_address']) ? $_POST['txt_email_address'] : '';
-    $tipe = isset($_POST['txt_tipe']) ? $_POST['txt_tipe'] : '';
-    $nomor = isset($_POST['txt_nomor']) ? $_POST['txt_nomor'] : '';
-    $createdon = date('Y-m-d H:i:s');
+    $genre = isset($_POST['genre']) ? $_POST['genre'] : '';
+    print_r($genre);
+    // $result = [];
+    // $j = count($genre);
 
-    if ($_POST['txt_password'] != '') {
-      if ($password == $konfirmasipassword) {
-        $insert = $conn->query("INSERT INTO tb_account (nama, username, password, email, tipe, nomor, is_active, created_on) VALUES ('$nama', '$username', '$password', '$emailaddress', '$tipe', '$nomor', 1, '$createdon')");
+    // foreach ($genre as $key => $res){ 
+    //   array_push($result, $res);
+    // }
+
+    // while ($j < 5) {
+    //   array_push($result, 0);
+    //   $j++;
+    // }
+
+    // $genres = implode(",",$result);
+    // echo $genres;
+
+    // $nama = isset($_POST['txt_nama']) ? $_POST['txt_nama'] : '';
+    // $username = isset($_POST['txt_username']) ? $_POST['txt_username'] : '';
+    // $password = isset($_POST['txt_password']) ? md5($_POST['txt_password']) : '';
+    // $konfirmasipassword = isset($_POST['txt_konfirmasi_password']) ? md5($_POST['txt_konfirmasi_password']) : '';
+    // $emailaddress = isset($_POST['txt_email_address']) ? $_POST['txt_email_address'] : '';
+    // $tipe = isset($_POST['txt_tipe']) ? $_POST['txt_tipe'] : '';
+    // $nomor = isset($_POST['txt_nomor']) ? $_POST['txt_nomor'] : '';
+    // $createdon = date('Y-m-d H:i:s');
+
+    // if ($_POST['txt_password'] != '') {
+    //   if ($password == $konfirmasipassword) {
+    //     $insert = $conn->query("INSERT INTO tb_account (nama, username, password, email, tipe, nomor, is_active, created_on, genre) VALUES ('$nama', '$username', '$password', '$emailaddress', '$tipe', '$nomor', 1, '$createdon', '$genres')");
     
-        if ($insert) {
-          echo "<script>alert('Register berhasil!')</script>";
-        }
-        else {
-          echo "<script>alert('Register gagal!')</script>";
-        }
-      }
-      else {
-        echo "<script>alert('Password tidak match!')</script>";
-      }
-    }
-    else {
-      echo "<script>alert('Password belum diisi!')</script>";
-    }
+    //     if ($insert) {
+    //       echo "<script>alert('Register berhasil!')</script>";
+    //     }
+    //     else {
+    //       echo "<script>alert('Register gagal!')</script>";
+    //     }
+    //   }
+    //   else {
+    //     echo "<script>alert('Password tidak match!')</script>";
+    //   }
+    // }
+    // else {
+    //   echo "<script>alert('Password belum diisi!')</script>";
+    // }
   }
 ?>
 
@@ -83,6 +100,45 @@
         <div class="mb-3">
           <label for="txt_nomor" class="form-label">Nomor</label>
           <input type="text" class="form-control" id="txt_nomor" name="txt_nomor">
+        </div>
+        <div class="mb-5">
+          <label class="form-label">Apa genre game yang kamu sukai</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="chkMoba" name="genre[]">
+            <label class="form-check-label" for="chkMoba">
+              Moba
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="chkFps" name="genre[]">
+            <label class="form-check-label" for="chkFps">
+              FPS
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="chkBattleRoyale" name="genre[]">
+            <label class="form-check-label" for="chkBattleRoyale">
+              Battle Royale
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="chkFighting" name="genre[]">
+            <label class="form-check-label" for="chkFighting">
+              Fighting
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="chkTalkshow" name="genre[]">
+            <label class="form-check-label" for="chkTalkshow">
+              Talkshow
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="2" id="chkAll" name="genre[]">
+            <label class="form-check-label" for="chkAll">
+              Semua genre diatas
+            </label>
+          </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <button type="submit" class="btn btn-primary" name="btn_submit">Register</button>
