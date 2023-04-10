@@ -4,12 +4,20 @@
   $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
 
   if (isset($_POST["btn_submit"])) {
+    $genreMoba = isset($_POST['genre-moba']) ? 1 : 0;
+    $genreFps = isset($_POST['genre-fps']) ? 1 : 0;
+    $genreBattleRoyale = isset($_POST['genre-battle-royale']) ? 1 : 0;
+    $genreFighting = isset($_POST['genre-fighting']) ? 1 : 0;
+    $genreTalkshow = isset($_POST['genre-talkshow']) ? 1 : 0;
+    $genre_game = $genreMoba . "," . $genreFps . "," . $genreBattleRoyale . "," . $genreFighting . "," . $genreTalkshow;
+    echo $genre_game;
+
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
     $tipe_event = isset($_POST['txt_tipe_event']) ? $_POST['txt_tipe_event'] : '';
     $jenis_event = isset($_POST['txt_jenis_event']) ? $_POST['txt_jenis_event'] : '';
     $prize_pool = isset($_POST['txt_prize_pool']) ? $_POST['txt_prize_pool'] : '';
     $max_slot = isset($_POST['txt_max_slot']) ? $_POST['txt_max_slot'] : '';
-    $genre_game = isset($_POST['txt_genre_game']) ? $_POST['txt_genre_game'] : '';
+    // $genre_game = isset($_POST['txt_genre_game']) ? $_POST['txt_genre_game'] : '';
     $lokasi = isset($_POST['txt_lokasi']) ? mysqli_real_escape_string($conn, $_POST['txt_lokasi']) : '';
     $createdon = date('Y-m-d H:i:s');
 
@@ -81,8 +89,22 @@
           <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot" required>
         </div>
         <div class="mb-3">
-          <label for="txt_genre_game" class="form-label">Genre Game</label>
-          <select class="form-select" aria-label="Default select example" id="txt_genre_game" name="txt_genre_game">
+          <label class="form-label">Genre Game</label>
+          <?php 
+              $sql = $conn->query("SELECT * FROM tb_genre where is_active = 1");
+              while ($rowGenre = $sql->fetch_array()) :
+            ?>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="1" id="chk-<?=$rowGenre['genre']?>" name="genre-<?=$rowGenre['genre']?>">
+              <label class="form-check-label" for="chk-<?=$rowGenre['genre']?>">
+                <?=$rowGenre['deskripsi']?>
+              </label>
+            </div>
+          <?php
+            endwhile;
+          ?>
+
+          <!-- <select class="form-select" aria-label="Default select example" id="txt_genre_game" name="txt_genre_game">
           <?php 
               $sql = $conn->query("SELECT id, deskripsi FROM tb_genre");
               while ($rowGenre = $sql->fetch_array()) :
@@ -91,7 +113,7 @@
           <?php
             endwhile;
           ?>
-          </select>
+          </select> -->
         </div>
         <div class="mb-3">
           <label for="txt_lokasi" class="form-label">Lokasi</label>

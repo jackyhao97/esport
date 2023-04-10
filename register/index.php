@@ -93,45 +93,45 @@
           <label for="txt_nomor" class="form-label">Nomor</label>
           <input type="text" class="form-control" id="txt_nomor" name="txt_nomor">
         </div>
-        <div class="mb-5">
-          <label class="form-label">Apa genre game yang kamu sukai</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="1" id="chkMoba" name="genreMoba">
-            <label class="form-check-label" for="chkMoba">
-              Moba
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="2" id="chkFps" name="genreFps">
-            <label class="form-check-label" for="chkFps">
-              FPS
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="3" id="chkBattleRoyale" name="genreBattleRoyale">
-            <label class="form-check-label" for="chkBattleRoyale">
-              Battle Royale
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="4" id="chkFighting" name="genreFighting">
-            <label class="form-check-label" for="chkFighting">
-              Fighting
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="5" id="chkTalkshow" name="genreTalkshow">
-            <label class="form-check-label" for="chkTalkshow">
-              Talkshow
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="6" id="chkAll" name="genreAll">
-            <label class="form-check-label" for="chkAll">
-              Semua genre diatas
-            </label>
-          </div>
+      <div class="mb-5">
+        <label class="form-label">Apa genre game yang kamu sukai</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="1" id="chkMoba" name="genreMoba">
+          <label class="form-check-label" for="chkMoba">
+            Moba
+          </label>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="2" id="chkFps" name="genreFps">
+          <label class="form-check-label" for="chkFps">
+            FPS
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="3" id="chkBattleRoyale" name="genreBattleRoyale">
+          <label class="form-check-label" for="chkBattleRoyale">
+            Battle Royale
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="4" id="chkFighting" name="genreFighting">
+          <label class="form-check-label" for="chkFighting">
+            Fighting
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="5" id="chkTalkshow" name="genreTalkshow">
+          <label class="form-check-label" for="chkTalkshow">
+            Talkshow
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="6" id="chkAll" name="genreAll">
+          <label class="form-check-label" for="chkAll">
+            Semua genre diatas
+          </label>
+        </div>
+      </div>
         <div class="d-flex justify-content-between align-items-center">
           <button type="submit" class="btn btn-primary" name="btn_submit">Register</button>
           <a href="../login/" class="text-right">Login</a>
