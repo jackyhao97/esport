@@ -19,8 +19,9 @@
     <!-- Tampilan Recommended -->
     <div class="container mt-5">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-between">
           <button type="button" class="btn btn-outline-primary rounded-pill">Recommended</button>
+          <a href="./posting-eo/" class="btn btn-dark" name="btn_posting_eo" id="btn_posting_eo">Posting EO</a>
         </div>
         <div class="col-6 mt-5">
           <img src="<?=BASE_URL.DS.'assets/img/home/esports.jpg'?>" class="d-block w-100" alt="...">
