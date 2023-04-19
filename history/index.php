@@ -2,6 +2,7 @@
   session_start();
   require_once '../config.php';
   require_once '../functions.php';
+  $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
 ?>
 
 <!doctype html>
@@ -22,17 +23,29 @@
       <div class="card mb-3">
         <div class="row g-0">
           <?php
-            $event = $conn->query("SELECT ev.nama as namaevent, ev.created_on, ev.created_by, ac.nama as namauser FROM tb_event ev LEFT JOIN tb_account ac ON ev.created_by = ac.id ORDER BY created_on DESC");
+            $event = $conn->query("SELECT ev.nama as namas, ev.created_on, ev.created_by, ac.nama as namauser, ev.history as history FROM tb_event ev LEFT JOIN tb_account ac ON ev.created_by = ac.id WHERE ev.created_by = $id UNION ALL SELECT po.nama as namas, po.created_on, po.created_by, ac.nama as namauser, po.history as history FROM tb_post_eo po LEFT JOIN tb_account ac ON po.created_by = ac.id WHERE po.created_by = $id ORDER BY created_on DESC");
             while ($rowEvent = $event->fetch_array()) :
+              if ($rowEvent['history'] == 1) :
           ?>
           <div class="col-12">
             <div class="card-body">
-              <h5 class="card-title">Event</h5>
-              <p class="card-text"><?=$rowEvent['namauser']?> membuat event bernama <?=$rowEvent['namaevent']?></p>
+              <h5 class="card-title fw-bold">Event</h5>
+              <p class="card-text"><?=$rowEvent['namauser']?> membuat event bernama <?=$rowEvent['namas']?></p>
               <p class="card-text"><small class="text-muted"><?=format_datetime($rowEvent['created_on'],"-")?></small></p>
             </div>
           </div>
           <?php
+              else :
+          ?>
+          <div class="col-12">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Event Organizer</h5>
+              <p class="card-text"><?=$rowEvent['namauser']?> membuat EO bernama <?=$rowEvent['namas']?></p>
+              <p class="card-text"><small class="text-muted"><?=format_datetime($rowEvent['created_on'],"-")?></small></p>
+            </div>
+          </div>
+          <?php
+              endif;
             endwhile;
           ?>
         </div>

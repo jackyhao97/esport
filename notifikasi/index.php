@@ -1,6 +1,7 @@
 <?php 
   session_start();
   require_once '../config.php';
+  $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
 ?>
 
 <!doctype html>
@@ -9,6 +10,7 @@
     <?php 
       require_once '../header.php';
     ?>
+    <link href="<?=BASE_URL.DS.'assets/css/dataTables.bootstrap4.min.css'?>" rel="stylesheet">
     <title>Notifikasi</title>
   </head>
   <body>
@@ -17,34 +19,15 @@
     ?>
 
     <!-- Tampilan Notifikasi -->
-    <div class="container mt-5">
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-12">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          <div class="col-12">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          <div class="col-12">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container mt-100">
+      
     </div>
     <!-- End -->
     <?php 
       require_once '../footer.php';
     ?>
+    <!-- Datatables plugins -->
+    <script src="<?=BASE_URL.DS.'assets/js/jquery.dataTables.min.js'?>"></script>
+    <script src="<?=BASE_URL.DS.'assets/js/dataTables.bootstrap4.min.js'?>"></script>
   </body>
 </html>
