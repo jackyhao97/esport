@@ -28,6 +28,7 @@
               <th>Verified</th>
               <th></th>
               <th>Type</th>
+              <th>Nama</th>
             </tr>
           </thead>
         </table>

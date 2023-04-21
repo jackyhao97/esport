@@ -38,7 +38,7 @@ function BuildAction($data) {
 
 $table = <<<EOT
   (
-    SELECT `id`, `is_verified`, `nama`, `history`, `created_on` FROM `tb_event` UNION ALL SELECT `id`, `is_active`, `nama`, `history`, `created_on` FROM `tb_post_eo` ORDER BY created_on DESC
+    SELECT `id`, `is_verified`, `nama`, `history`, `created_on` FROM `tb_event` UNION ALL SELECT `id`, `is_active`, `nama`, `history`, `created_on` FROM `tb_post_eo` UNION ALL SELECT heo.`id`, heo.`harga_paket_id`, ac.`nama`, heo.`history`, heo.`created_on` FROM `tb_history_eo` heo LEFT JOIN `tb_account` ac ON heo.created_by = ac.id UNION ALL SELECT `id`, `event_id`, `history`, `history`, `created_on` FROM `tb_history_event` ORDER BY created_on DESC
   ) temp 
   EOT;
 
@@ -73,8 +73,12 @@ $columns = array(
     'formatter' => function($d, $row){
       if ($row[3] == 1)
         return "Event bernama $d";
-      else
+      else if ($row[3] == 2)
         return "Posting EO bernama $d";
+      else if ($row[3] == 3)
+        return "User ikut event bernama $d";
+      else
+        return "User menyewa EO bernama $d";
     }
   ),
   array(
@@ -100,10 +104,15 @@ $columns = array(
     'formatter' => function($d, $row) {
       if ($d == 1)
         return "Event";
-      else
+      else if ($d == 2)
         return "Event Organizer";
+      else if ($d == 3)
+        return "Register Event";
+      else
+        return "Sewa EO";
       }
-  )
+  ),
+  array('db' => 'nama', 'dt' => 4)
 );
 
 
