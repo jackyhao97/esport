@@ -20,16 +20,16 @@
         <div class="col-12 col-md-4">
           <h3 class="fw-bold">Berita Utama</h3>
           <div class="mt-5 overflow-auto" style="height: 100vh">
-            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+            <a href="./berita-1/">
               <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
             </a>
-            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+            <a href="./berita-1/">
               <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100 mt-4" alt="...">
             </a>
-            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+            <a href="./berita-1/">
               <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100 mt-4" alt="...">
             </a>
-            <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+            <a href="./berita-1/">
               <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100 mt-4" alt="...">
             </a>
           </div>
@@ -44,17 +44,17 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
-                  <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="..." style="cursor:pointer">
+                <a href="./berita-1/">
+                  <img src="<?=BASE_URL.DS.'assets/img/berita/berita-1.webp'?>" class="d-block w-100" alt="..." style="cursor:pointer">
                 </a>
               </div>
               <div class="carousel-item">
-                <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+                <a href="./berita-1/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
                 </a>
               </div>
               <div class="carousel-item">
-                <a href="./info-vct-pacific-league-2023-jadwal-format-dan-link-nonton/">
+                <a href="./berita-1/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
                 </a>
               </div>
