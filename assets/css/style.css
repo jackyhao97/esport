@@ -58,6 +58,15 @@ footer a {
   width: 50%;
 }
 
+.carousel-berita img {
+  cursor: pointer;
+  filter: brightness(0.6);
+}
+
+.carousel-berita p {
+  font-size: 25px;
+}
+
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 }
 
@@ -72,5 +81,9 @@ footer a {
 
   .width-news {
     width: 100%;
+  }
+
+  .carousel-berita p {
+    font-size: 17px;
   }
 }
