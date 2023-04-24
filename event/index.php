@@ -31,6 +31,56 @@
           <button type="button" class="btn btn-outline-primary rounded-pill">TalkShow</button>
         </div>
       </div>
+      <div class="row mt-5">
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card">
+            <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" class="card-img-top" alt="Event">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- End -->
     <?php 
