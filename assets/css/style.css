@@ -67,6 +67,16 @@ footer a {
   font-size: 25px;
 }
 
+.category {
+  border-color: #71001c;
+  color: black;
+}
+
+.event-active {
+  color: white;
+  background-color: #71001c;
+}
+
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 }
 
