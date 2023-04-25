@@ -18,13 +18,15 @@
     $max_slot = isset($_POST['txt_max_slot']) ? $_POST['txt_max_slot'] : '';
     // $genre_game = isset($_POST['txt_genre_game']) ? $_POST['txt_genre_game'] : '';
     $lokasi = isset($_POST['txt_lokasi']) ? mysqli_real_escape_string($conn, $_POST['txt_lokasi']) : '';
+    $tgl_event_awal = isset($_POST['txt_tgl_event_awal']) ? $_POST['txt_tgl_event_awal'] : '';
+    $tgl_event_akhir = isset($_POST['txt_tgl_event_akhir']) ? $_POST['txt_tgl_event_akhir'] : '';
     $createdon = date('Y-m-d H:i:s');
     $file = $_FILES['fil_upload_event'];
 
     if ($nama != "" and $prize_pool != "" and $max_slot != "" and $lokasi != "") {
       $new_filename = "EVENT_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../assets/img/event/".$new_filename);
-      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, genre, lokasi, is_active, created_on, created_by, path) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$genre_game', '$lokasi', 1, '$createdon', '$id', '$new_filename')");
+      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, genre, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$genre_game', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir')");
   
       if ($insert && $upload) {
         echo "<script>alert('Event berhasil ditambah!')</script>";
@@ -58,6 +60,20 @@
         <div class="mb-3">
           <label for="txt_nama" class="form-label">Nama</label>
           <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
+        </div>
+        <div class="mb-3">
+          <label for="txt_tgl_event_awal" class="form-label">Tgl Event</label>
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <input type="date" class="form-control" id="txt_tgl_event_awal" name="txt_tgl_event_awal" required>
+            </div>
+            <div class="col-12 col-md-2">
+              s/d
+            </div>
+            <div class="col-12 col-md-5">
+              <input type="date" class="form-control" id="txt_tgl_event_akhir" name="txt_tgl_event_akhir" required>
+            </div>
+          </div>
         </div>
         <div class="mb-3">
           <label for="txt_tipe_event" class="form-label">Tipe Event</label>

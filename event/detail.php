@@ -2,7 +2,8 @@
   session_start();
   require_once '../config.php';
   $id = $_GET["id"];
-  $result = $conn->query("SELECT ev.nama, ev.path, ev.prize_pool, ev.max_slot, ev.lokasi, te.deskripsi, je.jenis FROM tb_event ev LEFT JOIN tb_tipe_event te ON ev.tipe = te.id LEFT JOIN tb_jenis_event je ON ev.jenis = je.id WHERE ev.id = '$id'");
+  $user = $_SESSION['id'];
+  $result = $conn->query("SELECT ev.id, ev.nama, ev.path, ev.prize_pool, ev.max_slot, ev.lokasi, ev.tgl_event_awal, ev.tgl_event_akhir, te.deskripsi, je.jenis FROM tb_event ev LEFT JOIN tb_tipe_event te ON ev.tipe = te.id LEFT JOIN tb_jenis_event je ON ev.jenis = je.id WHERE ev.id = '$id'");
   $row = $result->fetch_array();
 ?>
 
@@ -37,7 +38,7 @@
         Setelah melewati pandemi Covid-19 yang cukup lama, <?=$row['deskripsi']?> esports di berbagai daerah mulai berhilangan. Secara perlahan, satu per satu <?=$row['deskripsi']?> komunitas mulai muncul sebagai wadah para pemain game berkembang.
       </p>
       <p>
-        <?=$row['nama']?> hadir untuk para pemain dengan membawa total hadiah sebesar <?=number_format($row['prize_pool'], 0, ',', '.')?>. <?=$row['deskripsi']?> ini akan diselenggarakan pada bulan April 2023 sampai Agustus 2023 mendatang.
+        <?=$row['nama']?> hadir untuk para pemain dengan membawa total hadiah sebesar <?=number_format($row['prize_pool'], 0, ',', '.')?>. <?=$row['deskripsi']?> ini akan diselenggarakan pada <?=date("d M Y", strtotime($row['tgl_event_awal']))?> sampai <?=date("d M Y", strtotime($row['tgl_event_akhir']))?> mendatang.
       </p>
       <p>
         Tertarik? Yuk lihat lebih detail mengenai <?=$row['deskripsi']?> yang besar ini!
@@ -46,7 +47,7 @@
         Jadwal & Cara Mendaftarkan Diri di <?=$row['nama']?>
       </p>
       <p>
-        <?=$row['deskripsi']?> ini bersifat <?=$row['jenis']?>. <?=$row['deskripsi']?> ini diselenggarakan pada 10 Mei 2023 di <?=$row['lokasi']?>.
+        <?=$row['deskripsi']?> ini bersifat <?=$row['jenis']?>. <?=$row['deskripsi']?> ini diselenggarakan pada <?=date("d M Y", strtotime($row['tgl_event_awal']))?> hingga <?=date("d M Y", strtotime($row['tgl_event_akhir']))?> di <?=$row['lokasi']?>.
       </p>
       <p>
         Bagi kalian yang sudah memiliki grup bermain dan merasa tertantang untuk membuktikkan skill, langsung saja jadi tim yang paling kuat di Pulau Sumatera dengan mendaftarkan diri di <?=$row['nama']?>.
@@ -57,10 +58,36 @@
       <p>
         Ikuti terus berita esports terbaru di Ligasport! Kunjungi Instagram dan Youtube Ligasport yang selalu update dan kekinian.
       </p>
+      <div class="text-end mt-5">
+        <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" onclick="register(<?=$row['id']?>,<?=$user?>)">Register</a>
+      </div>
     </div>
 
     <?php 
       require_once '../footer.php';
     ?>
+
+    <script>
+      function register(id, user) {
+        const conf = confirm(`Apakah anda yakin untuk register di event ini?`);
+        if (conf) {
+          $.ajax({
+            type: "post",
+            url: "register.php",
+            data: { id, user },
+            success: (data) => {
+              const res = $.parseJSON(data);
+
+              if (res.success) {
+                alert('Anda berhasil register event.');
+              }
+              else {
+                alert('Anda gagal register event.');
+              }
+            }
+          });
+        }
+      }
+    </script>
   </body>
 </html>
