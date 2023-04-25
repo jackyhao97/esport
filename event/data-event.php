@@ -9,7 +9,8 @@
     {
       $path = BASE_URL.DS.'assets/img/event/'.$row['path'];
       $nama = $row['nama'];
-      $data = '<div class="col-12 col-md-6 mb-4">
+      $id = $row['id'];
+      $data = '<div class="col-12 col-md-6 mb-4 cursor-pointer" onclick="window.location=`detail.php?id=' .$id. '`">
                   <div class="card">
                     <img src="'.$path.'" class="card-img-top" alt="'.$nama.'">
                     <div class="card-body">
