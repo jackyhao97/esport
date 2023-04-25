@@ -3,13 +3,13 @@
   <div class="container">
     <div class="row align-items-center pt-5">
       <div class="col-12 col-md-4">
-        <img src="<?=BASE_URL.DS.'assets/img/user.png'?>" alt="Logo Esport" class="img-thumbnail img-footer">
-        <h4 class="fw-bold mt-3">ESPORTS</h4>
-        <h4 class="fw-bold">The First Full-Service Esports Agency in Indonesia</h4>
-        <p style="text-align: justify">Esports adalah Media & Broadcasting Production Company tertua di Indonesia, dengan platform informasi seputar esports, games, dan live streaming yang bertujuan untuk mengembangkan industri esports Indonesia.</p>
+        <img src="<?=BASE_URL.DS.'assets/img/logo.png'?>" alt="Logo Ligasport" class="img-thumbnail img-footer">
+        <h4 class="fw-bold mt-3">Ligasport</h4>
+        <h4 class="fw-bold">The First Full-Service Ligasport Agency in Indonesia</h4>
+        <p style="text-align: justify">Ligasport adalah Media & Broadcasting Production Company tertua di Indonesia, dengan platform informasi seputar Ligasport, games, dan live streaming yang bertujuan untuk mengembangkan industri Ligasport Indonesia.</p>
       </div>
       <div class="col-12 col-md-4">
-        <h4 class="fw-bold">About Esport</h4>
+        <h4 class="fw-bold">About Ligasport</h4>
         <div>
           <a href="<?=BASE_URL.DS.'berita/'?>">Berita</a>
         </div>
