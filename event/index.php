@@ -1,6 +1,7 @@
 <?php 
   session_start();
   require_once '../config.php';
+  $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
 ?>
 
 <!doctype html>
@@ -16,12 +17,17 @@
       require_once '../navbar.php';
     ?>
 
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-12">
+          <img src="<?=BASE_URL.DS.'assets/img/event/banner-event.jpg'?>" class="d-block w-100" alt="Event">
+        </div>
+      </div>
+    </div>
+
     <!-- Tampilan Banner -->
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <img src="<?=BASE_URL.DS.'assets/img/home/esports.jpg'?>" class="d-block w-100" alt="...">
-        </div>
         <div class="col-12 mt-5">
           <button type="button" class="btn btn-outline-primary rounded-pill category event-active" id="hot">HOT</button>
           <button type="button" class="btn btn-outline-primary rounded-pill category" id="moba">MOBA</button>
@@ -43,10 +49,11 @@
     <script>
       function loadData() {
         let tipe = "hot";
+        let user = "<?=$id?>";
         $.ajax({
           type: "post",
           url: "data-event.php",
-          data: {tipe: tipe},
+          data: {tipe: tipe, user: user},
           success: function(data) {
             $("#hasil").html(data);
           },

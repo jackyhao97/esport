@@ -23,7 +23,8 @@
       }
     }
     else {
-      $result = $conn->query("SELECT ev.nama, ev.path, ev.id as idevent, hb.bobot, hb.created_on FROM `tb_event` ev LEFT join tb_history_bobot hb ON ev.id = hb.event_id ORDER BY bobot DESC, created_on DESC");
+      $user = $_POST["user"];
+      $result = $conn->query("SELECT ev.nama, ev.path, ev.id as idevent, hb.bobot, hb.created_on FROM `tb_event` ev LEFT join tb_history_bobot hb ON ev.id = hb.event_id WHERE hb.created_by = '$user' ORDER BY bobot DESC, created_on DESC");
       while ($row = $result->fetch_array())
       {
         $path = BASE_URL.DS.'assets/img/event/'.$row['path'];
