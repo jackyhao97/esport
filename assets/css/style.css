@@ -58,12 +58,14 @@ footer a {
   width: 50%;
 }
 
-.carousel-berita img {
+.carousel-berita img,
+.carousel-home img {
   cursor: pointer;
   filter: brightness(0.6);
 }
 
-.carousel-berita p {
+.carousel-berita p,
+.carousel-home p {
   font-size: 25px;
 }
 
@@ -79,6 +81,10 @@ footer a {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.carousel-home .carousel-caption {
+  top: 50%;
 }
 
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -97,11 +103,16 @@ footer a {
     width: 100%;
   }
 
-  .carousel-berita p {
+  .carousel-berita p,
+  .carousel-home p {
     font-size: 17px;
   }
 
   .esport-create-event {
     width: 80%;
+  }
+
+  .carousel-custom {
+    height: auto;
   }
 }

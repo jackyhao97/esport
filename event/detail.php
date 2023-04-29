@@ -148,7 +148,7 @@
         $similarity = $cosineSimilarity->calculateCosineSimilarity();
 
         // Output the cosine similarity score
-        echo "Cosine Similarity dari \"$nama\" dengan \"$namaevent\" : " . $similarity . "<br>";
+        // echo "Cosine Similarity dari \"$nama\" dengan \"$namaevent\" : " . $similarity . "<br>";
 
         $queryinsert = $conn->query("INSERT INTO tb_history_bobot (event_id, bobot, created_on, created_by) VALUES ('$idevent', '$similarity', '$now', '$user')");
 

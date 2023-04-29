@@ -22,17 +22,43 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
       </div>
-      <div class="carousel-inner carousel-custom">
-        <div class="carousel-item active">
-          <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
+      <div class="carousel-inner carousel-custom carousel-home">
+        <div class="carousel-item active" onclick="window.location='./berita/berita-1/'">
+          <img src="<?=BASE_URL.DS.'assets/img/berita/berita-1.webp'?>" class="d-block w-100" alt="berita">
+          <div class="carousel-caption">
+            <p class="fw-bold">Mobile Legends Akan Rilis di China dengan Nama Win The Peak!</p>
+          </div>
         </div>
-        <div class="carousel-item">
-          <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
+        <div class="carousel-item" onclick="window.location='./berita/berita-2/'">
+          <img src="<?=BASE_URL.DS.'assets/img/berita/berita-2.webp'?>" class="d-block w-100" alt="Berita">
+          <div class="carousel-caption">
+            <p class="fw-bold">Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan Mode Tournament</p>
+          </div>
         </div>
-        <div class="carousel-item">
-          <img src="<?=BASE_URL.DS.'assets/img/berita/vct-pacific.png'?>" class="d-block w-100" alt="...">
+        <div class="carousel-item" onclick="window.location='./berita/berita-3/'">
+          <img src="<?=BASE_URL.DS.'assets/img/berita/berita-3.webp'?>" class="d-block w-100" alt="Berita">
+          <div class="carousel-caption">
+            <p class="fw-bold">AE Okta Berbagi Tips Jadi Scout Handal di PUBG MOBILE</p>
+          </div>
         </div>
+
+        <?php
+          $queryevent = $conn->query("SELECT * FROM `tb_event` ORDER BY id DESC LIMIT 0,3");
+          while ($rowevent = $queryevent->fetch_array()) :
+        ?>
+        <div class="carousel-item" onclick="window.location='./event/detail.php?id=<?=$rowevent['id']?>'">
+          <img src="<?=BASE_URL.DS.'assets/img/event/'.$rowevent['path']?>" class="d-block w-100" alt="<?=$rowevent['nama']?>">
+          <div class="carousel-caption">
+            <p class="fw-bold"><?=$rowevent['nama']?></p>
+          </div>
+        </div>
+        <?php
+          endwhile;
+        ?>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
