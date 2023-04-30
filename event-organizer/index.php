@@ -29,8 +29,9 @@
         ?>
         <div class="col-6 mt-5">
           <img src="<?=BASE_URL.DS.'assets/img/event-organizer/'.$roweo['path']?>" class="d-block w-100" alt="<?=$roweo['nama']?>">
+          <p class="fw-bold"><?=$roweo['nama']?></p>
           <div class="text-end">
-            <input type="submit" class="btn btn-dark mt-3" name="btn_detail" value="Detail" id="btn_detail">
+            <a href="./detail.php?id=<?=$roweo['id']?>" class="btn btn-dark mt-3">Detail</a>
           </div>
         </div>
         <?php
