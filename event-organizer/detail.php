@@ -54,7 +54,7 @@
                         Paket <?=$paket?>
                       </div>
                       <div>
-                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
+                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$rowharga['id']?>" aria-label="...">
                       </div>
                     </div>
                     <div class="card-body">
@@ -76,7 +76,7 @@
                         Custom
                       </div>
                       <div>
-                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
+                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="0" aria-label="...">
                       </div>
                     </div>
                   </div>
@@ -113,20 +113,22 @@
 
     <script>
       function register(id, user) {
-        const conf = confirm(`Apakah anda yakin untuk register di event ini?`);
+        // value hargapaket = 0 artinya custom
+        var hargapaket = $(".radiopaket:checked").val();
+        const conf = confirm(`Apakah anda yakin untuk register untuk event organizer ini?`);
         if (conf) {
           $.ajax({
             type: "post",
             url: "register.php",
-            data: { id, user },
+            data: { id, user, hargapaket },
             success: (data) => {
               const res = $.parseJSON(data);
 
               if (res.success) {
-                alert('Anda berhasil register event.');
+                alert('Anda berhasil register EO.');
               }
               else {
-                alert('Anda gagal register event.');
+                alert('Anda gagal register EO.');
               }
             }
           });
