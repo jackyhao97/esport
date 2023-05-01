@@ -87,6 +87,16 @@ footer a {
   top: 50%;
 }
 
+@media (min-width: 768px) {
+  .border-label-eo {
+    border: 1px solid brown;
+    border-radius: 50px;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+  }
+}
+
 @media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
 }
 

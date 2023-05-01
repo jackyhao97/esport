@@ -4,7 +4,7 @@
 
   $id = $_GET["id"];
   $user = $_SESSION['id'];
-  $result = $conn->query("SELECT * FROM `tb_post_eo` pe LEFT JOIN `tb_tipe_event` te ON pe.jenis_eo = te.id WHERE pe.id = '$id'");
+  $result = $conn->query("SELECT pe.id as ideo, nama, jenis_eo, is_custom, path, history, tipe, deskripsi, created_on, created_by FROM `tb_post_eo` pe LEFT JOIN `tb_tipe_event` te ON pe.jenis_eo = te.id WHERE pe.id = '$id'");
   $row = $result->fetch_array();
   $resultuser = $conn->query("SELECT * FROM `tb_account` WHERE id = '$user'");
   $rowuser = $resultuser->fetch_array();
@@ -103,7 +103,7 @@
       
 
       <div class="text-end mt-5">
-        <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" onclick="register(<?=$row['id']?>,<?=$user?>)">Register</a>
+        <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" onclick="register(<?=$row['ideo']?>,<?=$user?>)">Register</a>
       </div>
     </div>
 
@@ -115,23 +115,28 @@
       function register(id, user) {
         // value hargapaket = 0 artinya custom
         var hargapaket = $(".radiopaket:checked").val();
-        const conf = confirm(`Apakah anda yakin untuk register untuk event organizer ini?`);
-        if (conf) {
-          $.ajax({
-            type: "post",
-            url: "register.php",
-            data: { id, user, hargapaket },
-            success: (data) => {
-              const res = $.parseJSON(data);
-
-              if (res.success) {
-                alert('Anda berhasil register EO.');
+        if (hargapaket == undefined) {
+          alert('Paket belum dipilih!');
+        }
+        else {
+          const conf = confirm(`Apakah anda yakin untuk register untuk event organizer ini?`);
+          if (conf) {
+            $.ajax({
+              type: "post",
+              url: "register.php",
+              data: { id, user, hargapaket },
+              success: (data) => {
+                const res = $.parseJSON(data);
+  
+                if (res.success) {
+                  alert('Anda berhasil register EO.');
+                }
+                else {
+                  alert('Anda gagal register EO.');
+                }
               }
-              else {
-                alert('Anda gagal register EO.');
-              }
-            }
-          });
+            });
+          }
         }
       }
     </script>

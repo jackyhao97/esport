@@ -15,12 +15,21 @@
     if ($nama != "" and $jenis_eo != 0 and $harga_paket_event_a != "" and $harga_paket_event_b != "" and $custom_event != "") {
       $new_filename = "EO_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../../assets/img/event-organizer/".$new_filename);
-      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, harga_paket_a, harga_paket_b, is_custom, path, is_active, created_on, created_by) VALUES ('$nama', '$jenis_eo', '$harga_paket_event_a', '$harga_paket_event_b', '$custom_event', '$new_filename', 1, '$createdon', '$id')");
+      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, is_custom, path, is_active, created_on, created_by, history) VALUES ('$nama', '$jenis_eo', '$custom_event', '$new_filename', 1, '$createdon', '$id', 2)");
+      $last_id = $conn->insert_id;
+
+      if ($harga_paket_event_a != '') {
+        $insertharga = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_a', '$createdon', '$id')");
+      }
+
+      if ($harga_paket_event_b != '') {
+        $inserthargab = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_b', '$createdon', '$id')");
+      }
   
-      if ($insert && $upload) {
+      if ($insert && $upload && $insertharga && $inserthargab) {
         echo "<script>alert('Event Organizer berhasil ditambah!')</script>";
       }
-      else if (!$insert && $upload) {
+      else if (!$insert && $upload && $insertharga && $inserthargab) {
         echo "<script>alert('Gambar berhasil diupload namun gagal disimpan ke database')</script>";
       }
       else {
@@ -44,20 +53,20 @@
     ?>
 
     <!-- Tampilan Posting Event Organizer -->
-    <div class="container">
-      <form class="esport-posting-eo m-auto mt-5" method="post" enctype="multipart/form-data">
+    <div class="container mt-100 p-5" style="background:#eee">
+      <form class="esport-posting-eo m-auto" method="post" enctype="multipart/form-data">
         <div class="row mb-3">
-          <label for="txt_nama" class="col-sm-2 form-label">Nama</label>
+          <label for="txt_nama" class="col-sm-2 form-label border-label-eo">Nama</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
           </div>
         </div>
         <div class="row mb-3">
-          <label for="txt_jenis_eo" class="col-sm-2 form-label">Jenis EO</label>
+          <label for="txt_jenis_eo" class="col-sm-2 form-label border-label-eo">Jenis EO</label>
           <div class="col-sm-10">
             <select class="form-select" aria-label="Default select example" id="txt_jenis_eo" name="txt_jenis_eo">
               <?php 
-                $sql = $conn->query("SELECT id, deskripsi FROM tb_tipe_event");
+                $sql = $conn->query("SELECT id, deskripsi FROM tb_tipe_event ORDER BY id DESC");
                 while ($rowTipe = $sql->fetch_array()) :
               ?>
                 <option value="<?=$rowTipe['id']?>" selected><?=$rowTipe['deskripsi']?></option>
@@ -68,27 +77,29 @@
           </div>
         </div>
         <div class="row mb-3">
-          <label for="txt_harga_paket_event_a" class="col-sm-2 form-label">Harga Paket Event</label>
-          <div class="col-sm-10">
-            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_a" name="txt_harga_paket_event_a" required></textarea>
-            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_b" name="txt_harga_paket_event_b" required></textarea>
+          <label for="txt_harga_paket_event_a" class="col-sm-2 form-label border-label-eo">Harga Paket Event</label>
+          <div class="col-12 col-sm-5">
+            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_a" name="txt_harga_paket_event_a" rows='5' required></textarea>
+          </div>
+          <div class="col-12 mt-1 mt-sm-0 col-sm-5">
+            <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_b" name="txt_harga_paket_event_b" rows='5' required></textarea>
           </div>
         </div>
         <div class="row mb-3">
-          <label for="txt_custom_event" class="col-sm-2 form-label">Custom Event</label>
+          <label for="txt_custom_event" class="col-sm-2 form-label border-label-eo">Custom Event</label>
           <div class="col-sm-10">
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="rdo_custom_event" id="rdo_custom_event" value="1">
-              <label class="form-check-label" for="inlineRadio1">Ya</label>
+              <input class="form-check-input" type="radio" name="rdo_custom_event" id="rdo_custom_event_ya" value="1">
+              <label class="form-check-label" for="rdo_custom_event_ya">Ya</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="rdo_custom_event" id="rdo_custom_event" value="0">
-              <label class="form-check-label" for="inlineRadio2">Tidak</label>
+              <input class="form-check-input" type="radio" name="rdo_custom_event" id="rdo_custom_event_tidak" value="0">
+              <label class="form-check-label" for="rdo_custom_event_tidak">Tidak</label>
             </div>
           </div>
         </div>
         <div class="row mb-3">
-          <label for="txt_foto_event" class="col-sm-2 form-label">Foto Event</label>
+          <label for="txt_foto_event" class="col-sm-2 form-label border-label-eo">Foto Event</label>
           <div class="col-sm-10">
             <input type="file" name="fil_upload_event" id="fil_upload_event" data-filename-placement="inside" onchange="resizeAndRead(this)">
             <div class="col-md-8 col-sm-8 col-xs-8">
