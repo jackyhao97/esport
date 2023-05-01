@@ -26,7 +26,7 @@
     if ($nama != "" and $prize_pool != "" and $max_slot != "" and $lokasi != "") {
       $new_filename = "EVENT_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../assets/img/event/".$new_filename);
-      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, genre, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$genre_game', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir')");
+      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, genre, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir, history) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$genre_game', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir', 1)");
   
       if ($insert && $upload) {
         echo "<script>alert('Event berhasil ditambah!')</script>";
@@ -55,62 +55,75 @@
     ?>
 
     <!-- Tampilan Login -->
-    <div class="container d-flex">
-      <form class="esport-create-event m-auto mt-5" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="txt_nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
+    <div class="container mt-100 p-5" style="background:#eee">
+      <form class="esport-create-event m-auto" method="post" enctype="multipart/form-data">
+        <div class="row mb-3">
+          <label for="txt_nama" class="col-sm-2 form-label border-label-eo">Nama</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_tgl_event_awal" class="form-label">Tgl Event</label>
-          <div class="row">
-            <div class="col-12 col-md-5">
-              <input type="date" class="form-control" id="txt_tgl_event_awal" name="txt_tgl_event_awal" required>
-            </div>
-            <div class="col-12 col-md-2">
-              s/d
-            </div>
-            <div class="col-12 col-md-5">
-              <input type="date" class="form-control" id="txt_tgl_event_akhir" name="txt_tgl_event_akhir" required>
+        <div class="row mb-3">
+          <label for="txt_tgl_event_awal" class="form-label col-sm-2 border-label-eo">Tgl Event</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-12 col-md-5">
+                <input type="date" class="form-control" id="txt_tgl_event_awal" name="txt_tgl_event_awal" required>
+              </div>
+              <div class="col-12 col-md-1">
+                s/d
+              </div>
+              <div class="col-12 col-md-5">
+                <input type="date" class="form-control" id="txt_tgl_event_akhir" name="txt_tgl_event_akhir" required>
+              </div>
             </div>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_tipe_event" class="form-label">Tipe Event</label>
-          <select class="form-select" aria-label="Default select example" id="txt_tipe_event" name="txt_tipe_event">
+        <div class="row mb-3">
+          <label for="txt_tipe_event" class="form-label col-sm-2 border-label-eo">Tipe Event</label>
+          <div class="col-sm-10">
+            <select class="form-select" aria-label="Default select example" id="txt_tipe_event" name="txt_tipe_event">
+              <?php 
+                $sql = $conn->query("SELECT id, deskripsi FROM tb_tipe_event ORDER BY id DESC");
+                while ($rowTipe = $sql->fetch_array()) :
+              ?>
+                <option value="<?=$rowTipe['id']?>" selected><?=$rowTipe['deskripsi']?></option>
+              <?php
+                endwhile;
+              ?>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="txt_jenis_event" class="form-label col-sm-2 border-label-eo">Jenis Event</label>
+          <div class="col-sm-10">
+            <select class="form-select" aria-label="Default select example" id="txt_jenis_event" name="txt_jenis_event">
             <?php 
-              $sql = $conn->query("SELECT id, deskripsi FROM tb_tipe_event");
-              while ($rowTipe = $sql->fetch_array()) :
-            ?>
-              <option value="<?=$rowTipe['id']?>" selected><?=$rowTipe['deskripsi']?></option>
-            <?php
-              endwhile;
-            ?>
-          </select>
+                $sql = $conn->query("SELECT id, jenis FROM tb_jenis_event");
+                while ($rowJenis = $sql->fetch_array()) :
+              ?>
+                <option value="<?=$rowJenis['id']?>" selected><?=$rowJenis['jenis']?></option>
+              <?php
+                endwhile;
+              ?>
+            </select>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_jenis_event" class="form-label">Jenis Event</label>
-          <select class="form-select" aria-label="Default select example" id="txt_jenis_event" name="txt_jenis_event">
-          <?php 
-              $sql = $conn->query("SELECT id, jenis FROM tb_jenis_event");
-              while ($rowJenis = $sql->fetch_array()) :
-            ?>
-              <option value="<?=$rowJenis['id']?>" selected><?=$rowJenis['jenis']?></option>
-            <?php
-              endwhile;
-            ?>
-          </select>
+        <div class="row mb-3">
+          <label for="txt_prize_pool" class="form-label col-sm-2 border-label-eo">Prize Pool</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool" required>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_prize_pool" class="form-label">Prize Pool</label>
-          <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool" required>
+        <div class="row mb-3">
+          <label for="txt_max_slot" class="form-label col-sm-2 border-label-eo">Max Slot</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot" required>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_max_slot" class="form-label">Max Slot</label>
-          <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Genre Game</label>
+        <div class="row mb-3">
+          <label class="form-label col-sm-2 border-label-eo">Genre Game</label>
+          <div class="col-sm-10">
           <?php 
               $sql = $conn->query("SELECT * FROM tb_genre where is_active = 1");
               while ($rowGenre = $sql->fetch_array()) :
@@ -124,6 +137,7 @@
           <?php
             endwhile;
           ?>
+          </div>
 
           <!-- <select class="form-select" aria-label="Default select example" id="txt_genre_game" name="txt_genre_game">
           <?php 
@@ -136,22 +150,22 @@
           ?>
           </select> -->
         </div>
-        <div class="row">
-          <div class="col-12 mb-3">
-            <label for="txt_foto_event" class="col-sm-2 form-label">Foto Event</label>
-            <div class="col-sm-10">
-              <input type="file" name="fil_upload_event" id="fil_upload_event" data-filename-placement="inside" onchange="resizeAndRead(this)">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="my-gallery">
-                  <figure id="fil_upload_event_card">No Image</figure>
-                </div>
+        <div class="row mb-3">
+          <label for="txt_foto_event" class="col-sm-2 form-label border-label-eo">Foto Event</label>
+          <div class="col-sm-10">
+            <input type="file" name="fil_upload_event" id="fil_upload_event" data-filename-placement="inside" onchange="resizeAndRead(this)">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="my-gallery">
+                <figure id="fil_upload_event_card">No Image</figure>
               </div>
             </div>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="txt_lokasi" class="form-label">Lokasi</label>
-          <textarea class="form-control" aria-label="Lokasi" id="txt_lokasi" name="txt_lokasi" required></textarea>
+        <div class="row mb-3">
+          <label for="txt_lokasi" class="form-label col-sm-2 border-label-eo">Lokasi</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" aria-label="Lokasi" id="txt_lokasi" name="txt_lokasi" rows="5" required></textarea>
+          </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           <a href="../" class="btn btn-dark text-right">Cancel</a>

@@ -1,5 +1,4 @@
-.esport-login,
-.esport-create-event {
+.esport-login {
   width: 50%;
 }
 
@@ -118,9 +117,9 @@ footer a {
     font-size: 17px;
   }
 
-  .esport-create-event {
+  /* .esport-create-event {
     width: 80%;
-  }
+  } */
 
   .carousel-custom {
     height: auto;
