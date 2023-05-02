@@ -25,10 +25,10 @@
           <thead>
             <tr>
               <th>Notifikasi</th>
+              <th>Tipe</th>
+              <th>Nama</th>
               <th>Verified</th>
               <th></th>
-              <th>Type</th>
-              <th>Nama</th>
             </tr>
           </thead>
         </table>
@@ -74,7 +74,9 @@
     
           "stateDuration": -1,
     
-          "pageLength": 10,
+          "pageLength": 25,
+
+          "ordering": false,
     
           "ajax": {
     
@@ -85,7 +87,11 @@
         setInterval(function(){
           table.ajax.reload();
         }, 120000);  
+
+        table.columns(1).visible(false);
+        table.columns(2).visible(false);
       })
+
 
       function initVerif(id) {
         const conf = confirm(`Yakin untuk verif event ini?`);

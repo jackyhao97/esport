@@ -27,10 +27,11 @@ $counter = 0;
 //   return $component;
 // }
 
-function BuildAction($data) {
+function BuildAction($data, $is_verified) {
   // $component = '<a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_verif" onclick="show('.$data.')" title="Ver"><i class="fa fa-edit"></i></a>';
   // $component .= "<br />";
-  $component = '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>';
+
+  $component = $is_verified == 0 ? '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>' : '';
 
   return $component;
 }
@@ -38,7 +39,20 @@ function BuildAction($data) {
 
 $table = <<<EOT
   (
-    SELECT `id`, `is_verified`, `nama`, `history`, `created_on` FROM `tb_event` UNION ALL SELECT `id`, `is_active`, `nama`, `history`, `created_on` FROM `tb_post_eo` UNION ALL SELECT heo.`id`, heo.`harga_paket_id`, ac.`nama`, heo.`history`, heo.`created_on` FROM `tb_history_eo` heo LEFT JOIN `tb_account` ac ON heo.created_by = ac.id UNION ALL SELECT `id`, `event_id`, `history`, `history`, `created_on` FROM `tb_history_event` ORDER BY created_on DESC
+    SELECT 
+      ev.`id`, ev.`is_verified`, ev.`nama`, ev.`history`, ev.`created_on`, ac.`nama` as user FROM `tb_event` ev 
+    LEFT JOIN `tb_account` ac ON ev.created_by = ac.id 
+    UNION ALL 
+    SELECT 
+      eo.`id`, eo.`is_active`, eo.`nama`, eo.`history`, eo.`created_on`, acc.`nama` as user FROM `tb_post_eo` eo 
+    LEFT JOIN `tb_account` acc ON eo.created_by = acc.id 
+    UNION ALL 
+    SELECT 
+      heo.`id`, heo.`harga_paket_id`, acco.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user FROM `tb_history_eo` heo 
+    LEFT JOIN `tb_account` acco ON heo.created_by = acco.id
+    UNION ALL 
+    SELECT 
+      he.`id`, he.`event_id`, he.`history`, he.`history`, he.`created_on`, accou.`nama` as user FROM `tb_history_event` he LEFT JOIN `tb_account` accou ON he.created_by = accou.id ORDER BY created_on DESC
   ) temp 
   EOT;
 
@@ -53,57 +67,26 @@ $func_apply = 'BuildCounter';
 $func_apply_3 = 'BuildAction';
 
 $columns = array(
-
-  // array(
-
-  //   'db' => 'id',
-
-  //   'dt' => 0,
-
-  //   'formatter' => function () use ($func_apply) {
-
-  //     return $func_apply();
-  //   }
-
-  // ),
-
   array(
     'db' => 'nama', 
     'dt' => 0,
     'formatter' => function($d, $row){
-      if ($row[3] == 1)
-        return "Event bernama $d";
-      else if ($row[3] == 2)
-        return "Posting EO bernama $d";
-      else if ($row[3] == 3)
-        return "User ikut event bernama $d";
+      if ($row[1] == 1)
+        return "$row[2] create event bernama $d";
+      else if ($row[1] == 2)
+        return "$row[2] posting EO bernama $d";
+      else if ($row[1] == 3)
+        return "$row[2] ikut event $d";
       else
-        return "User menyewa EO bernama $d";
-    }
-  ),
-  array(
-    'db' => 'is_verified',
-    'dt' => 1,
-    'formatter' => function($d, $row){
-      if ($d > 0)
-        return '<i class="fa fa-check-circle fa-2x text-success"></i>';
-      else
-        return '<i class="fa fa-times-circle fa-2x text-danger"></i>';
-    }
-  ),
-  array(
-    'db' => 'id', 
-    'dt' => 2,
-    'formatter' => function($d, $row) use ($func_apply_3) {
-      return $func_apply_3($d);
+        return "$row[2] menyewa EO bernama $d";
     }
   ),
   array(
     'db' => 'history', 
-    'dt' => 3,
+    'dt' => 1,
     'formatter' => function($d, $row) {
       if ($d == 1)
-        return "Event";
+        return "Create Event";
       else if ($d == 2)
         return "Event Organizer";
       else if ($d == 3)
@@ -112,7 +95,32 @@ $columns = array(
         return "Sewa EO";
       }
   ),
-  array('db' => 'nama', 'dt' => 4)
+  array('db' => 'user', 'dt' => 2),
+  array(
+    'db' => 'is_verified',
+    'dt' => 3,
+    'formatter' => function($d, $row){
+      if ($row[1] == 1) {
+        if ($d > 0)
+          return '<i class="fa fa-check-circle fa-2x text-success"></i>';
+        else
+          return '<i class="fa fa-times-circle fa-2x text-danger"></i>';
+      }
+      else {
+        return '';
+      }
+    }
+  ),
+  array(
+    'db' => 'id', 
+    'dt' => 4,
+    'formatter' => function($d, $row) use ($func_apply_3) {
+      if ($row[1] == 1)
+        return $func_apply_3($d, $row[3]);
+      else
+        return '';
+    }
+  ),
 );
 
 
