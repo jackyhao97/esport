@@ -36,14 +36,15 @@
     ?>
     <title>Login Esports</title>
   </head>
-  <body>
+  <body style="background: url('../assets/img/bg-login.jpg')">
     <?php 
       require_once '../navbar.php';
     ?>
 
     <!-- Tampilan Login -->
-    <div class="container d-flex">
-      <form class="esport-login m-auto mt-5" method="post">
+    <div class="container d-flex mt-100">
+      <form class="esport-login m-auto bg-login" method="post">
+        <img src="../assets/img/logo.png" alt="Ligasport" class="w-50 text-center mb-3 d-flex m-auto">
         <div class="mb-3">
           <label for="txt_username" class="form-label">Username</label>
           <input type="text" class="form-control" id="txt_username" name="txt_username" autofocus>

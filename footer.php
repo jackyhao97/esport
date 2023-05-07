@@ -1,12 +1,11 @@
 <!-- untuk footer -->
-<footer class="footer bg-dark text-light mt-5" id="footer">
+<footer class="footer bg-black text-light mt-5" id="footer">
   <div class="container">
     <div class="row align-items-center pt-5">
       <div class="col-12 col-md-4">
-        <img src="<?=BASE_URL.DS.'assets/img/logo.png'?>" alt="Logo Ligasport" class="img-thumbnail img-footer">
-        <h4 class="fw-bold mt-3">Ligasport</h4>
-        <h4 class="fw-bold">The First Full-Service Ligasport Agency in Indonesia</h4>
-        <p style="text-align: justify">Ligasport adalah Media & Broadcasting Production Company tertua di Indonesia, dengan platform informasi seputar Ligasport, games, dan live streaming yang bertujuan untuk mengembangkan industri Ligasport Indonesia.</p>
+        <img src="<?=BASE_URL.DS.'assets/img/logo.png'?>" alt="Logo Ligasport" class=" img-footer">
+        <!-- <h4 class="fw-bold">Ligasport Indonesia</h4> -->
+        <p style="text-align: justify" class="mt-3">Ligasport adalah Media & Broadcasting Production Company tertua di Indonesia, dengan platform informasi seputar Ligasport, games, dan live streaming yang bertujuan untuk mengembangkan industri Ligasport Indonesia.</p>
       </div>
       <div class="col-12 col-md-4">
         <h4 class="fw-bold">About Ligasport</h4>
@@ -29,9 +28,13 @@
       <div class="col-12 col-md-4 mt-3 mt-sm-0">
         <h4 class="fw-bold">Events</h4>
         <div>
-          <a href="<?=BASE_URL.DS.'berita/'?>">Moba</a>
+          <span>Moba</span><br />
+          <span>FPS</span><br />
+          <span>Battle Royale</span><br />
+          <span>Fighting</span><br />
+          <span>Talkshow</span><br />
         </div>
-        <div>
+        <!-- <div>
           <a href="<?=BASE_URL.DS.'event/'?>">FPS</a>
         </div>
         <div>
@@ -42,7 +45,7 @@
         </div>
         <div>
           <a href="<?=BASE_URL.DS.'history/'?>">Talkshow</a>
-        </div>
+        </div> -->
       </div>
     </div>
     <hr>
@@ -62,7 +65,7 @@
         </a>
       </div>
       <div class="col-12 col-md-6 text-center-custom">
-        <p>&copy; 2023 Esport. All Rights Reserved</p>
+        <p>&copy; 2023 Ligasport. All Rights Reserved</p>
       </div>
     </div>
   </div>

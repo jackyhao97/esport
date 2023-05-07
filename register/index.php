@@ -48,14 +48,15 @@
     ?>
     <title>Register Esports</title>
   </head>
-  <body>
+  <body style="background: url('../assets/img/bg-login.jpg')">
     <?php 
       require_once '../navbar.php';
     ?>
 
     <!-- Tampilan Login -->
-    <div class="container d-flex">
-      <form class="esport-login m-auto mt-5" method="post">
+    <div class="container d-flex mt-100">
+      <form class="esport-login m-auto bg-login" method="post">
+        <img src="../assets/img/logo.png" alt="Ligasport" class="w-50 text-center mb-3 d-flex m-auto">
         <div class="mb-3">
           <label for="txt_nama" class="form-label">Nama</label>
           <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus>
@@ -134,7 +135,10 @@
       </div>
         <div class="d-flex justify-content-between align-items-center">
           <button type="submit" class="btn btn-primary" name="btn_submit">Register</button>
-          <a href="../login/" class="text-right">Login</a>
+          <div>
+            <span>Sudah punya account?</span>
+            <a href="../login/" class="text-right">Login</a>
+          </div>
         </div>
       </form>
     </div>
