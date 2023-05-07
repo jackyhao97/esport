@@ -21,9 +21,9 @@
     ?>
 
     <!-- Tampilan Profile User -->
-    <div class="container">
+    <div class="container mt-100">
       <div class="row">
-        <h3 class="mt-5">Profile</h3>
+        <h3 class="fw-bold">Profile</h3>
       </div>
       <div class="row mt-5">
         <div class="col-12 col-md-6 col-lg-6 text-center d-flex justify-content-between flex-column">

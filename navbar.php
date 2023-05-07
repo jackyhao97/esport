@@ -31,7 +31,12 @@
             Hello, <?=$_SESSION['username']?>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="<?=BASE_URL.DS.'logout.php'?>">Logout</a></li>
+            <li>
+              <!-- <a class="dropdown-item" href="<?=BASE_URL.DS.'logout.php'?>">Logout</a> -->
+              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal" style="cursor:pointer">
+                Logout
+              </a>
+            </li>
             <li><a class="dropdown-item" href="<?=BASE_URL.DS.'profile/'?>">Edit Profile</a></li>
             <li><a class="dropdown-item" href="<?=BASE_URL.DS.'profile/ubahpassword.php'?>">Ubah Password</a></li>
           </ul>
@@ -52,3 +57,22 @@
     </div>
   </div>
 </nav>
+
+<!-- Logout Modal-->
+<div class="modal" tabindex="-1" id="logoutModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Logout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda yakin untuk logout?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="<?=BASE_URL.DS.'logout.php'?>">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>

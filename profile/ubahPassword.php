@@ -43,9 +43,9 @@
     ?>
 
     <!-- Tampilan Profile User -->
-    <div class="container">
+    <div class="container mt-100">
       <div class="row">
-        <h3 class="mt-5">Ubah Password</h3>
+        <h3 class="fw-bold">Ubah Password</h3>
       </div>
       <div class="row mt-5">
         <div class="col-12 mt-5 mt-sm-0">
