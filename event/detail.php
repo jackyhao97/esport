@@ -6,6 +6,11 @@
 
   $id = $_GET["id"];
   $user = $_SESSION['id'];
+
+  $querytipe = $conn->query("SELECT tu.tipe FROM `tb_account` ac LEFT JOIN `tb_tipe_user` tu ON ac.tipe = tu.id WHERE ac.id = '$user'");
+  $rowtipe = $querytipe->fetch_array();
+  $tipeuser = $rowtipe['tipe'];
+
   $result = $conn->query("SELECT ev.id, ev.nama, ev.path, ev.prize_pool, ev.max_slot, ev.lokasi, ev.tgl_event_awal, ev.tgl_event_akhir, te.deskripsi, je.jenis FROM tb_event ev LEFT JOIN tb_tipe_event te ON ev.tipe = te.id LEFT JOIN tb_jenis_event je ON ev.jenis = je.id WHERE ev.id = '$id'");
   $row = $result->fetch_array();
   $nama = $row['nama'];
@@ -25,6 +30,13 @@
     ?>
 
     <div class="container mt-100">
+      <?php 
+        if ($tipeuser == "user") :
+      ?>
+      <div class="text-end">
+        <a class="btn btn-lg btn-dark text-end" name="btn_delete" id="btn_delete" onclick="deleteEvent(<?=$row['id']?>)">Delete</a>
+      </div>
+      <?php endif; ?>
       <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../event/">Event</a></li>
@@ -87,6 +99,28 @@
               }
               else {
                 alert('Anda gagal register event.');
+              }
+            }
+          });
+        }
+      }
+
+      function deleteEvent(id) {
+        const conf = confirm(`Apakah anda yakin untuk hapus event ini?`);
+        if (conf) {
+          $.ajax({
+            type: "post",
+            url: "delete.php",
+            data: { id },
+            success: (data) => {
+              const res = $.parseJSON(data);
+
+              if (res.success) {
+                alert('Event berhasil dihapus.');
+                window.location = '../event/';
+              }
+              else {
+                alert('Event gagal dihapus.');
               }
             }
           });
