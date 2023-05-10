@@ -42,7 +42,7 @@
         <div class="carousel-item" onclick="window.location='./berita/berita-3/'">
           <img src="<?=BASE_URL.DS.'assets/img/berita/berita-3.webp'?>" class="d-block w-100" alt="Berita">
           <div class="carousel-caption">
-            <p class="fw-bold">AE Okta Berbagi Tips Jadi Scout Handal di PUBG MOBILE</p>
+            <p class="fw-bold">AE Okta Berbagi Tips Jadi Scout Handal di PUBG MOBILE s</p>
           </div>
         </div>
 
