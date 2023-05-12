@@ -10,7 +10,7 @@
     <?php 
       require_once '../header.php';
     ?>
-    <title>Berita Esports</title>
+    <title>Berita Ligasport</title>
   </head>
   <body>
     <?php 

@@ -9,7 +9,7 @@
     <?php 
       require_once 'header.php';
     ?>
-    <title>Esports</title>
+    <title>Ligasport</title>
   </head>
   <body>
     <?php 
