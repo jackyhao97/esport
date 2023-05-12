@@ -31,7 +31,7 @@
 
     <div class="container mt-100">
       <?php 
-        if ($tipeuser == "user") :
+        if ($tipeuser == "admin") :
       ?>
       <div class="text-end">
         <a class="btn btn-lg btn-dark text-end" name="btn_delete" id="btn_delete" onclick="deleteEvent(<?=$row['id']?>)">Delete</a>

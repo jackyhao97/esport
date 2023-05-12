@@ -1,6 +1,12 @@
 <?php 
   session_start();
   require_once '../config.php';
+
+  $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
+
+  $querytipe = $conn->query("SELECT tu.tipe FROM `tb_account` ac LEFT JOIN `tb_tipe_user` tu ON ac.tipe = tu.id WHERE ac.id = '$id'");
+  $rowtipe = $querytipe->fetch_array();
+  $tipeuser = $rowtipe['tipe'];
 ?>
 
 <!doctype html>
@@ -21,7 +27,13 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-end">
           <!-- <button type="button" class="btn btn-outline-primary rounded-pill">Recommended</button> -->
+          <?php 
+            if ($tipeuser == "event-organizer") :
+          ?>
           <a href="./posting-eo/" class="btn btn-dark" name="btn_posting_eo" id="btn_posting_eo">Posting EO</a>
+          <?php
+            endif;
+          ?>
         </div>
         <?php
           $queryeo = $conn->query("SELECT * FROM `tb_post_eo` ORDER BY id DESC");

@@ -43,7 +43,7 @@
     ?>
 
     <!-- Tampilan Profile User -->
-    <div class="container mt-100">
+    <div class="container mt-100 p-5" style="background:#eee">
       <div class="row">
         <h3 class="fw-bold">Ubah Password</h3>
       </div>

@@ -1,5 +1,7 @@
 <?php 
+  session_start();
   require_once '../config.php';
+  $id = isset($_SESSION['id']) ? $_SESSION['id'] : '';
 ?>
 
 <!doctype html>

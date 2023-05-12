@@ -4,12 +4,22 @@
   $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
 
   if (isset($_POST["btn_submit"])) {
-    $genreMoba = isset($_POST['genre-moba']) ? 1 : 0;
-    $genreFps = isset($_POST['genre-fps']) ? 1 : 0;
-    $genreBattleRoyale = isset($_POST['genre-battle-royale']) ? 1 : 0;
-    $genreFighting = isset($_POST['genre-fighting']) ? 1 : 0;
-    $genreTalkshow = isset($_POST['genre-talkshow']) ? 1 : 0;
-    $genre_game = $genreMoba . "," . $genreFps . "," . $genreBattleRoyale . "," . $genreFighting . "," . $genreTalkshow;
+    // $genreMoba = isset($_POST['genre-moba']) ? 1 : 0;
+    // $genreFps = isset($_POST['genre-fps']) ? 1 : 0;
+    // $genreBattleRoyale = isset($_POST['genre-battle-royale']) ? 1 : 0;
+    // $genreFighting = isset($_POST['genre-fighting']) ? 1 : 0;
+    // $genreTalkshow = isset($_POST['genre-talkshow']) ? 1 : 0;
+    // $genre_game = $genreMoba . "," . $genreFps . "," . $genreBattleRoyale . "," . $genreFighting . "," . $genreTalkshow;
+
+    // $genregameMoba = isset($_POST['genre-moba']) ? "moba" : "";
+    // $genregameFps = isset($_POST['genre-fps']) ? "fps" : "";
+    // $genregameBattleRoyale = isset($_POST['genre-battle-royale']) ? "battle-royale" : "";
+    // $genregameFighting = isset($_POST['genre-fighting']) ? "fighting" : "";
+    // $genregameTalkshow = isset($_POST['genre-talkshow']) ? "talkshow" : "";
+    // $genre_games = $genregameMoba . "," . $genregameFps . "," . $genregameBattleRoyale . "," . $genregameFighting . "," . $genregameTalkshow;
+    
+
+    $genre_games = isset($_POST['genre-game']) ? $_POST['genre-game'] : "";
 
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
     $tipe_event = isset($_POST['txt_tipe_event']) ? $_POST['txt_tipe_event'] : '';
@@ -23,13 +33,14 @@
     $createdon = date('Y-m-d H:i:s');
     $file = $_FILES['fil_upload_event'];
 
-    if ($nama != "" and $prize_pool != "" and $max_slot != "" and $lokasi != "") {
+    if ($nama != "") {
       $new_filename = "EVENT_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../assets/img/event/".$new_filename);
-      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, genre, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir, history) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$genre_game', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir', 1)");
+      $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir, history, genre_game) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir', 1, '$genre_games')");
   
       if ($insert && $upload) {
-        echo "<script>alert('Event berhasil ditambah!')</script>";
+        echo "<script>alert('Event berhasil ditambah dan akan diverifikasi oleh admin!')</script>";
+        echo "<script>window.location.href = '../event/'</script>";
       }
       else if (!$insert && $upload) {
         echo "<script>alert('Foto Event berhasil diupload namun gagal disimpan ke database')</script>";
@@ -37,6 +48,9 @@
       else {
         echo "<script>alert('Event gagal ditambah!')</script>";
       }
+    }
+    else {
+      echo "<script>alert('Mohon untuk mengisi seluruh data yang ada!')</script>";
     }
   }
 ?>
@@ -112,13 +126,13 @@
         <div class="row mb-3">
           <label for="txt_prize_pool" class="form-label col-sm-2 border-label-eo">Prize Pool</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool" required>
+            <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool">
           </div>
         </div>
         <div class="row mb-3">
           <label for="txt_max_slot" class="form-label col-sm-2 border-label-eo">Max Slot</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot" required>
+            <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot">
           </div>
         </div>
         <div class="row mb-3">
@@ -129,7 +143,7 @@
               while ($rowGenre = $sql->fetch_array()) :
             ?>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="1" id="chk-<?=$rowGenre['genre']?>" name="genre-<?=$rowGenre['genre']?>">
+              <input class="form-check-input" type="radio" value="<?=$rowGenre['genre']?>" id="chk-<?=$rowGenre['genre']?>" name="genre-game">
               <label class="form-check-label" for="chk-<?=$rowGenre['genre']?>">
                 <?=$rowGenre['deskripsi']?>
               </label>

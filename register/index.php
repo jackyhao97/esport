@@ -1,14 +1,14 @@
 <?php 
   require_once '../config.php';
   if (isset($_POST['btn_submit'])) {
-    $genreMoba = isset($_POST['genreMoba']) ? 1 : 0;
-    $genreFps = isset($_POST['genreFps']) ? 1 : 0;
-    $genreBattleRoyale = isset($_POST['genreBattleRoyale']) ? 1 : 0;
-    $genreFighting = isset($_POST['genreFighting']) ? 1 : 0;
-    $genreTalkshow = isset($_POST['genreTalkshow']) ? 1 : 0;
-    $genreAll = isset($_POST['genreAll']) ? 1 : 0;
-    $genre = $genreMoba . "," . $genreFps . "," . $genreBattleRoyale . "," . $genreFighting . "," . $genreTalkshow;
-    $genres = $genreAll == 1 ? '1,1,1,1,1' : $genre; 
+    // $genreMoba = isset($_POST['genreMoba']) ? 1 : 0;
+    // $genreFps = isset($_POST['genreFps']) ? 1 : 0;
+    // $genreBattleRoyale = isset($_POST['genreBattleRoyale']) ? 1 : 0;
+    // $genreFighting = isset($_POST['genreFighting']) ? 1 : 0;
+    // $genreTalkshow = isset($_POST['genreTalkshow']) ? 1 : 0;
+    // $genreAll = isset($_POST['genreAll']) ? 1 : 0;
+    // $genre = $genreMoba . "," . $genreFps . "," . $genreBattleRoyale . "," . $genreFighting . "," . $genreTalkshow;
+    // $genres = $genreAll == 1 ? '1,1,1,1,1' : $genre; 
 
     $nama = isset($_POST['txt_nama']) ? $_POST['txt_nama'] : '';
     $username = isset($_POST['txt_username']) ? $_POST['txt_username'] : '';
@@ -21,7 +21,7 @@
 
     if ($_POST['txt_password'] != '') {
       if ($password == $konfirmasipassword) {
-        $insert = $conn->query("INSERT INTO tb_account (nama, username, password, email, tipe, nomor, is_active, created_on, genre) VALUES ('$nama', '$username', '$password', '$emailaddress', '$tipe', '$nomor', 1, '$createdon', '$genres')");
+        $insert = $conn->query("INSERT INTO tb_account (nama, username, password, email, tipe, nomor, is_active, created_on) VALUES ('$nama', '$username', '$password', '$emailaddress', '$tipe', '$nomor', 1, '$createdon')");
     
         if ($insert) {
           echo "<script>alert('Register berhasil!')</script>";
@@ -94,7 +94,7 @@
           <label for="txt_nomor" class="form-label">Nomor</label>
           <input type="text" class="form-control" id="txt_nomor" name="txt_nomor">
         </div>
-      <div class="mb-5">
+      <!-- <div class="mb-5">
         <label class="form-label">Apa genre game yang kamu sukai</label>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="1" id="chkMoba" name="genreMoba">
@@ -132,7 +132,7 @@
             Semua genre diatas
           </label>
         </div>
-      </div>
+      </div> -->
         <div class="d-flex justify-content-between align-items-center">
           <button type="submit" class="btn btn-primary" name="btn_submit">Register</button>
           <div>
