@@ -47,6 +47,7 @@
     ?>
 
     <script>
+      // tampil data untuk tipe hot
       function loadData() {
         let tipe = "hot";
         let user = "<?=$id?>";
@@ -71,6 +72,8 @@
         $(this).addClass("event-active");
         loadData();
       })
+
+      // tampil data untuk tipe moba
       $("#moba").click(function() {        
         let tipe = "moba";
         $(".category").each(function() {
@@ -88,7 +91,9 @@
             console.log('error');
           }
         })
-      })      
+      })
+
+      // tampil data untuk tipe fps
       $("#fps").click(function() {        
         let tipe = "fps";
         $(".category").each(function() {
@@ -107,6 +112,8 @@
           }
         })
       })
+
+      // tampil data untuk tipe battle royale
       $("#battle-royale").click(function() {
         let tipe = "battle-royale";
         $(".category").each(function() {
@@ -124,7 +131,9 @@
             console.log('error');
           }
         })
-      })      
+      })
+
+      // tampil data untuk tipe fighting
       $("#fighting").click(function() {
         let tipe = "fighting";
         $(".category").each(function() {
@@ -143,6 +152,8 @@
           }
         })
       })
+
+      // tampil data untuk tipe talkshow
       $("#talkshow").click(function() {
         let tipe = "talkshow";
         $(".category").each(function() {

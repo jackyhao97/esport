@@ -18,7 +18,7 @@
       require_once '../navbar.php';
     ?>
 
-    <!-- Tampilan Login -->
+    <!-- Tampilan History -->
     <div class="container mt-100">
       <div class="card mb-3">
         <div class="row g-0">
@@ -27,8 +27,9 @@
             while ($rowEvent = $event->fetch_array()) :
               if ($rowEvent['history'] == 1) :
           ?>
+          <!-- Untuk history segment event -->
           <div class="col-12">
-            <div class="card-body">
+            <div class="card-body" style="border-bottom: 1px solid #e1d8d8;">
               <h5 class="card-title fw-bold">Event</h5>
               <p class="card-text"><?=$rowEvent['namauser']?> membuat event bernama <?=$rowEvent['namas']?></p>
               <p class="card-text"><small class="text-muted"><?=format_datetime($rowEvent['created_on'],"-")?></small></p>
@@ -37,8 +38,9 @@
           <?php
               else :
           ?>
+          <!-- Untuk history segment event organizer -->
           <div class="col-12">
-            <div class="card-body">
+            <div class="card-body" style="border-bottom: 1px solid #e1d8d8;">
               <h5 class="card-title fw-bold">Event Organizer</h5>
               <p class="card-text"><?=$rowEvent['namauser']?> membuat EO bernama <?=$rowEvent['namas']?></p>
               <p class="card-text"><small class="text-muted"><?=format_datetime($rowEvent['created_on'],"-")?></small></p>

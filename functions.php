@@ -6,6 +6,7 @@
 		$reform = substr($date,8,2) . '-' . substr($date,5,2) . '-' . substr($date,0,4);
 		return $reform;
 	}
+  
   function format_datetime($datetime, $separator='-')
   {
     if (empty($datetime)) return '';

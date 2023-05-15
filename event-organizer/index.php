@@ -27,6 +27,7 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-end">
           <!-- <button type="button" class="btn btn-outline-primary rounded-pill">Recommended</button> -->
+          <!-- Untuk user tipe event organizer saja yang bisa posting eo -->
           <?php 
             if ($tipeuser == "event-organizer") :
           ?>

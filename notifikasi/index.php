@@ -96,6 +96,7 @@
       })
 
 
+      // untuk tombol verifikasi event
       function initVerif(id) {
         const conf = confirm(`Yakin untuk verif event ini?`);
         if (conf) {

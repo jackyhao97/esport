@@ -84,6 +84,7 @@
     ?>
 
     <script>
+      // untuk register event
       function register(id, user) {
         const conf = confirm(`Apakah anda yakin untuk register di event ini?`);
         if (conf) {
@@ -105,6 +106,7 @@
         }
       }
 
+      // untuk delete event hanya untuk role admin
       function deleteEvent(id) {
         const conf = confirm(`Apakah anda yakin untuk hapus event ini?`);
         if (conf) {
@@ -129,6 +131,7 @@
     </script>
 
     <?php
+      // untuk sanitasi kata yang dihitung cosine similarity
       function textpreprocessing($inputText) {
         // Convert text to lowercase
         $inputText = strtolower($inputText);

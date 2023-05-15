@@ -8,29 +8,7 @@ require_once('../vendor/ssp.cls.php');
 
 $counter = 0;
 
-
-// function BuildCounter()
-// {
-
-//   global $counter;
-
-//   $counter += 1;
-
-//   return $counter;
-// }
-
-// function ShowImages($data, $nama) {
-//   $component = '<a href="'.BASE_URL.DS.'admin/img/slider/'.$data.'" data-lightbox="'.$nama.'" data-title="'.$nama.'">';
-//   $component .= '<img src="'.BASE_URL.DS.'admin/img/slider/'.$data.'" class="w-50" />';
-//   $component .= "</a>";
-
-//   return $component;
-// }
-
 function BuildAction($data, $is_verified) {
-  // $component = '<a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_verif" onclick="show('.$data.')" title="Ver"><i class="fa fa-edit"></i></a>';
-  // $component .= "<br />";
-
   $component = $is_verified == 0 ? '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>' : '';
 
   return $component;
@@ -61,8 +39,6 @@ $table = <<<EOT
 $primaryKey = 'id';
 
 $func_apply = 'BuildCounter';
-
-// $func_apply_2 = 'ShowImages';
 
 $func_apply_3 = 'BuildAction';
 
