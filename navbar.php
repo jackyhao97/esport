@@ -32,7 +32,6 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <!-- <a class="dropdown-item" href="<?=BASE_URL.DS.'logout.php'?>">Logout</a> -->
               <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal" style="cursor:pointer">
                 Logout
               </a>

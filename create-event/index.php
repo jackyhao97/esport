@@ -195,6 +195,7 @@
     ?>
 
     <script>
+      // URL to Blob to resize image
       const dataURLToBlob = function(dataURL) {
         let BASE64_MARKER = ';base64,';
         if (dataURL.indexOf(BASE64_MARKER) == -1) {
@@ -245,7 +246,7 @@
             var image = new Image();
             image.onload = function (imageEvent) {
               var canvas = document.createElement('canvas'),
-                max_size = 1280,// TODO : pull max size from a site config
+                max_size = 1280,// resize image to width : 1280 px
                 width = image.width,
                 height = image.height;
               if (width > height) {
