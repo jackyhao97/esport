@@ -7,10 +7,12 @@
   $id = $_GET["id"];
   $user = $_SESSION['id'];
 
+  // Query tipe user
   $querytipe = $conn->query("SELECT tu.tipe FROM `tb_account` ac LEFT JOIN `tb_tipe_user` tu ON ac.tipe = tu.id WHERE ac.id = '$user'");
   $rowtipe = $querytipe->fetch_array();
   $tipeuser = $rowtipe['tipe'];
 
+  // Query detail event
   $result = $conn->query("SELECT ev.id, ev.nama, ev.path, ev.prize_pool, ev.max_slot, ev.lokasi, ev.tgl_event_awal, ev.tgl_event_akhir, te.deskripsi, je.jenis FROM tb_event ev LEFT JOIN tb_tipe_event te ON ev.tipe = te.id LEFT JOIN tb_jenis_event je ON ev.jenis = je.id WHERE ev.id = '$id'");
   $row = $result->fetch_array();
   $nama = $row['nama'];
@@ -31,6 +33,7 @@
 
     <div class="container mt-100">
       <?php 
+        // hanya admin yang bisa delete
         if ($tipeuser == "admin") :
       ?>
       <div class="text-end">

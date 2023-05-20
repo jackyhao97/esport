@@ -2,6 +2,7 @@
   session_start();
   require_once '../config.php';
   $username = (isset($_POST['txt_username']) ? $_POST['txt_username'] : '');
+  // hash password menggunakan algoritma MD5
   $password = (isset($_POST['txt_password']) ? md5($_POST['txt_password']) : '');
   if (isset($_POST["btn_login"])) {
     $result = $conn->query("SELECT * FROM tb_account WHERE username = '$username' AND is_active = 1");
@@ -14,12 +15,14 @@
         $_SESSION['id'] = $row["id"];
         header("Location: ../index.php");
       } else {
+        // jika password salah
         $_SESSION["login"] = false;
         $_SESSION['status'] = "";
         $_SESSION['username'] = "";
         echo "<script>alert('Password Salah!')</script>";
       }
     } else {
+      // jika username tidak ada
       $_SESSION["login"] = false;
       $_SESSION['status'] = "";
       $_SESSION['username'] = "";

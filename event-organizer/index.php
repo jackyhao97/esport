@@ -4,6 +4,7 @@
 
   $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
 
+  // query tipe user untuk memastikan hanya user tipe EO yang bisa posting EO
   $querytipe = $conn->query("SELECT tu.tipe FROM `tb_account` ac LEFT JOIN `tb_tipe_user` tu ON ac.tipe = tu.id WHERE ac.id = '$id'");
   $rowtipe = $querytipe->fetch_array();
   $tipeuser = $rowtipe['tipe'];
@@ -50,9 +51,6 @@
         <?php
           endwhile;
         ?>
-        <!-- <div class="col-12 mt-5">
-          <button type="button" class="btn btn-outline-primary rounded-pill">Newcomer</button>
-        </div> -->
       </div>
     </div>
     <!-- End -->

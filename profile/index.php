@@ -3,6 +3,7 @@
   require_once '../config.php';
   $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../index.php");
   
+  // Fetch data account
   $fetch = $conn->query("SELECT * FROM tb_account WHERE id = $id");
   $row = $fetch->fetch_array();
 ?>
@@ -13,7 +14,7 @@
     <?php 
       require_once '../header.php';
     ?>
-    <title>Profile</title>
+    <title>Profile Ligasport</title>
   </head>
   <body>
     <?php 

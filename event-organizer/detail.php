@@ -4,6 +4,8 @@
 
   $id = $_GET["id"];
   $user = $_SESSION['id'];
+
+  // Query untuk ambil detail event organizer
   $result = $conn->query("SELECT pe.id as ideo, nama, jenis_eo, is_custom, path, history, tipe, deskripsi, created_on, created_by FROM `tb_post_eo` pe LEFT JOIN `tb_tipe_event` te ON pe.jenis_eo = te.id WHERE pe.id = '$id'");
   $row = $result->fetch_array();
   $resultuser = $conn->query("SELECT * FROM `tb_account` WHERE id = '$user'");

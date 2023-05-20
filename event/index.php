@@ -17,6 +17,7 @@
       require_once '../navbar.php';
     ?>
 
+    <!-- Tampilan Banner -->
     <div class="container-fluid mt-5">
       <div class="row">
         <div class="col-12">
@@ -24,8 +25,9 @@
         </div>
       </div>
     </div>
+    <!-- Akhir Tampilan Banner -->
 
-    <!-- Tampilan Banner -->
+    <!-- Tampilan Kategori -->
     <div class="container">
       <div class="row">
         <div class="col-12 mt-5">
@@ -41,7 +43,7 @@
         <!-- Event Inject disini -->
       </div>
     </div>
-    <!-- End -->
+    <!-- Akhir Tampilan Kategori -->
     <?php 
       require_once '../footer.php';
     ?>

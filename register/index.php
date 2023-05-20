@@ -19,6 +19,7 @@
     $nomor = isset($_POST['txt_nomor']) ? $_POST['txt_nomor'] : '';
     $createdon = date('Y-m-d H:i:s');
 
+    // jika password tidak kosong
     if ($_POST['txt_password'] != '') {
       if ($password == $konfirmasipassword) {
         $insert = $conn->query("INSERT INTO tb_account (nama, username, password, email, tipe, nomor, is_active, created_on) VALUES ('$nama', '$username', '$password', '$emailaddress', '$tipe', '$nomor', 1, '$createdon')");
@@ -46,7 +47,7 @@
     <?php 
       require_once '../header.php';
     ?>
-    <title>Register Esports</title>
+    <title>Register Ligasport</title>
   </head>
   <body style="background: url('../assets/img/bg-login.jpg')">
     <?php 

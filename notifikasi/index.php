@@ -86,11 +86,11 @@
         });
         setInterval(function(){
           table.ajax.reload();
-        }, 120000);  
+        }, 120000); //reload setiap 2 menit
 
         table.columns(1).visible(false);
         table.columns(2).visible(false);
-
+        
         if (<?=$id?> == 14) table.columns(4).visible(true)
         else table.columns(4).visible(false)
       })
