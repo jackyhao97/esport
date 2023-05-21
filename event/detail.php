@@ -32,14 +32,6 @@
     ?>
 
     <div class="container mt-100">
-      <?php 
-        // hanya admin yang bisa delete
-        if ($tipeuser == "admin") :
-      ?>
-      <div class="text-end">
-        <a class="btn btn-lg btn-dark text-end" name="btn_delete" id="btn_delete" onclick="deleteEvent(<?=$row['id']?>)">Delete</a>
-      </div>
-      <?php endif; ?>
       <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../event/">Event</a></li>
@@ -57,7 +49,18 @@
         Setelah melewati pandemi Covid-19 yang cukup lama, <?=$row['deskripsi']?> esports di berbagai daerah mulai berhilangan. Secara perlahan, satu per satu <?=$row['deskripsi']?> komunitas mulai muncul sebagai wadah para pemain game berkembang.
       </p>
       <p>
-        <?=$row['nama']?> hadir untuk para pemain dengan membawa total hadiah sebesar <?=number_format($row['prize_pool'], 0, ',', '.')?>. <?=$row['deskripsi']?> ini akan diselenggarakan pada <?=date("d M Y", strtotime($row['tgl_event_awal']))?> sampai <?=date("d M Y", strtotime($row['tgl_event_akhir']))?> mendatang.
+        <?php
+          if ($row['deskripsi'] == "Tournament") :
+        ?>
+        <?=$row['nama']?> hadir untuk para pemain dengan membawa total hadiah sebesar <?=number_format($row['prize_pool'], 0, ',', '.')?>. 
+        <?php
+          else :
+        ?>
+        <?=$row['nama']?> hadir untuk para pemain setia yang ingin terus ikut update terbaru.
+        <?php
+          endif;
+        ?>
+        <?=$row['deskripsi']?> ini akan diselenggarakan pada <?=date("d M Y", strtotime($row['tgl_event_awal']))?> sampai <?=date("d M Y", strtotime($row['tgl_event_akhir']))?> mendatang.
       </p>
       <p>
         Tertarik? Yuk lihat lebih detail mengenai <?=$row['deskripsi']?> yang besar ini!
@@ -68,12 +71,30 @@
       <p>
         <?=$row['deskripsi']?> ini bersifat <?=$row['jenis']?>. <?=$row['deskripsi']?> ini diselenggarakan pada <?=date("d M Y", strtotime($row['tgl_event_awal']))?> hingga <?=date("d M Y", strtotime($row['tgl_event_akhir']))?> di <?=$row['lokasi']?>.
       </p>
+      <?php
+        if ($row['deskripsi'] == "Tournament") :
+      ?>
       <p>
         Bagi kalian yang sudah memiliki grup bermain dan merasa tertantang untuk membuktikkan skill, langsung saja jadi tim yang paling kuat di Pulau Sumatera dengan mendaftarkan diri di <?=$row['nama']?>.
       </p>
+      <?php
+        else :
+      ?>
+      <p>
+        Bagi kalian yang sudah memiliki grup bermain, bisa yuk mengajak temannya untuk mengikuti acara <?=$row['nama']?> secara <?=$row['jenis']?>.
+      </p>
+      <?php
+        endif;
+      ?>
+      <?php
+        if ($row['deskripsi'] == "Tournament") :
+      ?>
       <p>
         Tunggu apalagi, langsung daftarkan tim kalian, dan dapatkan hadiah sampai Rp <?=number_format($row['prize_pool'], 0, ',', '.')?> bersama <?=$row['nama']?>. Ingat slot terbatas loh maksimal hanya sampai <?=$row['max_slot']?> slot.
       </p>
+      <?php
+        endif;
+      ?>  
       <p>
         Ikuti terus berita esports terbaru di Ligasport! Kunjungi Instagram dan Youtube Ligasport yang selalu update dan kekinian.
       </p>
@@ -110,27 +131,27 @@
       }
 
       // untuk delete event hanya untuk role admin
-      function deleteEvent(id) {
-        const conf = confirm(`Apakah anda yakin untuk hapus event ini?`);
-        if (conf) {
-          $.ajax({
-            type: "post",
-            url: "delete.php",
-            data: { id },
-            success: (data) => {
-              const res = $.parseJSON(data);
+      // function deleteEvent(id) {
+      //   const conf = confirm(`Apakah anda yakin untuk hapus event ini?`);
+      //   if (conf) {
+      //     $.ajax({
+      //       type: "post",
+      //       url: "delete.php",
+      //       data: { id },
+      //       success: (data) => {
+      //         const res = $.parseJSON(data);
 
-              if (res.success) {
-                alert('Event berhasil dihapus.');
-                window.location = '../event/';
-              }
-              else {
-                alert('Event gagal dihapus.');
-              }
-            }
-          });
-        }
-      }
+      //         if (res.success) {
+      //           alert('Event berhasil dihapus.');
+      //           window.location = '../event/';
+      //         }
+      //         else {
+      //           alert('Event gagal dihapus.');
+      //         }
+      //       }
+      //     });
+      //   }
+      // }
     </script>
 
     <?php

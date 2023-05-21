@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-between align-items-center">
-          <a href="../../" class="btn btn-dark text-right">Cancel</a>
+          <a href=".." class="btn btn-dark text-right">Cancel</a>
           <div>
             <button type="submit" class="btn btn-dark" name="btn_submit">Submit</button>
           </div>
