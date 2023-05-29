@@ -99,7 +99,41 @@
         Ikuti terus berita esports terbaru di Ligasport! Kunjungi Instagram dan Youtube Ligasport yang selalu update dan kekinian.
       </p>
       <div class="text-end mt-5">
-        <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" onclick="register(<?=$row['id']?>,<?=$user?>)">Register</a>
+        <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="modalRegisterLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalRegisterLabel">Register Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form class="" method="post">
+                <div class="modal-body">
+                  <div class="row mb-3 align-items-center">
+                    <label for="txt_prize_pool" class="form-label col-sm-3 text-center">Prize Pool</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool">
+                    </div>
+                  </div>
+                  <div class="row mb-3 align-items-center">
+                    <label for="txt_prize_pool" class="form-label col-sm-3 text-center">Prize Pool</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-dark" onclick="register(<?=$row['id']?>,<?=$user?>)">Register</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
 
