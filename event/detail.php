@@ -109,24 +109,30 @@
                 <h5 class="modal-title" id="modalRegisterLabel">Register Event</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form class="" method="post">
+              <form class="" method="post" id="frm_register">
                 <div class="modal-body">
                   <div class="row mb-3 align-items-center">
-                    <label for="txt_prize_pool" class="form-label col-sm-3 text-center">Prize Pool</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool">
+                    <label for="txt_nama" class="form-label col-sm-3 text-center">Nama</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="txt_nama" name="txt_nama" required="required">
                     </div>
                   </div>
                   <div class="row mb-3 align-items-center">
-                    <label for="txt_prize_pool" class="form-label col-sm-3 text-center">Prize Pool</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool">
+                    <label for="txt_email" class="form-label col-sm-3 text-center">Email</label>
+                    <div class="col-sm-8">
+                      <input type="email" class="form-control" id="txt_email" name="txt_email" required="required">
+                    </div>
+                  </div>
+                  <div class="row mb-3 align-items-center">
+                    <label for="txt_no_hp" class="form-label col-sm-3 text-center">No HP</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="txt_no_hp" name="txt_no_hp" required="required">
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-dark" onclick="register(<?=$row['id']?>,<?=$user?>)">Register</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
               </form>
             </div>
@@ -142,25 +148,48 @@
     ?>
 
     <script>
+      $("#modalRegister").on("shown.bs.modal", function () {
+        $("#txt_nama").focus();
+      });
+
       // untuk register event
       function register(id, user) {
         const conf = confirm(`Apakah anda yakin untuk register di event ini?`);
+        
         if (conf) {
-          $.ajax({
-            type: "post",
-            url: "register.php",
-            data: { id, user },
-            success: (data) => {
-              const res = $.parseJSON(data);
+          if ($("#txt_nama").val() == ''){
+            alert('Harap mengisi nama!');
+          }
+          else if ($("#txt_email").val() == ''){
+            alert('Harap mengisi email!');
+          }
+          else if ($("#txt_no_hp").val() == ''){
+            alert('Harap mengisi no hp!');
+          }
+          else {
+            const formData = new FormData(document.getElementById("frm_register"));
+            formData.append('id', id);
+            formData.append('user', user);
+            console.log(formData);
+            $.ajax({
+              type: "post",
+              url: "register.php",
+              data: formData,
+              processData: false,
+					    contentType: false,
+              success: (data) => {
+                const res = $.parseJSON(data);
 
-              if (res.success) {
-                alert('Anda berhasil register event.');
+                if (res.success) {
+                  alert('Anda berhasil register event.');
+                  $("#modalRegister").modal("hide");
+                }
+                else {
+                  alert('Anda gagal register event. Silahkan coba lagi.');
+                }
               }
-              else {
-                alert('Anda gagal register event.');
-              }
-            }
-          });
+            });
+          }
         }
       }
 
