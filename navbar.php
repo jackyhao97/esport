@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse p-3 p-sm-0" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" aria-current="page" href="<?=BASE_URL.DS.'berita/'?>"><i class="fa-solid fa-newspaper"></i> BERITA</a>
+          <a class="nav-link text-dark" aria-current="page" href="<?=BASE_URL.DS.'berita/'?>"><i class="fa-solid fa-newspaper me-1"></i> BERITA</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar"></i> EVENT</a>
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar me-1"></i> EVENT</a>
         </li>
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="<?=BASE_URL.DS.'create-event/'?>">Create Event</a>

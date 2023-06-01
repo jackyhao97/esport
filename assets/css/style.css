@@ -1,3 +1,30 @@
+@font-face {
+  font-family: Conthrax Sb;
+  src: url("../fonts/conthrax-sb.ttf");
+}
+
+@font-face {
+  font-family: MMC Regular;
+  src: url("../fonts/MMCOFFICE-Regular.ttf");
+}
+
+@font-face {
+  font-family: MMC Medium;
+  src: url("../fonts/MMC-Medium.ttf");
+}
+
+body {
+  font-family: MMC Regular;
+}
+
+.navbar {
+  font-family: MMC Medium;
+}
+
+.nav-link:hover {
+  color: red !important;
+}
+
 .esport-login {
   width: 50%;
 }
