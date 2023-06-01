@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-light">
   <div class="container-fluid">
     <a class="navbar-brand me-5" href="<?=BASE_URL?>"><i class="fa-solid fa-house"></i> HOME</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,19 +7,19 @@
     <div class="collapse navbar-collapse p-3 p-sm-0" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" aria-current="page" href="<?=BASE_URL.DS.'berita/'?>"><i class="fa-solid fa-newspaper me-1"></i> BERITA</a>
+          <a class="nav-link text-light" aria-current="page" href="<?=BASE_URL.DS.'berita/'?>"><i class="fa-solid fa-newspaper me-1"></i> BERITA</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar me-1"></i> EVENT</a>
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar me-1"></i> EVENT</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'create-event/'?>">Create Event</a>
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'create-event/'?>">Create Event</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'event-organizer/'?>">Event Organizer</a>
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'event-organizer/'?>">Event Organizer</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'history/'?>">History</a>
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'history/'?>">History</a>
         </li>
       </ul>
       <ul class="navbar-nav flex-row justify-content-between mt-5 mt-sm-0">
@@ -44,13 +44,13 @@
         else :
       ?>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'login/'?>"><i class="fa-solid fa-circle-user"></i> PROFIL</a>
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'login/'?>"><i class="fa-solid fa-circle-user"></i> PROFIL</a>
         </li>
       <?php
         endif;
       ?>
         <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'notifikasi/'?>"><i class="fa-regular fa-bell"></i></a>
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'notifikasi/'?>"><i class="fa-regular fa-bell"></i></a>
         </li>
       </ul>
     </div>

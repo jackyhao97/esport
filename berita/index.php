@@ -12,7 +12,7 @@
     ?>
     <title>Berita Ligasport</title>
   </head>
-  <body>
+  <body style="background: black;color: white;">
     <?php 
       require_once '../navbar.php';
     ?>
@@ -22,21 +22,21 @@
         <div class="col-12 col-md-4">
           <h3 class="fw-bold">Berita Utama</h3>
           <div class="mt-5 overflow-auto" style="height: 100vh">
-            <a href="./berita-utama/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama.webp'?>" class="d-block w-100" alt="Berita">
-              <p class="fw-bold">Evil Geniuses Bakal Lepas Empat Roster League of Legends</p>
+            <a href="./berita-utama/" class="text-decoration-none text-light">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama.webp'?>" class="d-block w-100 card-berita" alt="Berita">
+              <p class="fw-bold mt-3">Evil Geniuses Bakal Lepas Empat Roster League of Legends</p>
             </a>
-            <a href="./berita-utama-2/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama-2.webp'?>" class="d-block w-100 mt-4" alt="Berita">
-              <p class="fw-bold">RIOT GAMES Tampilkan Bundle Skin Baru VALORANT ARCADE</p>
+            <a href="./berita-utama-2/" class="text-decoration-none text-light">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama-2.webp'?>" class="d-block w-100 mt-4 card-berita" alt="Berita">
+              <p class="fw-bold mt-3">RIOT GAMES Tampilkan Bundle Skin Baru VALORANT ARCADE</p>
             </a>
-            <a href="./berita-utama-3/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama-3.webp'?>" class="d-block w-100 mt-4" alt="Berita">
-              <p class="fw-bold">Even Esports Tekken World Tour Akan Perebutkan Hadiah 200.000 USD</p>
+            <a href="./berita-utama-3/" class="text-decoration-none text-light">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama-3.webp'?>" class="d-block w-100 mt-4 card-berita" alt="Berita">
+              <p class="fw-bold mt-3">Even Esports Tekken World Tour Akan Perebutkan Hadiah 200.000 USD</p>
             </a>
-            <a href="./berita-utama-4/">
-              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama-4.webp'?>" class="d-block w-100 mt-4" alt="Berita">
-              <p class="fw-bold">Mau Lancar Main PUBGM di Smartphone Kentang, Ada PUBG MOBILE LITE Nih!</p>
+            <a href="./berita-utama-4/" class="text-decoration-none text-light">
+              <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama-4.webp'?>" class="d-block w-100 mt-4 card-berita" alt="Berita">
+              <p class="fw-bold mt-3">Mau Lancar Main PUBGM di Smartphone Kentang, Ada PUBG MOBILE LITE Nih!</p>
             </a>
           </div>
         </div>

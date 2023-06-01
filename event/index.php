@@ -18,13 +18,7 @@
     ?>
 
     <!-- Tampilan Banner -->
-    <div class="container-fluid mt-5">
-      <div class="row">
-        <div class="col-12">
-          <img src="<?=BASE_URL.DS.'assets/img/event/banner-event.jpg'?>" class="d-block w-100" alt="Event">
-        </div>
-      </div>
-    </div>
+    <img src="<?=BASE_URL.DS.'assets/img/event/banner-event.jpg'?>" class="d-block w-100" alt="Event">
     <!-- Akhir Tampilan Banner -->
 
     <!-- Tampilan Kategori -->
