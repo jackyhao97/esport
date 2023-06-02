@@ -11,7 +11,7 @@
     ?>
     <title>Tekken 7: Definitive Edition Bundle All Game Plus Konten Empat Musim</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

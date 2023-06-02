@@ -39,7 +39,7 @@
   </head>
   <body>
     <?php 
-      require_once '../navbar.php';
+      require_once '../navbar-white.php';
     ?>
 
     <!-- Tampilan Profile User -->

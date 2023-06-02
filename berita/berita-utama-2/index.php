@@ -11,7 +11,7 @@
     ?>
     <title>RIOT GAMES Tampilkan Bundle Skin Baru VALORANT ARCADE</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

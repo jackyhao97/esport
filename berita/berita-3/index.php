@@ -11,7 +11,7 @@
     ?>
     <title>AE Okta Berbagi Tips Jadi Scout Handal di PUBG MOBILE</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

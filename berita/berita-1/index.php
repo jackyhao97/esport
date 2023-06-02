@@ -11,7 +11,7 @@
     ?>
     <title>Mobile Legends Akan Rilis di China dengan Nama Win The Peak!</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

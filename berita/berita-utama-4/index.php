@@ -11,7 +11,7 @@
     ?>
     <title>Mau Lancar Main PUBGM di Smartphone Kentang, Ada PUBG MOBILE LITE Nih!</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

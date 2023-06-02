@@ -11,7 +11,7 @@
     ?>
     <title>Evil Geniuses Bakal Lepas Empat Roster League of Legends</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

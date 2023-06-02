@@ -11,7 +11,7 @@
     ?>
     <title>Even Esports Tekken World Tour Akan Perebutkan Hadiah 200.000 USD</title>
   </head>
-  <body>
+  <body style="background:black;color:white">
     <?php
       require_once '../../navbar.php';
     ?>

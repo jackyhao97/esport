@@ -22,7 +22,7 @@
   </head>
   <body>
     <?php
-      require_once '../navbar.php';
+      require_once '../navbar-white.php';
     ?>
 
     <div class="container mt-100 p-3" style="background:#eee">
