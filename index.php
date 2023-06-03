@@ -11,7 +11,7 @@
     ?>
     <title>Ligasport</title>
   </head>
-  <body style="  background: black;color: white;">
+  <body style="background: black;color: white;">
     <?php 
       require_once 'navbar.php';
     ?>

@@ -9,7 +9,7 @@
     <?php 
       require_once '../../header.php';
     ?>
-    <title>Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan Mode Tournament</title>
+    <title>Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan</title>
   </head>
   <body style="background:black;color:white">
     <?php
@@ -20,12 +20,11 @@
       <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item" style="background: #efefef;padding: 10px;border-radius: 10px 0 0 10px;"><a href="../"><i class="fa-solid fa-newspaper" style="color: #676161;"></i></a></li>
-          <li class="breadcrumb-item active" aria-current="page" style="background: #efefef;padding: 10px;border-radius: 0 10px 10px 0;">Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan Mode Tournament</li>
+          <li class="breadcrumb-item active" aria-current="page" style="background: #efefef;padding: 10px;border-radius: 0 10px 10px 0;">Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan</li>
         </ol>
       </nav>
       <h1 class="uk-margin-small fw-bold">
-        Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan Mode
-        Tournament
+        Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan
       </h1>
       <div
         class="uk-panel uk-text-meta uk-text-primary uk-margin-remove-vertical"

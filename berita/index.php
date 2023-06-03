@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-12 col-md-4">
           <h3 class="fw-bold">Berita Utama</h3>
-          <div class="mt-5 overflow-auto" style="height: 100vh">
+          <div class="mt-5 overflow-auto" style="height: 80vh">
             <a href="./berita-utama/" class="text-decoration-none text-light">
               <img src="<?=BASE_URL.DS.'assets/img/berita/berita-utama.webp'?>" class="d-block w-100 card-berita" alt="Berita">
               <p class="fw-bold mt-3">Evil Geniuses Bakal Lepas Empat Roster League of Legends</p>
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="col-12 col-md-8">
-          <h3 class="fw-bold">Berita Hari ini</h3>
+          <h3 class="fw-bold mt-5 mt-sm-0">Berita Hari ini</h3>
           <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -55,7 +55,7 @@
                 <a href="./berita-1/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/berita-1.webp'?>" class="d-block w-100" alt="Berita">
                   <div class="carousel-caption">
-                    <p class="fw-bold">Mobile Legends Akan Rilis di China dengan Nama Win The Peak!</p>
+                    <p class="fw-bold font-berita">Mobile Legends Akan Rilis di China dengan Nama Win The Peak!</p>
                   </div>
                 </a>
               </div>
@@ -63,7 +63,7 @@
                 <a href="./berita-2/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/berita-2.webp'?>" class="d-block w-100" alt="Berita">
                   <div class="carousel-caption">
-                    <p class="fw-bold">Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan Mode Tournament</p>
+                    <p class="fw-bold font-berita">Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan</p>
                   </div>
                 </a>
               </div>
@@ -71,7 +71,7 @@
                 <a href="./berita-3/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/berita-3.webp'?>" class="d-block w-100" alt="Berita">
                   <div class="carousel-caption">
-                    <p class="fw-bold">AE Okta Berbagi Tips Jadi Scout Handal di PUBG MOBILE</p>
+                    <p class="fw-bold font-berita">AE Okta Berbagi Tips Jadi Scout Handal di PUBG MOBILE</p>
                   </div>
                 </a>
               </div>
@@ -79,7 +79,7 @@
                 <a href="./berita-4/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/berita-4.webp'?>" class="d-block w-100" alt="Berita">
                   <div class="carousel-caption">
-                    <p class="fw-bold">Tekken 7: Definitive Edition Bundle All Game Plus Konten Empat Musim</p>
+                    <p class="fw-bold font-berita">Tekken 7: Definitive Edition Bundle All Game Plus Konten Empat Musim</p>
                   </div>
                 </a>
               </div>
@@ -87,7 +87,7 @@
                 <a href="./berita-5/">
                   <img src="<?=BASE_URL.DS.'assets/img/berita/berita-5.jpeg'?>" class="d-block w-100" alt="Berita">
                   <div class="carousel-caption">
-                    <p class="fw-bold">Aku Sih IES, Sebuah Program Talkshow Esports dari INDOESPORTS</p>
+                    <p class="fw-bold font-berita">Aku Sih IES, Sebuah Program Talkshow Esports dari INDOESPORTS</p>
                   </div>
                 </a>
               </div>
