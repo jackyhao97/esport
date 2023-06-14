@@ -13,9 +13,10 @@
   $tipeuser = $rowtipe['tipe'];
 
   // Query detail event
-  $result = $conn->query("SELECT ev.id, ev.nama, ev.path, ev.prize_pool, ev.max_slot, ev.lokasi, ev.tgl_event_awal, ev.tgl_event_akhir, te.deskripsi, je.jenis FROM tb_event ev LEFT JOIN tb_tipe_event te ON ev.tipe = te.id LEFT JOIN tb_jenis_event je ON ev.jenis = je.id WHERE ev.id = '$id'");
+  $result = $conn->query("SELECT ev.id, ev.nama, ev.path, ev.prize_pool, ev.max_slot, ev.lokasi, ev.tgl_event_awal, ev.tgl_event_akhir, te.deskripsi, je.jenis, ev.created_by as usercreated FROM tb_event ev LEFT JOIN tb_tipe_event te ON ev.tipe = te.id LEFT JOIN tb_jenis_event je ON ev.jenis = je.id WHERE ev.id = '$id'");
   $row = $result->fetch_array();
   $nama = $row['nama'];
+  $usercreated = $row['usercreated'];
 ?>
 
 <!doctype html>
@@ -33,9 +34,21 @@
 
     <div class="container mt-100">
       <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item" style="background: #efefef;padding: 10px;border-radius: 10px 0 0 10px;"><a href="./"><i class="fa-solid fa-calendar" style="color: #676161;"></i></a></li>
-          <li class="breadcrumb-item active" aria-current="page" style="background: #efefef;padding: 10px;border-radius: 0 10px 10px 0;"><?=$row['nama']?></li>
+        <ol class="breadcrumb justify-content-between">
+          <div class="d-flex">
+            <li class="breadcrumb-item" style="background: #efefef;padding: 10px;border-radius: 10px 0 0 10px;"><a href="./"><i class="fa-solid fa-calendar" style="color: #676161;"></i></a></li>
+            <li class="breadcrumb-item active" aria-current="page" style="background: #efefef;padding: 10px;border-radius: 0 10px 10px 0;"><?=$row['nama']?></li>
+          </div>
+
+          <?php
+            if ($usercreated == $user) :
+          ?>
+          <div class="">
+            <button type="button" class="btn btn-dark" onclick="closeEvent(<?=$row['id']?>)">Close Event</button>
+          </div>
+          <?php
+            endif;
+          ?>
         </ol>
       </nav>
       <img src="<?=BASE_URL.DS.'assets/img/event/'.$row['path']?>" alt="<?=$row['nama']?>" class="w-100">
@@ -201,6 +214,31 @@
               }
             });
           }
+        }
+      }
+
+      // untuk close event
+      function closeEvent(id) {
+        console.log('ok');
+        const conf = confirm(`Apakah anda yakin untuk menutup event ini?`);
+        
+        if (conf) {
+          $.ajax({
+            type: "post",
+            url: "close.php",
+            data: {id},
+            success: (data) => {
+              const res = $.parseJSON(data);
+
+              if (res.success) {
+                alert('Anda berhasil menutup event.');
+                window.location = '../event';
+              }
+              else {
+                alert('Anda gagal menutup event. Silahkan coba lagi.');
+              }
+            }
+          });
         }
       }
 
