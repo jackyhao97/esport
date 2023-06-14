@@ -99,7 +99,17 @@
         Ikuti terus berita esports terbaru di Ligasport! Kunjungi Instagram dan Youtube Ligasport yang selalu update dan kekinian.
       </p>
       <div class="text-end mt-5">
+        <?php
+          $event_id = $row['id'];
+          $queryregister = $conn->query("SELECT * FROM `tb_history_event` WHERE event_id = '$event_id' and created_by = '$user'");
+          $rowcount = mysqli_num_rows($queryregister);
+          
+          if ($rowcount == 0) :
+        ?>
         <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</a>
+        <?php
+          endif;
+        ?>
 
         <!-- Modal -->
         <div class="modal fade" id="modalRegister" tabindex="-1" aria-labelledby="modalRegisterLabel" aria-hidden="true">
@@ -183,6 +193,7 @@
                 if (res.success) {
                   alert('Anda berhasil register event.');
                   $("#modalRegister").modal("hide");
+                  location.reload();
                 }
                 else {
                   alert('Anda gagal register event. Silahkan coba lagi.');
