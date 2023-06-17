@@ -37,9 +37,9 @@
         <img
           style="width: 100%"
           title="Logo Aku SIh IES"
-          src="https://storage.indoesports.com/media/lg/logo-aku-sih-ies.png"
+          src="../../assets/img/berita/berita-5.webp"
           alt="Logo Aku SIh IES"
-          data-src="https://storage.indoesports.com/media/lg/logo-aku-sih-ies.png"
+          data-src="../../assets/img/berita/berita-5.webp"
         />
       </p>
       <p>

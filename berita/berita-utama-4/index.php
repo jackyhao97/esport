@@ -64,7 +64,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/PUBG-MOBILE-LITE_1499e-2c08c315.webp"
+                src="../../assets/img/berita/berita-utama-4.webp"
                 alt="Mau Lancar Main PUBGM di Smartphone Kentang"
                 data-src="/templates/yootheme/cache/PUBG-MOBILE-LITE_1499e-2c08c315.webp"
                 data-srcset="/templates/yootheme/cache/PUBG-MOBILE-LITE_1499e-f2fbc54f.webp 768w, /templates/yootheme/cache/PUBG-MOBILE-LITE_1499e-6e8e02cb.webp 1024w, /templates/yootheme/cache/PUBG-MOBILE-LITE_1499e-2c08c315.webp 1200w"

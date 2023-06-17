@@ -65,7 +65,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/AE-Okta_8bf34-d2c9a488.webp"
+                src="../../assets/img/berita/berita-3.webp"
                 alt=""
                 data-src="/templates/yootheme/cache/AE-Okta_8bf34-d2c9a488.webp"
                 data-srcset="/templates/yootheme/cache/AE-Okta_8bf34-db2271bb.webp 768w, /index.php?option=com_ajax&amp;p=theme%2Fimage&amp;src=WyJpbWFnZXNcL0FFLU9rdGFfOGJmMzQuanBnIixbWyJkb1Jlc2l6ZSIsWzEwMjQsNTc2LDEwMjQsNTc2XV0sWyJkb0Nyb3AiLFsxMDI0LDU3NiwwLDBdXSxbInR5cGUiLFsid2VicCIsIjg1Il1dXV0%3D&amp;hash=47cbf3aafc470e30a350f8f93e41d8e2&amp;style=19&amp;template=yootheme 1024w, /templates/yootheme/cache/AE-Okta_8bf34-d2c9a488.webp 1200w"

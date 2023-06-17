@@ -69,9 +69,9 @@
               <p>
                 <img
                   class="jch-lazyloaded w-100"
-                  src="http://i345.photobucket.com/albums/p383/sampaxz/tekken-world-tour_zpsjwkwidzf.jpg"
+                  src="../../assets/img/berita/berita-utama-3.webp"
                   alt=""
-                  data-src="http://i345.photobucket.com/albums/p383/sampaxz/tekken-world-tour_zpsjwkwidzf.jpg"
+                  data-src="../../assets/img/berita/berita-utama-3.webp"
                 />
               </p>
               <p>

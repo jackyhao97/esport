@@ -64,7 +64,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/valorant-premier_banner_6583f-e8b2dc00.webp"
+                src="../../assets/img/berita/berita-2.webp"
                 alt="Cara Gabung ke Open Beta VALORANT Premier, Jadwal dan Persyaratan"
                 data-src="/templates/yootheme/cache/valorant-premier_banner_6583f-e8b2dc00.webp"
                 data-srcset="/templates/yootheme/cache/valorant-premier_banner_6583f-596477f8.webp 768w, /templates/yootheme/cache/valorant-premier_banner_6583f-431e8df4.webp 1024w, /templates/yootheme/cache/valorant-premier_banner_6583f-e8b2dc00.webp 1200w"

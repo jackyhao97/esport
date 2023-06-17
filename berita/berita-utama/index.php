@@ -64,7 +64,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/Evil-Geniuses-Team-LOL-aaaa_6b7db-faf4ee5c.webp"
+                src="../../assets/img/berita/berita-utama.webp"
                 alt="Evil Geniuses Bakal Rombak Roster LoL, Lepas Empat Superstar"
                 data-src="/templates/yootheme/cache/Evil-Geniuses-Team-LOL-aaaa_6b7db-faf4ee5c.webp"
                 data-srcset="/index.php?option=com_ajax&amp;p=theme%2Fimage&amp;src=WyJpbWFnZXNcL0V2aWwtR2VuaXVzZXMtVGVhbS1MT0wtYWFhYV82YjdkYi5qcGciLFtbImRvUmVzaXplIixbNzY4LDQzMiw3NjgsNDMyXV0sWyJkb0Nyb3AiLFs3NjgsNDMyLDAsMF1dLFsidHlwZSIsWyJ3ZWJwIiwiODUiXV1dXQ%3D%3D&amp;hash=059f70ddf8b0ce85daa03eb41e4dc716&amp;style=19&amp;template=yootheme 768w, /index.php?option=com_ajax&amp;p=theme%2Fimage&amp;src=WyJpbWFnZXNcL0V2aWwtR2VuaXVzZXMtVGVhbS1MT0wtYWFhYV82YjdkYi5qcGciLFtbImRvUmVzaXplIixbMTAyNCw1NzYsMTAyNCw1NzZdXSxbImRvQ3JvcCIsWzEwMjQsNTc2LDAsMF1dLFsidHlwZSIsWyJ3ZWJwIiwiODUiXV1dXQ%3D%3D&amp;hash=676573beebd5decde85de7d96dc184dc&amp;style=19&amp;template=yootheme 1024w, /templates/yootheme/cache/Evil-Geniuses-Team-LOL-aaaa_6b7db-faf4ee5c.webp 1200w"

@@ -65,7 +65,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/valorant-arcade-bundle_4dc45-3a4bda1b.webp"
+                src="../../assets/img/berita/berita-utama-2.webp"
                 alt="RIOT GAMES Tampilkan Bundle Skin Baru VALORANT ARCADE"
                 data-src="/templates/yootheme/cache/valorant-arcade-bundle_4dc45-3a4bda1b.webp"
                 data-srcset="/templates/yootheme/cache/valorant-arcade-bundle_4dc45-88ec8132.webp 768w, /index.php?option=com_ajax&amp;p=theme%2Fimage&amp;src=WyJpbWFnZXNcL3ZhbG9yYW50LWFyY2FkZS1idW5kbGVfNGRjNDUuanBnIixbWyJkb1Jlc2l6ZSIsWzEwMjQsNTc2LDEwMjQsNTc2XV0sWyJkb0Nyb3AiLFsxMDI0LDU3NiwwLDBdXSxbInR5cGUiLFsid2VicCIsIjg1Il1dXV0%3D&amp;hash=686963eb7acdaf2ee2c68e2b776ad138&amp;style=19&amp;template=yootheme 1024w, /templates/yootheme/cache/valorant-arcade-bundle_4dc45-3a4bda1b.webp 1200w"

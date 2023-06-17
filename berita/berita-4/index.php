@@ -65,7 +65,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/Tekken-7-Definitive-Edition_30d7d-55b53b2e.webp"
+                src="../../assets/img/berita/berita-4.webp"
                 alt="Tekken 7: Definitive Edition"
                 data-src="/templates/yootheme/cache/Tekken-7-Definitive-Edition_30d7d-55b53b2e.webp"
                 data-srcset="/templates/yootheme/cache/Tekken-7-Definitive-Edition_30d7d-906abf40.webp 768w, /templates/yootheme/cache/Tekken-7-Definitive-Edition_30d7d-6cc852d4.webp 1024w, /templates/yootheme/cache/Tekken-7-Definitive-Edition_30d7d-55b53b2e.webp 1200w"

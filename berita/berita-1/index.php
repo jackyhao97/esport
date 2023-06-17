@@ -65,7 +65,7 @@
             <div class="uk-margin">
               <img
                 class="el-image w-100"
-                src="https://www.ligagame.tv/templates/yootheme/cache/mlbb-wan-wan_abdfc-d2f59b20.webp"
+                src="../../assets/img/berita/berita-1.webp"
                 alt="Mobile Legends Resmi Disetujui Rilis di China"
                 data-src="/templates/yootheme/cache/mlbb-wan-wan_abdfc-d2f59b20.webp"
                 data-srcset="/templates/yootheme/cache/mlbb-wan-wan_abdfc-c43ff65e.webp 768w, /templates/yootheme/cache/mlbb-wan-wan_abdfc-40ca8dcd.webp 1024w, /templates/yootheme/cache/mlbb-wan-wan_abdfc-d2f59b20.webp 1200w"
