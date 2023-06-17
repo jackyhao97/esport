@@ -4,6 +4,8 @@ session_start();
 
 require_once('../../config.php');
 
+require_once('../../functions.php');
+
 require_once('../vendor/ssp.cls.php');
 
 $counter = 0;
@@ -21,29 +23,6 @@ function BuildAction($data, $is_verified) {
 
   return $component;
 }
-
-
-// $table = <<<EOT
-//   (
-//     SELECT 
-//       ev.`id`, ev.`is_verified`, ev.`nama`, ev.`history`, ev.`created_on`, ac.`nama` as user FROM `tb_event` ev 
-//     LEFT JOIN `tb_account` ac ON ev.created_by = ac.id 
-//     UNION ALL 
-//     SELECT 
-//       eo.`id`, eo.`is_active`, eo.`nama`, eo.`history`, eo.`created_on`, acc.`nama` as user FROM `tb_post_eo` eo 
-//     LEFT JOIN `tb_account` acc ON eo.created_by = acc.id 
-//     UNION ALL 
-//     SELECT 
-//       heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user FROM `tb_history_eo` heo 
-//     LEFT JOIN `tb_account` acco ON heo.created_by = acco.id LEFT JOIN `tb_post_eo` pe ON heo.post_eo_id = pe.id
-//     UNION ALL 
-//     SELECT 
-//       he.`id`, he.`event_id`, ev.`nama`, he.`history`, he.`created_on`, accou.`nama` as user FROM `tb_history_event` he 
-//     LEFT JOIN `tb_account` accou ON he.created_by = accou.id 
-//     LEFT JOIN `tb_event` ev ON he.event_id = ev.id ORDER BY created_on DESC
-//   ) temp 
-//   EOT;
-
 
 if ($tipeuser == "admin") {
   $table = <<<EOT
@@ -81,14 +60,20 @@ else {
       SELECT 
         heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user FROM `tb_history_eo` heo 
       LEFT JOIN `tb_account` acco ON heo.created_by = acco.id LEFT JOIN `tb_post_eo` pe ON heo.post_eo_id = pe.id WHERE acco.nama = "$akunuser"
-      UNION ALL 
+      UNION ALL
       SELECT 
-        he.`id`, he.`event_id`, ev.`nama`, he.`history`, he.`created_on`, accou.`nama` as user FROM `tb_history_event` he 
-      LEFT JOIN `tb_account` accou ON he.created_by = accou.id 
-      LEFT JOIN `tb_event` ev ON he.event_id = ev.id WHERE accou.nama = "$akunuser" ORDER BY created_on DESC
+        he.id, ev.is_verified, ev.nama as namaevent, he.history, he.created_on, ac.nama as namauser FROM `tb_history_event` he LEFT JOIN `tb_event` ev ON he.event_id = ev.id LEFT JOIN `tb_account` ac ON he.created_by = ac.id WHERE ev.created_by = "$user"
+      ORDER BY created_on DESC
     ) temp 
     EOT;
 }
+
+// Query dibawah untuk ambil register event yang dilakukan sendiri
+// UNION ALL 
+// SELECT 
+//   he.`id`, he.`event_id`, ev.`nama`, he.`history`, he.`created_on`, accou.`nama` as user FROM `tb_history_event` he 
+// LEFT JOIN `tb_account` accou ON he.created_by = accou.id 
+// LEFT JOIN `tb_event` ev ON he.event_id = ev.id WHERE accou.nama = "$akunuser"
 
 
 
@@ -108,7 +93,7 @@ $columns = array(
       else if ($row[1] == 2)
         return "$row[2] posting EO bernama $d";
       else if ($row[1] == 3)
-        return "$row[2] register event $d";
+        return "$row[2] register event $d pada tanggal " . format_datetime($row[5]);
       else
         return "$row[2] menyewa EO bernama $d";
     }
@@ -153,6 +138,7 @@ $columns = array(
         return '';
     }
   ),
+  array('db' => 'created_on', 'dt' => 5),
 );
 
 
