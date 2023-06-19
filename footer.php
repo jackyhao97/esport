@@ -5,7 +5,7 @@
       <div class="col-12 col-md-4">
         <img src="<?=BASE_URL.DS.'assets/img/logo.png'?>" alt="Logo Ligasport" class=" img-footer">
         <!-- <h4 class="fw-bold">Ligasport Indonesia</h4> -->
-        <p style="text-align: justify" class="mt-3">Ligasport adalah Media & Broadcasting Production Company tertua di Indonesia, dengan platform informasi seputar Ligasport, games, dan live streaming yang bertujuan untuk mengembangkan industri Ligasport Indonesia.</p>
+        <p style="text-align: justify" class="mt-3">Ligasport adalah Media & Broadcasting Production Company di Indonesia, dengan platform informasi seputar Ligasport, games, dan live streaming yang bertujuan untuk mengembangkan industri Ligasport Indonesia.</p>
       </div>
       <div class="col-12 col-md-4">
         <h4 class="fw-bold">About Ligasport</h4>
