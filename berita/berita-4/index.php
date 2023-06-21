@@ -93,11 +93,9 @@
               <p style="text-align: center">
                 <img
                   class="jch-lazyloaded w-100"
-                  src="https://www.ligagame.tv/images/ligagame_visahat/resized/tekken-7-aaa_e89e1.jpg"
+                  src="../../assets/img/berita/berita-4-2.jpg"
                   alt="tekken 7 aaa e89e1"
-                  width="780"
-                  height="439"
-                  data-src="/images/ligagame_visahat/resized/tekken-7-aaa_e89e1.jpg"
+                  data-src="../../assets/img/berita/berita-4-2.jpg"
                 />
               </p>
               <p>
@@ -133,11 +131,9 @@
               <p style="text-align: center">
                 &nbsp;<img
                   class="jch-lazyloaded w-100"
-                  src="https://www.ligagame.tv/images/ligagame_visahat/resized/Tekken-7-Akuma-Vs-Heihachi_2e681.jpg"
+                  src="../../assets/img/berita/berita-4-3.jpg"
                   alt="Tekken 7 Akuma Vs Heihachi 2e681"
-                  width="780"
-                  height="406"
-                  data-src="/images/ligagame_visahat/resized/Tekken-7-Akuma-Vs-Heihachi_2e681.jpg"
+                  data-src="../../assets/img/berita/berita-4-3.jpg"
                 />
               </p>
               <p>

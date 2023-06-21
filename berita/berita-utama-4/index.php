@@ -113,11 +113,9 @@
                 <img
                   class="jch-lazyloaded w-100"
                   style="display: block; margin-left: auto; margin-right: auto"
-                  src="https://lh6.googleusercontent.com/0cbYAslY5KSh0qCihimn4awK_j5_8AiIftI07dFHITCs5KARqVcq529wJdXLgMrt0wtvrnR3tWGPlS3NFeqgkUCq9jH-zgq0iaDiN2G-Uu8mlTxrP72yCZkLzM8r9ZnQqPLSj3QGPRKj6eF2VcfJ4Ws"
+                  src="../../assets/img/berita/berita-utama-4-2.jpg"
                   alt=""
-                  width="624"
-                  height="351"
-                  data-src="https://lh6.googleusercontent.com/0cbYAslY5KSh0qCihimn4awK_j5_8AiIftI07dFHITCs5KARqVcq529wJdXLgMrt0wtvrnR3tWGPlS3NFeqgkUCq9jH-zgq0iaDiN2G-Uu8mlTxrP72yCZkLzM8r9ZnQqPLSj3QGPRKj6eF2VcfJ4Ws"
+                  data-src="../../assets/img/berita/berita-utama-4-2.jpg"
                 />
               </p>
               <p>

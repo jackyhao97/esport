@@ -101,7 +101,7 @@
               <p style="text-align: center">
                 &nbsp;<img
                   class="jch-lazyloaded w-100"
-                  src="https://www.ligagame.tv/images/ligagame_visahat/resized/MLBB_china_6636a.jpg"
+                  src="../../assets/img/berita/berita-1-2.jpg"
                   alt="MLBB china 6636a"
                   width="780"
                   height="430"

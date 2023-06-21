@@ -37,9 +37,9 @@
         <img
           style="width: 100%"
           title="Logo Aku SIh IES"
-          src="../../assets/img/berita/berita-5.webp"
+          src="../../assets/img/berita/berita-5.png"
           alt="Logo Aku SIh IES"
-          data-src="../../assets/img/berita/berita-5.webp"
+          data-src="../../assets/img/berita/berita-5.png"
         />
       </p>
       <p>
@@ -54,9 +54,9 @@
         <img
           style="width:100%"
           title="Aku Sih IES Episode 1 STAR8 1"
-          src="https://s3-ap-southeast-1.amazonaws.com/ies-public-storage/media/lg/aku-sih-ies-episode-1-star8-1.jpeg"
+          src="../../assets/img/berita/berita-5.jpeg"
           alt="Aku Sih IES Episode 1 STAR8 1"
-          data-src="https://s3-ap-southeast-1.amazonaws.com/ies-public-storage/media/lg/aku-sih-ies-episode-1-star8-1.jpeg"
+          data-src="../../assets/img/berita/berita-5.jpeg"
         /><small>INDOESPORTS</small>
       </p>
       <p>
@@ -73,9 +73,9 @@
         <img
           style="width:100%"
           title="Aku Sih IES Episode 1 STAR8 2"
-          src="https://s3-ap-southeast-1.amazonaws.com/ies-public-storage/media/lg/aku-sih-ies-episode-1-star8-2.jpeg"
+          src="../../assets/img/berita/berita-5-3.jpeg"
           alt="Aku Sih IES Episode 1 STAR8 2"
-          data-src="https://s3-ap-southeast-1.amazonaws.com/ies-public-storage/media/lg/aku-sih-ies-episode-1-star8-2.jpeg"
+          data-src="../../assets/img/berita/berita-5-3.jpeg"
         /><small>INDOESPORTS</small>
       </p>
       <p>
@@ -88,15 +88,6 @@
         semacam hiburan yang menarik, INDOESPORTS&nbsp;ingin memperkenalkan kepada
         orang-orang yang masih belum tahu betapa seru dan menariknya industri
         digital yang semakin besar ini.
-      </p>
-      <p>
-        <img
-          style="width:100%"
-          title="Aku Sih IES Episode 1 STAR8 3"
-          src="https://s3-ap-southeast-1.amazonaws.com/ies-public-storage/media/lg/aku-sih-ies-episode-1-star8-3.jpeg"
-          alt="Aku Sih IES Episode 1 STAR8 3"
-          data-src="https://s3-ap-southeast-1.amazonaws.com/ies-public-storage/media/lg/aku-sih-ies-episode-1-star8-3.jpeg"
-        /><small>INDOESPORTS</small>
       </p>
       <p>Ingin tahu bagaimana serunya acara ini ? Ingin jadi yang paling up to date di dunia esports ? Ingin mendapatkan giveaway-nya juga ? Aku Sih IES ! Nantikan program acara dari Ligasport ini hanya di Channel Youtube-nya Ligasport ! AKU SIH IES ! </p>
     </div>

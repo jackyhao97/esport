@@ -110,11 +110,9 @@
               <p style="text-align: center">
                 <img
                   class="jch-lazyloaded w-100"
-                  src="https://www.ligagame.tv/images/ligagame_visahat/resized/vulcan-evil-geniuses_bb542.jpg"
+                  src="../../assets/img/berita/berita-utama-2.jpg"
                   alt="vulcan evil geniuses bb542"
-                  width="780"
-                  height="520"
-                  data-src="/images/ligagame_visahat/resized/vulcan-evil-geniuses_bb542.jpg"
+                  data-src="../../assets/img/berita/berita-utama-2.jpg"
                 />
               </p>
               <p>
