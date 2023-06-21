@@ -28,6 +28,7 @@
   
       if ($insert && $upload && $insertharga && $inserthargab) {
         echo "<script>alert('Event Organizer berhasil ditambah!')</script>";
+        echo "<script>window.location='../'</script>";
       }
       else if (!$insert && $upload && $insertharga && $inserthargab) {
         echo "<script>alert('Gambar berhasil diupload namun gagal disimpan ke database')</script>";

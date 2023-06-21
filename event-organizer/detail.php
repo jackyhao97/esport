@@ -8,6 +8,7 @@
   // Query untuk ambil detail event organizer
   $result = $conn->query("SELECT pe.id as ideo, nama, jenis_eo, is_custom, path, history, tipe, deskripsi, created_on, created_by FROM `tb_post_eo` pe LEFT JOIN `tb_tipe_event` te ON pe.jenis_eo = te.id WHERE pe.id = '$id'");
   $row = $result->fetch_array();
+  $usercreated = $row["created_by"];
   $resultuser = $conn->query("SELECT * FROM `tb_account` WHERE id = '$user'");
   $rowuser = $resultuser->fetch_array();
 ?>
@@ -25,7 +26,19 @@
       require_once '../navbar-white.php';
     ?>
 
-    <div class="container mt-100 p-3" style="background:#eee">
+    <div class="container mt-100 text-end ml-auto">
+      <?php
+        if ($usercreated == $user) :
+      ?>
+      <div class="">
+        <button type="button" class="btn btn-dark" onclick="deleteEo(<?=$row['ideo']?>)">Delete EO</button>
+      </div>
+      <?php
+        endif;
+      ?>
+    </div>
+
+    <div class="container mt-3 p-3" style="background:#eee">
       <div class="row">
         <div class="col-12">
           <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
@@ -139,6 +152,31 @@
               }
             });
           }
+        }
+      }
+
+      // untuk close event
+      function deleteEo(id) {
+        console.log('ok');
+        const conf = confirm(`Apakah anda yakin untuk menghapus EO ini?`);
+        
+        if (conf) {
+          $.ajax({
+            type: "post",
+            url: "close.php",
+            data: {id},
+            success: (data) => {
+              const res = $.parseJSON(data);
+
+              if (res.success) {
+                alert('Anda berhasil menghapus EO.');
+                window.location = '../event-organizer';
+              }
+              else {
+                alert('Anda gagal menghapus EO. Silahkan coba lagi.');
+              }
+            }
+          });
         }
       }
     </script>
