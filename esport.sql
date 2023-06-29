@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jun 2023 pada 12.33
+-- Waktu pembuatan: 21 Jun 2023 pada 15.38
 -- Versi server: 10.4.8-MariaDB
--- Versi PHP: 7.3.11
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -139,7 +139,11 @@ INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `deskripsi_harga`, `is_active`
 (1, 2, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-04-21 00:00:00', 6),
 (3, 2, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 00:00:00', 6),
 (8, 4, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-05-01 07:37:43', 7),
-(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7);
+(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7),
+(10, 5, 'sdfsdfsdf', 1, '2023-06-21 15:15:49', 15),
+(11, 5, 'sdfsdfsdfwerwer', 1, '2023-06-21 15:15:49', 15),
+(12, 6, 'sdfsdfsd', 1, '2023-06-21 15:20:43', 15),
+(13, 6, 'werwerwer', 1, '2023-06-21 15:20:43', 15);
 
 -- --------------------------------------------------------
 
@@ -184,14 +188,14 @@ INSERT INTO `tb_history_bobot` (`id`, `event_id`, `bobot`, `created_on`, `create
 (1658, 13, '0.1667', '2023-06-14 13:26:35', 6),
 (1659, 12, '0.0000', '2023-06-14 13:26:35', 6),
 (1660, 11, '0.1361', '2023-06-14 13:26:35', 6),
-(1693, 25, '0.0000', '2023-06-17 04:02:30', 7),
-(1694, 23, '0.0000', '2023-06-17 04:02:30', 7),
-(1695, 16, '0.1543', '2023-06-17 04:02:30', 7),
-(1696, 15, '0.0000', '2023-06-17 04:02:30', 7),
-(1697, 14, '0.9999', '2023-06-17 04:02:30', 7),
-(1698, 13, '0.1667', '2023-06-17 04:02:30', 7),
-(1699, 12, '0.0000', '2023-06-17 04:02:30', 7),
-(1700, 11, '0.1361', '2023-06-17 04:02:30', 7);
+(1717, 25, '0.0000', '2023-06-21 14:59:34', 7),
+(1718, 23, '0.0000', '2023-06-21 14:59:34', 7),
+(1719, 16, '0.9999', '2023-06-21 14:59:34', 7),
+(1720, 15, '0.3780', '2023-06-21 14:59:34', 7),
+(1721, 14, '0.1543', '2023-06-21 14:59:34', 7),
+(1722, 13, '0.3086', '2023-06-21 14:59:34', 7),
+(1723, 12, '0.0000', '2023-06-21 14:59:34', 7),
+(1724, 11, '0.2520', '2023-06-21 14:59:34', 7);
 
 -- --------------------------------------------------------
 
@@ -287,8 +291,8 @@ CREATE TABLE `tb_post_eo` (
 --
 
 INSERT INTO `tb_post_eo` (`id`, `nama`, `jenis_eo`, `is_custom`, `path`, `history`, `is_active`, `created_on`, `created_by`) VALUES
-(2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 6),
-(4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 7);
+(2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 15),
+(4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 15);
 
 -- --------------------------------------------------------
 
@@ -459,13 +463,13 @@ ALTER TABLE `tb_genre`
 -- AUTO_INCREMENT untuk tabel `tb_harga_paket`
 --
 ALTER TABLE `tb_harga_paket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_bobot`
 --
 ALTER TABLE `tb_history_bobot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1701;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1725;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_eo`
@@ -489,7 +493,7 @@ ALTER TABLE `tb_jenis_event`
 -- AUTO_INCREMENT untuk tabel `tb_post_eo`
 --
 ALTER TABLE `tb_post_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sample`

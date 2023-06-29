@@ -25,7 +25,7 @@
         $insert = $conn->query("INSERT INTO tb_account (nama, username, password, email, tipe, nomor, is_active, created_on) VALUES ('$nama', '$username', '$password', '$emailaddress', '$tipe', '$nomor', 1, '$createdon')");
     
         if ($insert) {
-          echo "<script>alert('Register berhasil!')</script>";
+          echo "<script>alert('Register berhasil! Anda bisa login setelah admin verifikasi')</script>";
         }
         else {
           echo "<script>alert('Register gagal!')</script>";
@@ -60,23 +60,23 @@
         <img src="../assets/img/logo.png" alt="Ligasport" class="w-50 text-center mb-3 d-flex m-auto">
         <div class="mb-3">
           <label for="txt_nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus>
+          <input type="text" class="form-control" id="txt_nama" name="txt_nama" autofocus required>
         </div>
         <div class="mb-3">
           <label for="txt_username" class="form-label">Username</label>
-          <input type="text" class="form-control" id="txt_username" name="txt_username">
+          <input type="text" class="form-control" id="txt_username" name="txt_username" required>
         </div>
         <div class="mb-3">
           <label for="txt_email_address" class="form-label">Email Address</label>
-          <input type="email" class="form-control" id="txt_email_address" name="txt_email_address">
+          <input type="email" class="form-control" id="txt_email_address" name="txt_email_address" required>
         </div>
         <div class="mb-3">
           <label for="txt_password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="txt_password" name="txt_password">
+          <input type="password" class="form-control" id="txt_password" name="txt_password" required>
         </div>
         <div class="mb-3">
           <label for="txt_konfirmasi_password" class="form-label">Konfirmasi Password</label>
-          <input type="password" class="form-control" id="txt_konfirmasi_password" name="txt_konfirmasi_password">
+          <input type="password" class="form-control" id="txt_konfirmasi_password" name="txt_konfirmasi_password" required>
         </div>
         <div class="mb-3">
           <label for="txt_tipe" class="form-label">Tipe</label>
@@ -93,7 +93,7 @@
         </div>
         <div class="mb-3">
           <label for="txt_nomor" class="form-label">Nomor</label>
-          <input type="text" class="form-control" id="txt_nomor" name="txt_nomor">
+          <input type="text" class="form-control" id="txt_nomor" name="txt_nomor" required>
         </div>
       <!-- <div class="mb-5">
         <label class="form-label">Apa genre game yang kamu sukai</label>

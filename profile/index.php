@@ -46,12 +46,12 @@
         </div>
         <div class="col-12 col-md-6 col-lg-6 mt-5 mt-sm-0">
           <div class="mb-3">
-            <label for="txt_nama" class="form-label">Nama</label>
-            <input type="text" class="form-control" id="txt_nama" name="txt_nama" value="<?=$row['nama']?>" autofocus readonly>
-          </div>
-          <div class="mb-3">
             <label for="txt_username" class="form-label">Username</label>
             <input type="text" class="form-control" id="txt_username" name="txt_username" value="<?=$row['username']?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="txt_nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="txt_nama" name="txt_nama" value="<?=$row['nama']?>" autofocus readonly>
           </div>
           <div class="mb-3">
             <label for="txt_email" class="form-label">Email Address</label>

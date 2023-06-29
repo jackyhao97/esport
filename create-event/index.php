@@ -33,7 +33,10 @@
     $createdon = date('Y-m-d H:i:s');
     $file = $_FILES['fil_upload_event'];
 
-    if ($nama != "") {
+    if (strtotime($tgl_event_awal) > strtotime($tgl_event_akhir)) {
+      echo "<script>alert('Tgl Akhir Event tidak boleh mendahului Tgl Awal Event!')</script>";
+    }
+    else if ($nama != "") {
       $new_filename = "EVENT_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../assets/img/event/".$new_filename);
       $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir, history, genre_game) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir', 1, '$genre_games')");
@@ -126,13 +129,13 @@
         <div class="row mb-3">
           <label for="txt_prize_pool" class="form-label col-sm-2 border-label-eo">Prize Pool</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool">
+            <input type="text" class="form-control" id="txt_prize_pool" name="txt_prize_pool" required>
           </div>
         </div>
         <div class="row mb-3">
           <label for="txt_max_slot" class="form-label col-sm-2 border-label-eo">Max Slot</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot">
+            <input type="text" class="form-control" id="txt_max_slot" name="txt_max_slot" required>
           </div>
         </div>
         <div class="row mb-3">
