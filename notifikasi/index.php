@@ -30,12 +30,36 @@
               <th>Verified</th>
               <th></th>
               <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
         </table>
       </div>
     </div>
     <!-- End -->
+
+    <!-- Tampilam Modal Detail -->
+    <!-- Modal -->
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDetailLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+
     <?php 
       require_once '../footer.php';
     ?>
@@ -92,6 +116,8 @@
         table.columns(1).visible(false);
         table.columns(2).visible(false);
         table.columns(5).visible(false);
+        table.columns(6).visible(false);
+        table.columns(7).visible(false);
         
         if (<?=$id?> == 14) table.columns(4).visible(true)
         else table.columns(4).visible(false)
