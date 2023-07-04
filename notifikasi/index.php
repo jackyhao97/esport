@@ -45,15 +45,67 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalDetailLabel">Modal title</h5>
+            <h5 class="modal-title" id="modalDetailLabel">Detail</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <div class="row mb-3 align-items-center">
+              <label for="txt_nama" class="form-label col-sm-3 text-center">Nama</label>
+              <div class="col-sm-8">
+                <p id="txt_nama" name="txt_nama"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_email" class="form-label col-sm-3 text-center">Tipe</label>
+              <div class="col-sm-8">
+                <p id="txt_email" name="txt_email"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Jenis</label>
+              <div class="col-sm-8">
+                <p id="txt_jenis" name="txt_jenis"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Prize Pool</label>
+              <div class="col-sm-8">
+                <p id="txt_prize_pool" name="txt_prize_pool"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Max Slot</label>
+              <div class="col-sm-8">
+                <p id="txt_max_slot" name="txt_max_slot"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Genre Game</label>
+              <div class="col-sm-8">
+                <p id="txt_genre_game" name="txt_genre_game"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Lokasi</label>
+              <div class="col-sm-8">
+                <p id="txt_lokasi" name="txt_lokasi"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Tgl Awal Event</label>
+              <div class="col-sm-8">
+                <p id="txt_tgl_awal_event" name="txt_tgl_awal_event"></p>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+              <label for="txt_no_hp" class="form-label col-sm-3 text-center">Tgl Akhir Event</label>
+              <div class="col-sm-8">
+                <p id="txt_tgl_akhir_event" name="txt_tgl_akhir_event"></p>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
