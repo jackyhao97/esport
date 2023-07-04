@@ -89,7 +89,7 @@ $columns = array(
     'dt' => 0,
     'formatter' => function($d, $row){
       if ($row[1] == 1)
-        return "<a href='javascript:void(0)' target='_blank' title='detail' data-bs-toggle='modal' data-bs-target='#modalDetail'>$row[2] create event bernama $d</a>";
+        return "<a href='javascript:void(0)' target='_blank' title='detail' data-bs-toggle='modal' data-bs-target='#modalDetail' onclick='show('.$row[4].')'>$row[2] create event bernama $d</a>";
       else if ($row[1] == 2)
         return "$row[2] posting EO bernama $d";
       else if ($row[1] == 3)

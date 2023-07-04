@@ -199,6 +199,34 @@
           });
         }
       }
+
+      // Untuk tampilkan data
+      function show(id) {
+        $.ajax({
+          type: "post",
+          data: {id},
+          url: "showDetail.php",
+          success: (data) => {
+            let res = JSON.parse(data);
+            if (res.success == 1) {
+              $("#txt_judul_edit").val(res.data[0].judul);
+              $("#txt_keterangan_edit").val(res.data[0].keterangan);
+              $("#txt_urutan_edit").val(res.data[0].urutan);
+              $("#hid_id").val(res.data[0].hid_id);
+              $('#fil_upload_content_exist_card').html(
+              `<img class="file-card__image w-100" id="fil_upload_content_exist_preview" src="${mainURL}content/${res.data[0].path}" />`
+              );
+            }
+            else {
+              alert("Tampil data error! Please Contact Administrator!");
+            }
+          },
+          error: (err) => {
+            alert("Terjadi kesalahan saat menampilkan data.");
+            console.log(err);
+          },
+        });
+      }
     </script>
   </body>
 </html>
