@@ -1,23 +1,32 @@
 <?php 
-  require_once './init.php';
-  require_once './functions.php';
+  require_once '../config.php';
   $res = [];
 
 	if (isset($_POST['id'])) {
 		$id = $_POST['id'];
-    $data = $conn->query("SELECT judul, keterangan, path, urutan FROM tb_content WHERE id = '$id'");
+    $data = $conn->query("SELECT nama, tipe, jenis, prize_pool, max_slot, genre_game, lokasi, tgl_event_awal, tgl_event_akhir FROM tb_event WHERE id = '$id'");
     $row = $data->fetch_array(MYSQLI_ASSOC);
-    $judul = $row['judul'];
-    $keterangan = $row['keterangan'];
-    $path = $row['path'];
-    $urutan = $row['urutan'];
+    $nama = $row['nama'];
+    $tipe = $row['tipe'];
+    $jenis = $row['jenis'];
+    $prize_pool = $row['prize_pool'];
+    $max_slot = $row['max_slot'];
+    $genre_game = $row['genre_game'];
+    $lokasi = $row['lokasi'];
+    $tgl_event_awal = $row['tgl_event_awal'];
+    $tgl_event_akhir = $row['tgl_event_akhir'];
 	
     $hasil[] = [
       'hid_id' => $id,
-      'judul' => $judul,
-      'keterangan' => $keterangan,
-      'path' => $path,
-      'urutan' => $urutan
+      'nama' => $nama,
+      'tipe' => $tipe,
+      'jenis' => $jenis,
+      'prize_pool' => $prize_pool,
+      'max_slot' => $max_slot,
+      'genre_game' => $genre_game,
+      'lokasi' => $lokasi,
+      'tgl_event_awal' => $tgl_event_awal,
+      'tgl_event_akhir' => $tgl_event_akhir,
     ];
 
     array_push($hasil);
