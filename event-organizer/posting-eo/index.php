@@ -4,33 +4,42 @@
   $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../../login/");
 
   if (isset($_POST["btn_submit"])) {
+    var_dump($_POST);
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
     $jenis_eo = isset($_POST['txt_jenis_eo']) ? $_POST['txt_jenis_eo'] : '';
-    $harga_paket_event_a = isset($_POST['txt_harga_paket_event_a']) ? $_POST['txt_harga_paket_event_a'] : '';
-    $harga_paket_event_b = isset($_POST['txt_harga_paket_event_b']) ? $_POST['txt_harga_paket_event_b'] : '';
+    // $harga_paket_event_a = isset($_POST['txt_harga_paket_event_a']) ? $_POST['txt_harga_paket_event_a'] : '';
+    // $harga_paket_event_b = isset($_POST['txt_harga_paket_event_b']) ? $_POST['txt_harga_paket_event_b'] : '';
+    $dekorasi_a = isset($_POST['txt_dekorasi_a']) ? $_POST['txt_dekorasi_a'] : 0;
+    $event_a = isset($_POST['txt_event_a']) ? $_POST['txt_event_a'] : 0;
+    $panggung_a = isset($_POST['txt_panggung_a']) ? $_POST['txt_panggung_a'] : 0;
+    $total_a = isset($_POST['txt_total_a']) ? $_POST['txt_total_a'] : 0;
+    $dekorasi_b = isset($_POST['txt_dekorasi_b']) ? $_POST['txt_dekorasi_b'] : 0;
+    $event_b = isset($_POST['txt_event_b']) ? $_POST['txt_event_b'] : 0;
+    $panggung_b = isset($_POST['txt_panggung_b']) ? $_POST['txt_panggung_b'] : 0;
+    $total_b = isset($_POST['txt_total_b']) ? $_POST['txt_total_b'] : 0;
     $custom_event = isset($_POST['rdo_custom_event']) ? $_POST['rdo_custom_event'] : '';
     $file = $_FILES['fil_upload_event'];
     $createdon = date('Y-m-d H:i:s');
 
-    if ($nama != "" and $jenis_eo != 0 and $harga_paket_event_a != "" and $harga_paket_event_b != "" and $custom_event != "") {
+    if ($nama != "" and $jenis_eo != 0 and $custom_event != "") {
       $new_filename = "EO_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../../assets/img/event-organizer/".$new_filename);
-      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, is_custom, path, is_active, created_on, created_by, history) VALUES ('$nama', '$jenis_eo', '$custom_event', '$new_filename', 1, '$createdon', '$id', 2)");
+      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, is_custom, path, is_active, created_on, created_by, history, dekorasi_a, dekorasi_b, event_a, event_b, panggung_a, panggung_b, total_a, total_b) VALUES ('$nama', '$jenis_eo', '$custom_event', '$new_filename', 1, '$createdon', '$id', 2, '$dekorasi_a', '$dekorasi_b', '$event_a', '$event_b', '$panggung_a', '$panggung_b', '$total_a', '$total_b')");
       $last_id = $conn->insert_id;
 
-      if ($harga_paket_event_a != '') {
-        $insertharga = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_a', '$createdon', '$id')");
-      }
+      // if ($harga_paket_event_a != '') {
+      //   $insertharga = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_a', '$createdon', '$id')");
+      // }
 
-      if ($harga_paket_event_b != '') {
-        $inserthargab = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_b', '$createdon', '$id')");
-      }
+      // if ($harga_paket_event_b != '') {
+      //   $inserthargab = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_b', '$createdon', '$id')");
+      // }
   
-      if ($insert && $upload && $insertharga && $inserthargab) {
+      if ($insert && $upload) {
         echo "<script>alert('Event Organizer berhasil ditambah!')</script>";
         echo "<script>window.location='../'</script>";
       }
-      else if (!$insert && $upload && $insertharga && $inserthargab) {
+      else if (!$insert && $upload) {
         echo "<script>alert('Gambar berhasil diupload namun gagal disimpan ke database')</script>";
       }
       else {
@@ -77,13 +86,103 @@
             </select>
           </div>
         </div>
-        <div class="row mb-3">
+        <!-- <div class="row mb-3">
           <label for="txt_harga_paket_event_a" class="col-sm-2 form-label border-label-eo">Harga Paket Event</label>
           <div class="col-12 col-sm-5">
             <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_a" name="txt_harga_paket_event_a" rows='5' required></textarea>
           </div>
           <div class="col-12 mt-1 mt-sm-0 col-sm-5">
             <textarea class="form-control" aria-label="Harga Paket Event" id="txt_harga_paket_event_b" name="txt_harga_paket_event_b" rows='5' required></textarea>
+          </div>
+        </div> -->
+        <div class="row mb-3">
+          <label class="col-sm-2 form-label border-label-eo fw-bold">Harga Paket A</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_dekorasi_a" class="col-sm-2 form-label">Dekorasi</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_dekorasi_a" name="txt_dekorasi_a" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-0 mt-sm-2">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_event_a" class="col-sm-2 form-label">Event</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_event_a" name="txt_event_a" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-0 mt-sm-2">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_panggung_a" class="col-sm-2 form-label">Panggung</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_panggung_a" name="txt_panggung_a" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-0 mt-sm-2">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_total_a" class="col-sm-2 form-label">Total</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_total_a" name="txt_total_a" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 form-label border-label-eo fw-bold">Harga Paket B</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_dekorasi_b" class="col-sm-2 form-label">Dekorasi</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_dekorasi_b" name="txt_dekorasi_b" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-0 mt-sm-2">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_event_b" class="col-sm-2 form-label">Event</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_event_b" name="txt_event_b" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-0 mt-sm-2">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_panggung_b" class="col-sm-2 form-label">Panggung</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_panggung_b" name="txt_panggung_b" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-0 mt-sm-2">
+              <div class="col-12">
+                <div class="row">
+                  <label for="txt_total_b" class="col-sm-2 form-label">Total</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="col-sm-10 form-control" id="txt_total_b" name="txt_total_b" required>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row mb-3">
