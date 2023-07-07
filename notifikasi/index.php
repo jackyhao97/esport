@@ -49,55 +49,63 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_nama" class="form-label col-sm-3 text-center">Nama</label>
               <div class="col-sm-8">
                 <p id="txt_nama" name="txt_nama"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_tipe" class="form-label col-sm-3 text-center">Tipe</label>
               <div class="col-sm-8">
                 <p id="txt_tipe" name="txt_tipe"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_jenis" class="form-label col-sm-3 text-center">Jenis</label>
               <div class="col-sm-8">
                 <p id="txt_jenis" name="txt_jenis"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_prize_pool" class="form-label col-sm-3 text-center">Prize Pool</label>
               <div class="col-sm-8">
                 <p id="txt_prize_pool" name="txt_prize_pool"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_max_slot" class="form-label col-sm-3 text-center">Max Slot</label>
               <div class="col-sm-8">
                 <p id="txt_max_slot" name="txt_max_slot"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_genre_game" class="form-label col-sm-3 text-center">Genre Game</label>
               <div class="col-sm-8">
                 <p id="txt_genre_game" name="txt_genre_game"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_lokasi" class="form-label col-sm-3 text-center">Lokasi</label>
               <div class="col-sm-8">
                 <p id="txt_lokasi" name="txt_lokasi"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_no_hp" class="form-label col-sm-3 text-center">Tgl Awal Event</label>
               <div class="col-sm-8">
                 <p id="txt_tgl_awal_event" name="txt_tgl_awal_event"></p>
               </div>
+              <hr>
             </div>
-            <div class="row mb-3 align-items-center">
+            <div class="row align-items-center">
               <label for="txt_no_hp" class="form-label col-sm-3 text-center">Tgl Akhir Event</label>
               <div class="col-sm-8">
                 <p id="txt_tgl_akhir_event" name="txt_tgl_akhir_event"></p>
@@ -200,6 +208,12 @@
         }
       }
 
+      function reformatDate(dateStr)
+      {
+        var dArr = dateStr.split("-");  // ex input: "2010-01-18"
+        return dArr[2]+ "-" +dArr[1]+ "-" +dArr[0]; //ex output: "18/01/10"
+      }
+
       // Untuk tampilkan data
       function show(id) {
         $.ajax({
@@ -217,8 +231,8 @@
               $("#txt_max_slot").html(res.data[0].max_slot);
               $("#txt_genre_game").html(res.data[0].genre_game);
               $("#txt_lokasi").html(res.data[0].lokasi);
-              $("#txt_tgl_awal_event").html(res.data[0].tgl_event_awal);
-              $("#txt_tgl_akhir_event").html(res.data[0].tgl_event_akhir);
+              $("#txt_tgl_awal_event").html(reformatDate(res.data[0].tgl_event_awal));
+              $("#txt_tgl_akhir_event").html(reformatDate(res.data[0].tgl_event_akhir));
             }
             else {
               alert("Tampil data error! Please Contact Administrator!");
