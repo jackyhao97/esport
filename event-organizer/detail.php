@@ -1,12 +1,13 @@
 <?php 
   session_start();
   require_once '../config.php';
+  require_once '../functions.php';
 
   $id = $_GET["id"];
   $user = $_SESSION['id'];
 
   // Query untuk ambil detail event organizer
-  $result = $conn->query("SELECT pe.id as ideo, nama, jenis_eo, is_custom, path, history, tipe, deskripsi, created_on, created_by FROM `tb_post_eo` pe LEFT JOIN `tb_tipe_event` te ON pe.jenis_eo = te.id WHERE pe.id = '$id'");
+  $result = $conn->query("SELECT pe.id as ideo, nama, jenis_eo, is_custom, path, history, tipe, deskripsi, created_on, created_by, dekorasi_a, event_a, panggung_a, total_a, dekorasi_b, event_b, panggung_b, total_b FROM `tb_post_eo` pe LEFT JOIN `tb_tipe_event` te ON pe.jenis_eo = te.id WHERE pe.id = '$id'");
   $row = $result->fetch_array();
   $usercreated = $row["created_by"];
   $resultuser = $conn->query("SELECT * FROM `tb_account` WHERE id = '$user'");
@@ -57,34 +58,46 @@
             </div>
             <div class="col-12 mt-3">
               <div class="row">
-              <?php 
-                $resultharga = $conn->query("SELECT * FROM `tb_harga_paket` WHERE post_eo_id = '$id'");
-                $paket = 1;
-                while ($rowharga = $resultharga->fetch_array()) :
-              ?>
                 <div class="col-12 col-md-6">
                   <div class="card border-light mb-3">
                     <div class="card-header d-flex justify-content-between">
                       <div>
-                        Paket <?=$paket?>
+                        Paket A
                       </div>
                       <div>
-                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$rowharga['id']?>" aria-label="...">
+                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$row['id']?>" aria-label="...">
                       </div>
                     </div>
                     <div class="card-body">
-                      <!-- <h5 class="card-title">Light card title</h5> -->
-                      <p class="card-text"><?=$rowharga['deskripsi_harga']?></p>
+                      <p class="card-text">Dekorasi : Rp <?=number_format($row['dekorasi_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Event : Rp <?=number_format($row['event_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Panggung : Rp <?=number_format($row['panggung_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Total : Rp <?=number_format($row['total_a'], 0, ",", ".");?></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card border-light mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                      <div>
+                        Paket B
+                      </div>
+                      <div>
+                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$row['id']?>" aria-label="...">
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">Dekorasi : Rp <?=number_format($row['dekorasi_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Event : Rp <?=number_format($row['event_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Panggung : Rp <?=number_format($row['panggung_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Total : Rp <?=number_format($row['total_b'], 0, ",", ".");?></p>
                     </div>
                   </div>
                 </div>
               <?php
-                $paket++;
-                endwhile;
-
                 if ($row['is_custom'] == 1) :
               ?>
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                   <div class="card border-light mb-3">
                     <div class="card-header d-flex justify-content-between">
                       <div>
@@ -93,6 +106,9 @@
                       <div>
                         <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="0" aria-label="...">
                       </div>
+                    </div>
+                    <div class="card-body">
+                      <textarea class="form-control" aria-label="Harga Paket Custom" id="txt_custom" name="txt_custom" rows='5' required></textarea>
                     </div>
                   </div>
                 </div>

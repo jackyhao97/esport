@@ -34,7 +34,7 @@ if ($tipeuser == "admin") {
     SELECT 
       eo.`id`, eo.`is_active`, eo.`nama`, eo.`history`, eo.`created_on`, acc.`nama` as user, acc.`email`, acc.`nomor` FROM `tb_post_eo` eo 
     LEFT JOIN `tb_account` acc ON eo.created_by = acc.id
-    UNION ALL 
+    UNION ALL
     SELECT 
       heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user, acco.`email`, acco.`nomor` FROM `tb_history_eo` heo 
     LEFT JOIN `tb_account` acco ON heo.created_by = acco.id LEFT JOIN `tb_post_eo` pe ON heo.post_eo_id = pe.id
