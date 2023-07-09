@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Jun 2023 pada 15.38
+-- Waktu pembuatan: 07 Jul 2023 pada 14.55
 -- Versi server: 10.4.8-MariaDB
--- Versi PHP: 8.2.0
+-- Versi PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -143,7 +143,9 @@ INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `deskripsi_harga`, `is_active`
 (10, 5, 'sdfsdfsdf', 1, '2023-06-21 15:15:49', 15),
 (11, 5, 'sdfsdfsdfwerwer', 1, '2023-06-21 15:15:49', 15),
 (12, 6, 'sdfsdfsd', 1, '2023-06-21 15:20:43', 15),
-(13, 6, 'werwerwer', 1, '2023-06-21 15:20:43', 15);
+(13, 6, 'werwerwer', 1, '2023-06-21 15:20:43', 15),
+(14, 7, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15),
+(15, 7, 'Dekorasi : Rp. 1.250.000 Event : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15);
 
 -- --------------------------------------------------------
 
@@ -164,22 +166,6 @@ CREATE TABLE `tb_history_bobot` (
 --
 
 INSERT INTO `tb_history_bobot` (`id`, `event_id`, `bobot`, `created_on`, `created_by`) VALUES
-(1137, 25, '0.0000', '2023-06-04 10:58:48', 15),
-(1138, 23, '0.9999', '2023-06-04 10:58:48', 15),
-(1139, 16, '0.0000', '2023-06-04 10:58:48', 15),
-(1140, 15, '0.0000', '2023-06-04 10:58:48', 15),
-(1141, 14, '0.0000', '2023-06-04 10:58:48', 15),
-(1142, 13, '0.0000', '2023-06-04 10:58:48', 15),
-(1143, 12, '0.0000', '2023-06-04 10:58:48', 15),
-(1144, 11, '0.1054', '2023-06-04 10:58:48', 15),
-(1573, 25, '0.9999', '2023-06-14 13:25:28', 14),
-(1574, 23, '0.0000', '2023-06-14 13:25:28', 14),
-(1575, 16, '0.0000', '2023-06-14 13:25:28', 14),
-(1576, 15, '0.0000', '2023-06-14 13:25:28', 14),
-(1577, 14, '0.0000', '2023-06-14 13:25:28', 14),
-(1578, 13, '0.0000', '2023-06-14 13:25:28', 14),
-(1579, 12, '0.8000', '2023-06-14 13:25:28', 14),
-(1580, 11, '0.1491', '2023-06-14 13:25:28', 14),
 (1653, 25, '0.0000', '2023-06-14 13:26:35', 6),
 (1654, 23, '0.0000', '2023-06-14 13:26:35', 6),
 (1655, 16, '0.1543', '2023-06-14 13:26:35', 6),
@@ -188,14 +174,30 @@ INSERT INTO `tb_history_bobot` (`id`, `event_id`, `bobot`, `created_on`, `create
 (1658, 13, '0.1667', '2023-06-14 13:26:35', 6),
 (1659, 12, '0.0000', '2023-06-14 13:26:35', 6),
 (1660, 11, '0.1361', '2023-06-14 13:26:35', 6),
-(1717, 25, '0.0000', '2023-06-21 14:59:34', 7),
-(1718, 23, '0.0000', '2023-06-21 14:59:34', 7),
-(1719, 16, '0.9999', '2023-06-21 14:59:34', 7),
-(1720, 15, '0.3780', '2023-06-21 14:59:34', 7),
-(1721, 14, '0.1543', '2023-06-21 14:59:34', 7),
-(1722, 13, '0.3086', '2023-06-21 14:59:34', 7),
-(1723, 12, '0.0000', '2023-06-21 14:59:34', 7),
-(1724, 11, '0.2520', '2023-06-21 14:59:34', 7);
+(1725, 25, '0.9999', '2023-06-30 10:57:35', 15),
+(1726, 23, '0.0000', '2023-06-30 10:57:35', 15),
+(1727, 16, '0.0000', '2023-06-30 10:57:35', 15),
+(1728, 15, '0.0000', '2023-06-30 10:57:35', 15),
+(1729, 14, '0.0000', '2023-06-30 10:57:35', 15),
+(1730, 13, '0.0000', '2023-06-30 10:57:35', 15),
+(1731, 12, '0.8000', '2023-06-30 10:57:35', 15),
+(1732, 11, '0.1491', '2023-06-30 10:57:35', 15),
+(1741, 25, '0.9999', '2023-07-01 16:07:20', 7),
+(1742, 23, '0.0000', '2023-07-01 16:07:20', 7),
+(1743, 16, '0.0000', '2023-07-01 16:07:20', 7),
+(1744, 15, '0.0000', '2023-07-01 16:07:20', 7),
+(1745, 14, '0.0000', '2023-07-01 16:07:20', 7),
+(1746, 13, '0.0000', '2023-07-01 16:07:20', 7),
+(1747, 12, '0.8000', '2023-07-01 16:07:20', 7),
+(1748, 11, '0.1491', '2023-07-01 16:07:20', 7),
+(1749, 25, '0.9999', '2023-07-07 14:41:13', 14),
+(1750, 23, '0.0000', '2023-07-07 14:41:13', 14),
+(1751, 16, '0.0000', '2023-07-07 14:41:13', 14),
+(1752, 15, '0.0000', '2023-07-07 14:41:13', 14),
+(1753, 14, '0.0000', '2023-07-07 14:41:13', 14),
+(1754, 13, '0.0000', '2023-07-07 14:41:13', 14),
+(1755, 12, '0.8000', '2023-07-07 14:41:13', 14),
+(1756, 11, '0.1491', '2023-07-07 14:41:13', 14);
 
 -- --------------------------------------------------------
 
@@ -283,16 +285,26 @@ CREATE TABLE `tb_post_eo` (
   `history` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `created_on` datetime NOT NULL,
-  `created_by` int(11) NOT NULL
+  `created_by` int(11) NOT NULL,
+  `dekorasi_a` int(11) NOT NULL,
+  `event_a` int(11) NOT NULL,
+  `panggung_a` int(11) NOT NULL,
+  `total_a` int(11) NOT NULL,
+  `dekorasi_b` int(11) NOT NULL,
+  `event_b` int(11) NOT NULL,
+  `panggung_b` int(11) NOT NULL,
+  `total_b` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_post_eo`
 --
 
-INSERT INTO `tb_post_eo` (`id`, `nama`, `jenis_eo`, `is_custom`, `path`, `history`, `is_active`, `created_on`, `created_by`) VALUES
-(2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 15),
-(4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 15);
+INSERT INTO `tb_post_eo` (`id`, `nama`, `jenis_eo`, `is_custom`, `path`, `history`, `is_active`, `created_on`, `created_by`, `dekorasi_a`, `event_a`, `panggung_a`, `total_a`, `dekorasi_b`, `event_b`, `panggung_b`, `total_b`) VALUES
+(2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 15, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 15, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 'tes', '1', 1, 'EO_405_1688391671.jpg', 2, 1, '2023-07-03 15:41:11', 15, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 'sdfsdf', '1', 1, 'EO_475_1688652457.jpg', 2, 1, '2023-07-06 16:07:37', 15, 3432423, 234232, 32423, 213123, 32432, 21312, 4542, 234324);
 
 -- --------------------------------------------------------
 
@@ -445,13 +457,13 @@ ALTER TABLE `tb_tipe_user`
 -- AUTO_INCREMENT untuk tabel `tb_account`
 --
 ALTER TABLE `tb_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_event`
 --
 ALTER TABLE `tb_event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_genre`
@@ -463,13 +475,13 @@ ALTER TABLE `tb_genre`
 -- AUTO_INCREMENT untuk tabel `tb_harga_paket`
 --
 ALTER TABLE `tb_harga_paket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_bobot`
 --
 ALTER TABLE `tb_history_bobot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1725;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1757;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_eo`
@@ -493,7 +505,7 @@ ALTER TABLE `tb_jenis_event`
 -- AUTO_INCREMENT untuk tabel `tb_post_eo`
 --
 ALTER TABLE `tb_post_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sample`
