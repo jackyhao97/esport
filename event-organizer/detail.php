@@ -58,6 +58,10 @@
             </div>
             <div class="col-12 mt-3">
               <div class="row">
+              <?php 
+                $resultharga = $conn->query("SELECT * FROM `tb_harga_paket` WHERE post_eo_id = '$id' and is_paket_a = 1");
+                $rowharga = $resultharga->fetch_array();
+              ?>
                 <div class="col-12 col-md-6">
                   <div class="card border-light mb-3">
                     <div class="card-header d-flex justify-content-between">
@@ -65,17 +69,21 @@
                         Paket A
                       </div>
                       <div>
-                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$row['id']?>" aria-label="...">
+                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$rowharga['id'].'|'.$rowharga['is_paket_a']?>" aria-label="...">
                       </div>
                     </div>
                     <div class="card-body">
-                      <p class="card-text">Dekorasi : Rp <?=number_format($row['dekorasi_a'], 0, ",", ".");?></p>
-                      <p class="card-text">Event : Rp <?=number_format($row['event_a'], 0, ",", ".");?></p>
-                      <p class="card-text">Panggung : Rp <?=number_format($row['panggung_a'], 0, ",", ".");?></p>
-                      <p class="card-text">Total : Rp <?=number_format($row['total_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Dekorasi : Rp <?=number_format($rowharga['dekorasi_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Event : Rp <?=number_format($rowharga['event_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Panggung : Rp <?=number_format($rowharga['panggung_a'], 0, ",", ".");?></p>
+                      <p class="card-text">Total : Rp <?=number_format($rowharga['total_a'], 0, ",", ".");?></p>
                     </div>
                   </div>
                 </div>
+              <?php 
+                $resultharga = $conn->query("SELECT * FROM `tb_harga_paket` WHERE post_eo_id = '$id' and is_paket_a = 0");
+                $rowharga = $resultharga->fetch_array();
+              ?>
                 <div class="col-12 col-md-6">
                   <div class="card border-light mb-3">
                     <div class="card-header d-flex justify-content-between">
@@ -83,14 +91,14 @@
                         Paket B
                       </div>
                       <div>
-                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$row['id']?>" aria-label="...">
+                        <input class="form-check-input radiopaket" type="radio" name="radioNoLabel" id="radioNoLabel1" value="<?=$rowharga['id'].'|'.$rowharga['is_paket_a']?>?>" aria-label="...">
                       </div>
                     </div>
                     <div class="card-body">
-                      <p class="card-text">Dekorasi : Rp <?=number_format($row['dekorasi_b'], 0, ",", ".");?></p>
-                      <p class="card-text">Event : Rp <?=number_format($row['event_b'], 0, ",", ".");?></p>
-                      <p class="card-text">Panggung : Rp <?=number_format($row['panggung_b'], 0, ",", ".");?></p>
-                      <p class="card-text">Total : Rp <?=number_format($row['total_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Dekorasi : Rp <?=number_format($rowharga['dekorasi_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Event : Rp <?=number_format($rowharga['event_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Panggung : Rp <?=number_format($rowharga['panggung_b'], 0, ",", ".");?></p>
+                      <p class="card-text">Total : Rp <?=number_format($rowharga['total_b'], 0, ",", ".");?></p>
                     </div>
                   </div>
                 </div>
@@ -108,7 +116,7 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <textarea class="form-control" aria-label="Harga Paket Custom" id="txt_custom" name="txt_custom" rows='5' required></textarea>
+                      <textarea class="form-control txt_custom" aria-label="Harga Paket Custom" id="txt_custom" name="txt_custom" rows='5' required></textarea>
                     </div>
                   </div>
                 </div>
@@ -145,8 +153,13 @@
     <script>
       function register(id, user) {
         // value hargapaket = 0 artinya custom
-        var hargapaket = $(".radiopaket:checked").val();
-        if (hargapaket == undefined) {
+        var hargapaketraw = $(".radiopaket:checked").val();
+        var custom = $(".txt_custom").val();
+        hargapaketnew = hargapaketraw.split("|");
+        var hargapaket = hargapaketnew[0];
+        var paketa = hargapaketnew[1];
+        
+        if (hargapaketraw == undefined) {
           alert('Paket belum dipilih!');
         }
         else {
@@ -155,7 +168,7 @@
             $.ajax({
               type: "post",
               url: "register.php",
-              data: { id, user, hargapaket },
+              data: { id, user, hargapaket, custom, paketa },
               success: (data) => {
                 const res = $.parseJSON(data);
   
