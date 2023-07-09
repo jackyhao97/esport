@@ -4,11 +4,8 @@
   $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../../login/");
 
   if (isset($_POST["btn_submit"])) {
-    var_dump($_POST);
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
     $jenis_eo = isset($_POST['txt_jenis_eo']) ? $_POST['txt_jenis_eo'] : '';
-    // $harga_paket_event_a = isset($_POST['txt_harga_paket_event_a']) ? $_POST['txt_harga_paket_event_a'] : '';
-    // $harga_paket_event_b = isset($_POST['txt_harga_paket_event_b']) ? $_POST['txt_harga_paket_event_b'] : '';
     $dekorasi_a = isset($_POST['txt_dekorasi_a']) ? $_POST['txt_dekorasi_a'] : 0;
     $event_a = isset($_POST['txt_event_a']) ? $_POST['txt_event_a'] : 0;
     $panggung_a = isset($_POST['txt_panggung_a']) ? $_POST['txt_panggung_a'] : 0;
@@ -27,15 +24,10 @@
       $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, is_custom, path, is_active, created_on, created_by, history, dekorasi_a, dekorasi_b, event_a, event_b, panggung_a, panggung_b, total_a, total_b) VALUES ('$nama', '$jenis_eo', '$custom_event', '$new_filename', 1, '$createdon', '$id', 2, '$dekorasi_a', '$dekorasi_b', '$event_a', '$event_b', '$panggung_a', '$panggung_b', '$total_a', '$total_b')");
       $last_id = $conn->insert_id;
 
-      // if ($harga_paket_event_a != '') {
-      //   $insertharga = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_a', '$createdon', '$id')");
-      // }
-
-      // if ($harga_paket_event_b != '') {
-      //   $inserthargab = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, deskripsi_harga, created_on, created_by) VALUES ('$last_id', 1, '$harga_paket_event_b', '$createdon', '$id')");
-      // }
+      $insertharga_a = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, dekorasi_a, event_a, panggung_a, total_a , created_on, created_by, is_paket_a) VALUES ('$last_id', 1, '$dekorasi_a', '$event_a', '$panggung_a', '$total_a', '$createdon', '$id', 1)");
+      $insertharga_b = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, dekorasi_b, event_b, panggung_b, total_b, created_on, created_by, is_paket_a) VALUES ('$last_id', 1, '$dekorasi_b', '$event_b', '$panggung_b', '$total_b', '$createdon', '$id', 0)");
   
-      if ($insert && $upload) {
+      if ($insert && $upload && $insertharga_a && $insertharga_b) {
         echo "<script>alert('Event Organizer berhasil ditambah!')</script>";
         echo "<script>window.location='../'</script>";
       }
