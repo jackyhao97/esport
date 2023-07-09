@@ -58,7 +58,7 @@ else {
       LEFT JOIN `tb_account` acc ON eo.created_by = acc.id WHERE acc.nama = "$akunuser"
       UNION ALL 
       SELECT 
-        heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user, acco.`email`, acco.`nomor`,  heo.`custom` as custom, CASE WHEN heo.`is_paket_a` = 1 THEN 'A' ELSE 'B' END as paketa FROM `tb_history_eo` heo 
+        heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user, acco.`email`, acco.`nomor`,  heo.`custom` as custom, CASE WHEN heo.`is_paket_a` = 1 THEN 'A' WHEN heo.`is_paket_a` = 0 AND heo.`custom` = '' THEN 'B' ELSE 'C' END as paketa FROM `tb_history_eo` heo 
       LEFT JOIN `tb_account` acco ON heo.created_by = acco.id LEFT JOIN `tb_post_eo` pe ON heo.post_eo_id = pe.id WHERE acco.nama = "$akunuser"
       UNION ALL
       SELECT 
