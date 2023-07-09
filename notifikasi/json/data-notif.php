@@ -16,9 +16,13 @@ $rowakun = $queryakun->fetch_array();
 $akunuser = $rowakun['nama'];
 $tipeuser = $rowakun['tipe'];
 
-// $user = "jeffry";
-
 function BuildAction($data, $is_verified) {
+  $component = $is_verified == 0 ? '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>' : '';
+
+  return $component;
+}
+
+function BuildActionUser($data, $is_verified) {
   $component = $is_verified == 0 ? '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>' : '';
 
   return $component;
@@ -28,19 +32,19 @@ if ($tipeuser == "admin") {
   $table = <<<EOT
   (
     SELECT 
-      ev.`id`, ev.`is_verified`, ev.`nama`, ev.`history`, ev.`created_on`, ac.`nama` as user, ac.`email`, ac.`nomor`, ev.`id` as custom, ev.`id` as paketa FROM `tb_event` ev 
+      ev.`id`, ev.`is_verified`, ev.`nama`, ev.`history`, ev.`created_on`, ac.`nama` as user, ac.`email`, ac.`nomor`, ev.`id` as custom, ev.`id` as paketa, ac.`id` as userid, ac.`is_verified` as verifieduser FROM `tb_event` ev 
     LEFT JOIN `tb_account` ac ON ev.created_by = ac.id
     UNION ALL 
     SELECT 
-      eo.`id`, eo.`is_active`, eo.`nama`, eo.`history`, eo.`created_on`, acc.`nama` as user, acc.`email`, acc.`nomor`, eo.`id` as custom, eo.`id` as paketa FROM `tb_post_eo` eo 
+      eo.`id`, eo.`is_active`, eo.`nama`, eo.`history`, eo.`created_on`, acc.`nama` as user, acc.`email`, acc.`nomor`, eo.`id` as custom, eo.`id` as paketa, acc.`id` as userid, acc.`is_verified` as verifieduser FROM `tb_post_eo` eo 
     LEFT JOIN `tb_account` acc ON eo.created_by = acc.id
     UNION ALL
     SELECT 
-      heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user, acco.`email`, acco.`nomor`, heo.`custom` as custom, CASE WHEN heo.`is_paket_a` = 1 THEN 'A' WHEN heo.`is_paket_a` = 0 AND heo.`custom` = '' THEN 'B' ELSE 'C' END as paketa FROM `tb_history_eo` heo 
+      heo.`id`, heo.`harga_paket_id`, pe.`nama`, heo.`history`, heo.`created_on`, acco.`nama` as user, acco.`email`, acco.`nomor`, heo.`custom` as custom, CASE WHEN heo.`is_paket_a` = 1 THEN 'A' WHEN heo.`is_paket_a` = 0 AND heo.`custom` = '' THEN 'B' ELSE 'C' END as paketa, acco.`id` as userid, acco.`is_verified` as verifieduser FROM `tb_history_eo` heo 
     LEFT JOIN `tb_account` acco ON heo.created_by = acco.id LEFT JOIN `tb_post_eo` pe ON heo.post_eo_id = pe.id
     UNION ALL 
     SELECT 
-      he.`id`, he.`event_id`, ev.`nama`, he.`history`, he.`created_on`, accou.`nama` as user, accou.`email`, accou.`nomor`, he.`id` as custom, he.`id` as paketa FROM `tb_history_event` he 
+      he.`id`, he.`event_id`, ev.`nama`, he.`history`, he.`created_on`, accou.`nama` as user, accou.`email`, accou.`nomor`, he.`id` as custom, he.`id` as paketa, accou.`id` as userid, accou.`is_verified` as verifieduser FROM `tb_history_event` he 
     LEFT JOIN `tb_account` accou ON he.created_by = accou.id 
     LEFT JOIN `tb_event` ev ON he.event_id = ev.id ORDER BY created_on DESC
   ) temp 
@@ -83,6 +87,8 @@ $func_apply = 'BuildCounter';
 
 $func_apply_3 = 'BuildAction';
 
+$func_apply_4 = 'BuildActionUser';
+
 $columns = array(
   array(
     'db' => 'nama', 
@@ -94,12 +100,14 @@ $columns = array(
         return "$row[2] posting EO bernama $d";
       else if ($row[1] == 3)
         return "$row[2] ($row[7] - $row[6]) register event $d pada tanggal " . format_datetime($row[5]);
-      else {
+      else if ($row[1] == 4) {
         if ($row[9] == 'C')
           return "$row[2] menyewa EO bernama $d dengan custom berisi $row[8]";
         else
           return "$row[2] menyewa EO bernama $d dengan paket $row[9]";
       }
+      else
+        return "Create user bernama $row[2]";
     }
   ),
   array(
@@ -112,8 +120,10 @@ $columns = array(
         return "Event Organizer";
       else if ($d == 3)
         return "Register Event";
-      else
+      else if ($d == 4)
         return "Sewa EO";
+      else
+        return "Create User";
       }
   ),
   array('db' => 'user', 'dt' => 2),
@@ -133,8 +143,23 @@ $columns = array(
     }
   ),
   array(
-    'db' => 'id', 
+    'db' => 'verifieduser',
     'dt' => 4,
+    'formatter' => function($d, $row){
+      if ($row[1] == 5) {
+        if ($d > 0)
+          return '<i class="fa fa-check-circle fa-2x text-success"></i>';
+        else
+          return '<i class="fa fa-times-circle fa-2x text-danger"></i>';
+      }
+      else {
+        return '';
+      }
+    }
+  ),
+  array(
+    'db' => 'id', 
+    'dt' => 5,
     'formatter' => function($d, $row) use ($func_apply_3) {
       if ($row[1] == 1)
         return $func_apply_3($d, $row[3]);
@@ -142,11 +167,21 @@ $columns = array(
         return '';
     }
   ),
-  array('db' => 'created_on', 'dt' => 5),
-  array('db' => 'nomor', 'dt' => 6),
-  array('db' => 'email', 'dt' => 7),
-  array('db' => 'custom', 'dt' => 8),
-  array('db' => 'paketa', 'dt' => 9)
+  array(
+    'db' => 'userid', 
+    'dt' => 6,
+    'formatter' => function($d, $row) use ($func_apply_4) {
+      if ($row[1] == 5)
+        return $func_apply_4($d, $row[4]);
+      else
+        return '';
+    }
+  ),
+  array('db' => 'created_on', 'dt' => 7),
+  array('db' => 'nomor', 'dt' => 8),
+  array('db' => 'email', 'dt' => 9),
+  array('db' => 'custom', 'dt' => 10),
+  array('db' => 'paketa', 'dt' => 11)
 );
 
 

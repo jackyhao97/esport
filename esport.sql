@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jul 2023 pada 14.55
+-- Waktu pembuatan: 09 Jul 2023 pada 11.10
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -128,24 +128,37 @@ CREATE TABLE `tb_harga_paket` (
   `deskripsi_harga` text NOT NULL,
   `is_active` int(1) NOT NULL,
   `created_on` datetime NOT NULL,
-  `created_by` int(11) NOT NULL
+  `created_by` int(11) NOT NULL,
+  `dekorasi_a` int(11) NOT NULL,
+  `event_a` int(11) NOT NULL,
+  `panggung_a` int(11) NOT NULL,
+  `total_a` int(11) NOT NULL,
+  `dekorasi_b` int(11) NOT NULL,
+  `event_b` int(11) NOT NULL,
+  `panggung_b` int(11) NOT NULL,
+  `total_b` int(11) NOT NULL,
+  `is_paket_a` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_harga_paket`
 --
 
-INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `deskripsi_harga`, `is_active`, `created_on`, `created_by`) VALUES
-(1, 2, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-04-21 00:00:00', 6),
-(3, 2, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 00:00:00', 6),
-(8, 4, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-05-01 07:37:43', 7),
-(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7),
-(10, 5, 'sdfsdfsdf', 1, '2023-06-21 15:15:49', 15),
-(11, 5, 'sdfsdfsdfwerwer', 1, '2023-06-21 15:15:49', 15),
-(12, 6, 'sdfsdfsd', 1, '2023-06-21 15:20:43', 15),
-(13, 6, 'werwerwer', 1, '2023-06-21 15:20:43', 15),
-(14, 7, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15),
-(15, 7, 'Dekorasi : Rp. 1.250.000 Event : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15);
+INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `deskripsi_harga`, `is_active`, `created_on`, `created_by`, `dekorasi_a`, `event_a`, `panggung_a`, `total_a`, `dekorasi_b`, `event_b`, `panggung_b`, `total_b`, `is_paket_a`) VALUES
+(1, 2, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-04-21 00:00:00', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 2, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 00:00:00', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 4, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 5, 'sdfsdfsdf', 1, '2023-06-21 15:15:49', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 5, 'sdfsdfsdfwerwer', 1, '2023-06-21 15:15:49', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(12, 6, 'sdfsdfsd', 1, '2023-06-21 15:20:43', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(13, 6, 'werwerwer', 1, '2023-06-21 15:20:43', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(14, 7, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(15, 7, 'Dekorasi : Rp. 1.250.000 Event : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(16, 10, '', 1, '2023-07-09 04:29:15', 15, 234234, 234234, 51351, 234234, 0, 0, 0, 0, 0),
+(17, 10, '', 1, '2023-07-09 04:29:15', 15, 0, 0, 0, 0, 2356264, 745756, 857962, 234154214, 0),
+(18, 11, '', 1, '2023-07-09 04:30:43', 15, 234234, 234234, 123123, 1515, 0, 0, 0, 0, 1),
+(19, 11, '', 1, '2023-07-09 04:30:43', 15, 0, 0, 0, 0, 123123, 5313215, 123122, 152151, 0);
 
 -- --------------------------------------------------------
 
@@ -211,16 +224,19 @@ CREATE TABLE `tb_history_eo` (
   `post_eo_id` int(11) NOT NULL,
   `history` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
-  `created_on` datetime NOT NULL
+  `created_on` datetime NOT NULL,
+  `custom` text NOT NULL,
+  `is_paket_a` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_history_eo`
 --
 
-INSERT INTO `tb_history_eo` (`id`, `harga_paket_id`, `post_eo_id`, `history`, `created_by`, `created_on`) VALUES
-(1, 1, 2, 4, 6, '2023-04-21 00:00:00'),
-(3, 1, 4, 4, 7, '2023-05-01 07:12:01');
+INSERT INTO `tb_history_eo` (`id`, `harga_paket_id`, `post_eo_id`, `history`, `created_by`, `created_on`, `custom`, `is_paket_a`) VALUES
+(1, 1, 2, 4, 6, '2023-04-21 00:00:00', '', 0),
+(3, 1, 4, 4, 7, '2023-05-01 07:12:01', '', 0),
+(28, 0, 4, 4, 7, '2023-07-09 05:35:06', 'sdfsdfsdf\nsdfsdfsdfsdf', 0);
 
 -- --------------------------------------------------------
 
@@ -285,26 +301,16 @@ CREATE TABLE `tb_post_eo` (
   `history` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `created_on` datetime NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `dekorasi_a` int(11) NOT NULL,
-  `event_a` int(11) NOT NULL,
-  `panggung_a` int(11) NOT NULL,
-  `total_a` int(11) NOT NULL,
-  `dekorasi_b` int(11) NOT NULL,
-  `event_b` int(11) NOT NULL,
-  `panggung_b` int(11) NOT NULL,
-  `total_b` int(11) NOT NULL
+  `created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_post_eo`
 --
 
-INSERT INTO `tb_post_eo` (`id`, `nama`, `jenis_eo`, `is_custom`, `path`, `history`, `is_active`, `created_on`, `created_by`, `dekorasi_a`, `event_a`, `panggung_a`, `total_a`, `dekorasi_b`, `event_b`, `panggung_b`, `total_b`) VALUES
-(2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 15, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 15, 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 'tes', '1', 1, 'EO_405_1688391671.jpg', 2, 1, '2023-07-03 15:41:11', 15, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 'sdfsdf', '1', 1, 'EO_475_1688652457.jpg', 2, 1, '2023-07-06 16:07:37', 15, 3432423, 234232, 32423, 213123, 32432, 21312, 4542, 234324);
+INSERT INTO `tb_post_eo` (`id`, `nama`, `jenis_eo`, `is_custom`, `path`, `history`, `is_active`, `created_on`, `created_by`) VALUES
+(2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 15),
+(4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 15);
 
 -- --------------------------------------------------------
 
@@ -475,7 +481,7 @@ ALTER TABLE `tb_genre`
 -- AUTO_INCREMENT untuk tabel `tb_harga_paket`
 --
 ALTER TABLE `tb_harga_paket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_bobot`
@@ -487,7 +493,7 @@ ALTER TABLE `tb_history_bobot`
 -- AUTO_INCREMENT untuk tabel `tb_history_eo`
 --
 ALTER TABLE `tb_history_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_event`
@@ -505,7 +511,7 @@ ALTER TABLE `tb_jenis_event`
 -- AUTO_INCREMENT untuk tabel `tb_post_eo`
 --
 ALTER TABLE `tb_post_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sample`
