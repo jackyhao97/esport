@@ -99,12 +99,12 @@ $columns = array(
       else if ($row[1] == 2)
         return "$row[2] posting EO bernama $d";
       else if ($row[1] == 3)
-        return "$row[2] ($row[7] - $row[6]) register event $d pada tanggal " . format_datetime($row[5]);
+        return "$row[2] ($row[8] - $row[7]) register event $d pada tanggal " . format_datetime($row[5]);
       else if ($row[1] == 4) {
-        if ($row[9] == 'C')
-          return "$row[2] menyewa EO bernama $d dengan custom berisi $row[8]";
+        if ($row[11] == 'C')
+          return "$row[2] menyewa EO bernama $d dengan custom berisi $row[10]";
         else
-          return "$row[2] menyewa EO bernama $d dengan paket $row[9]";
+          return "$row[2] menyewa EO bernama $d dengan paket $row[11]";
       }
       else
         return "Create user bernama $row[2]";
