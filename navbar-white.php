@@ -52,6 +52,17 @@
         <li class="nav-item me-3">
           <a class="nav-link text-dark" href="<?=BASE_URL.DS.'notifikasi/'?>"><i class="fa-regular fa-bell"></i></a>
         </li>
+        <?php
+          if (isset($_SESSION['username'])) {
+            if($_SESSION['username'] == "admin") {
+        ?>
+        <li class="nav-item me-3">
+          <a class="nav-link text-dark" href="<?=BASE_URL.DS.'verif-user/'?>"><i class="fa-regular fa-user"></i></a>
+        </li>
+        <?php
+            }
+          }
+        ?>
       </ul>
     </div>
   </div>

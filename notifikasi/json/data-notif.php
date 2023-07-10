@@ -99,15 +99,13 @@ $columns = array(
       else if ($row[1] == 2)
         return "$row[2] posting EO bernama $d";
       else if ($row[1] == 3)
-        return "$row[2] ($row[8] - $row[7]) register event $d pada tanggal " . format_datetime($row[5]);
+        return "$row[2] ($row[7] - $row[6]) register event $d pada tanggal " . format_datetime($row[5]);
       else if ($row[1] == 4) {
-        if ($row[11] == 'C')
-          return "$row[2] menyewa EO bernama $d dengan custom berisi $row[10]";
+        if ($row[9] == 'C')
+          return "$row[2] menyewa EO bernama $d dengan custom berisi $row[8]";
         else
-          return "$row[2] menyewa EO bernama $d dengan paket $row[11]";
+          return "$row[2] menyewa EO bernama $d dengan paket $row[9]";
       }
-      else
-        return "Create user bernama $row[2]";
     }
   ),
   array(
@@ -120,10 +118,8 @@ $columns = array(
         return "Event Organizer";
       else if ($d == 3)
         return "Register Event";
-      else if ($d == 4)
-        return "Sewa EO";
       else
-        return "Create User";
+        return "Sewa EO";
       }
   ),
   array('db' => 'user', 'dt' => 2),
@@ -143,23 +139,8 @@ $columns = array(
     }
   ),
   array(
-    'db' => 'verifieduser',
-    'dt' => 4,
-    'formatter' => function($d, $row){
-      if ($row[1] == 5) {
-        if ($d > 0)
-          return '<i class="fa fa-check-circle fa-2x text-success"></i>';
-        else
-          return '<i class="fa fa-times-circle fa-2x text-danger"></i>';
-      }
-      else {
-        return '';
-      }
-    }
-  ),
-  array(
     'db' => 'id', 
-    'dt' => 5,
+    'dt' => 4,
     'formatter' => function($d, $row) use ($func_apply_3) {
       if ($row[1] == 1)
         return $func_apply_3($d, $row[3]);
@@ -167,21 +148,11 @@ $columns = array(
         return '';
     }
   ),
-  array(
-    'db' => 'userid', 
-    'dt' => 6,
-    'formatter' => function($d, $row) use ($func_apply_4) {
-      if ($row[1] == 5)
-        return $func_apply_4($d, $row[4]);
-      else
-        return '';
-    }
-  ),
-  array('db' => 'created_on', 'dt' => 7),
-  array('db' => 'nomor', 'dt' => 8),
-  array('db' => 'email', 'dt' => 9),
-  array('db' => 'custom', 'dt' => 10),
-  array('db' => 'paketa', 'dt' => 11)
+  array('db' => 'created_on', 'dt' => 5),
+  array('db' => 'nomor', 'dt' => 6),
+  array('db' => 'email', 'dt' => 7),
+  array('db' => 'custom', 'dt' => 8),
+  array('db' => 'paketa', 'dt' => 9)
 );
 
 

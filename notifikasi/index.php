@@ -28,9 +28,6 @@
               <th>Tipe</th>
               <th>Nama</th>
               <th>Verified Event</th>
-              <th>Verified User</th>
-              <th></th>
-              <th></th>
               <th></th>
               <th></th>
               <th></th>
@@ -179,11 +176,11 @@
 
         table.columns(1).visible(false);
         table.columns(2).visible(false);
+        table.columns(5).visible(false);
+        table.columns(6).visible(false);
         table.columns(7).visible(false);
         table.columns(8).visible(false);
         table.columns(9).visible(false);
-        table.columns(10).visible(false);
-        table.columns(11).visible(false);
         
         
         if (<?=$id?> == 14) table.columns(4).visible(true)
