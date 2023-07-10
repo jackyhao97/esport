@@ -215,6 +215,30 @@
         }
       }
 
+      // untuk tombol verifikasi user
+      function initUserVerif(id) {
+        const conf = confirm(`Yakin untuk verif user ini?`);
+        if (conf) {
+          $.ajax({
+            type: "post",
+            url: "verifUser.php",
+            data: { id },
+            success: (data) => {
+              const res = $.parseJSON(data);
+
+              if (res.success) {
+                alert('User berhasil diverif.');
+                $("#notif-all").DataTable().ajax.reload();
+              }
+              else {
+                alert('User gagal diverif.');
+                $("#notif-all").DataTable().ajax.reload();
+              }
+            }
+          });
+        }
+      }
+
       function reformatDate(dateStr)
       {
         var dArr = dateStr.split("-");  // ex input: "2010-01-18"

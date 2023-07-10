@@ -5,7 +5,7 @@
   // hash password menggunakan algoritma MD5
   $password = (isset($_POST['txt_password']) ? md5($_POST['txt_password']) : '');
   if (isset($_POST["btn_login"])) {
-    $result = $conn->query("SELECT * FROM tb_account WHERE username = '$username' AND is_active = 1");
+    $result = $conn->query("SELECT * FROM tb_account WHERE username = '$username' AND is_active = 1 AND is_verified = 1");
     if ($result->num_rows > 0) {
       $row = $result->fetch_array();
       if ($password == $row["password"]) {
@@ -26,7 +26,7 @@
       $_SESSION["login"] = false;
       $_SESSION['status'] = "";
       $_SESSION['username'] = "";
-      echo "<script>alert('Username tidak tersedia!')</script>";
+      echo "<script>alert('Username tidak tersedia atau user belum diverifikasi oleh admin!')</script>";
     }
   }
 ?>
