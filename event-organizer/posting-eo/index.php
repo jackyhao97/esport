@@ -25,6 +25,7 @@
       $last_id = $conn->insert_id;
 
       $insertharga_a = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, dekorasi_a, event_a, panggung_a, total_a , created_on, created_by, is_paket_a) VALUES ('$last_id', 1, '$dekorasi_a', '$event_a', '$panggung_a', '$total_a', '$createdon', '$id', 1)");
+      
       $insertharga_b = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, dekorasi_b, event_b, panggung_b, total_b, created_on, created_by, is_paket_a) VALUES ('$last_id', 1, '$dekorasi_b', '$event_b', '$panggung_b', '$total_b', '$createdon', '$id', 0)");
   
       if ($insert && $upload && $insertharga_a && $insertharga_b) {

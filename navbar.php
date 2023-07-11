@@ -63,6 +63,17 @@
             }
           }
         ?>
+        <?php
+          if (isset($_SESSION['username'])) {
+            if($_SESSION['username'] == "eo") {
+        ?>
+        <li class="nav-item me-3">
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'notif-eo/'?>"><i class="fa-regular fa-user"></i></a>
+        </li>
+        <?php
+            }
+          }
+        ?>
       </ul>
     </div>
   </div>
