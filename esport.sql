@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jul 2023 pada 11.10
+-- Waktu pembuatan: 10 Jul 2023 pada 15.53
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -39,18 +39,19 @@ CREATE TABLE `tb_account` (
   `path` varchar(100) NOT NULL,
   `is_active` int(1) NOT NULL,
   `created_on` datetime NOT NULL,
-  `modified_on` datetime NOT NULL
+  `modified_on` datetime NOT NULL,
+  `is_verified` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_account`
 --
 
-INSERT INTO `tb_account` (`id`, `nama`, `username`, `password`, `email`, `tipe`, `nomor`, `path`, `is_active`, `created_on`, `modified_on`) VALUES
-(6, 'hoges', 'hoges', '0192023a7bbd73250516f069df18b500', 'hoges@gmail.com', 2, '081272727272', 'user.png', 1, '2023-03-27 16:12:59', '2023-05-12 20:16:29'),
-(7, 'jeffry', 'jeffry', '0192023a7bbd73250516f069df18b500', 'jeffry@gmail.com', 2, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41'),
-(14, 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'admin@gmail.com', 1, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41'),
-(15, 'eo', 'eo', '0192023a7bbd73250516f069df18b500', 'eo@gmail.com', 3, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41');
+INSERT INTO `tb_account` (`id`, `nama`, `username`, `password`, `email`, `tipe`, `nomor`, `path`, `is_active`, `created_on`, `modified_on`, `is_verified`) VALUES
+(6, 'hoges', 'hoges', '0192023a7bbd73250516f069df18b500', 'hoges@gmail.com', 2, '081272727272', 'user.png', 1, '2023-03-27 16:12:59', '2023-05-12 20:16:29', 1),
+(7, 'jeffry', 'jeffry', '0192023a7bbd73250516f069df18b500', 'jeffry@gmail.com', 2, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41', 1),
+(14, 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'admin@gmail.com', 1, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41', 1),
+(15, 'eo', 'eo', '0192023a7bbd73250516f069df18b500', 'eo@gmail.com', 3, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41', 1);
 
 -- --------------------------------------------------------
 
@@ -145,20 +146,10 @@ CREATE TABLE `tb_harga_paket` (
 --
 
 INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `deskripsi_harga`, `is_active`, `created_on`, `created_by`, `dekorasi_a`, `event_a`, `panggung_a`, `total_a`, `dekorasi_b`, `event_b`, `panggung_b`, `total_b`, `is_paket_a`) VALUES
-(1, 2, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-04-21 00:00:00', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 2, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 00:00:00', 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 4, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(10, 5, 'sdfsdfsdf', 1, '2023-06-21 15:15:49', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(11, 5, 'sdfsdfsdfwerwer', 1, '2023-06-21 15:15:49', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(12, 6, 'sdfsdfsd', 1, '2023-06-21 15:20:43', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(13, 6, 'werwerwer', 1, '2023-06-21 15:20:43', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(14, 7, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(15, 7, 'Dekorasi : Rp. 1.250.000 Event : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-07-03 15:41:11', 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(16, 10, '', 1, '2023-07-09 04:29:15', 15, 234234, 234234, 51351, 234234, 0, 0, 0, 0, 0),
-(17, 10, '', 1, '2023-07-09 04:29:15', 15, 0, 0, 0, 0, 2356264, 745756, 857962, 234154214, 0),
-(18, 11, '', 1, '2023-07-09 04:30:43', 15, 234234, 234234, 123123, 1515, 0, 0, 0, 0, 1),
-(19, 11, '', 1, '2023-07-09 04:30:43', 15, 0, 0, 0, 0, 123123, 5313215, 123122, 152151, 0);
+(1, 2, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-04-21 00:00:00', 6, 1750000, 2500000, 3000000, 7250000, 0, 0, 0, 0, 1),
+(3, 2, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 00:00:00', 6, 0, 0, 0, 0, 1250000, 1500000, 2000000, 4750000, 0),
+(8, 4, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-05-01 07:37:43', 7, 1250000, 1500000, 2000000, 4750000, 0, 0, 0, 0, 1),
+(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 1750000, 2500000, 3000000, 7250000, 0);
 
 -- --------------------------------------------------------
 
@@ -236,7 +227,8 @@ CREATE TABLE `tb_history_eo` (
 INSERT INTO `tb_history_eo` (`id`, `harga_paket_id`, `post_eo_id`, `history`, `created_by`, `created_on`, `custom`, `is_paket_a`) VALUES
 (1, 1, 2, 4, 6, '2023-04-21 00:00:00', '', 0),
 (3, 1, 4, 4, 7, '2023-05-01 07:12:01', '', 0),
-(28, 0, 4, 4, 7, '2023-07-09 05:35:06', 'sdfsdfsdf\nsdfsdfsdfsdf', 0);
+(28, 0, 4, 4, 7, '2023-07-09 05:35:06', 'testing', 0),
+(29, 0, 2, 4, 6, '2023-07-10 15:51:20', 'testing', 0);
 
 -- --------------------------------------------------------
 
@@ -463,7 +455,7 @@ ALTER TABLE `tb_tipe_user`
 -- AUTO_INCREMENT untuk tabel `tb_account`
 --
 ALTER TABLE `tb_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_event`
@@ -493,7 +485,7 @@ ALTER TABLE `tb_history_bobot`
 -- AUTO_INCREMENT untuk tabel `tb_history_eo`
 --
 ALTER TABLE `tb_history_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_event`
