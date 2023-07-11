@@ -21,7 +21,7 @@
     if ($nama != "" and $jenis_eo != 0 and $custom_event != "") {
       $new_filename = "EO_".rand(1,1000)."_".time().".jpg";
       $upload = move_uploaded_file($file['tmp_name'], "../../assets/img/event-organizer/".$new_filename);
-      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, is_custom, path, is_active, created_on, created_by, history, dekorasi_a, dekorasi_b, event_a, event_b, panggung_a, panggung_b, total_a, total_b) VALUES ('$nama', '$jenis_eo', '$custom_event', '$new_filename', 1, '$createdon', '$id', 2, '$dekorasi_a', '$dekorasi_b', '$event_a', '$event_b', '$panggung_a', '$panggung_b', '$total_a', '$total_b')");
+      $insert = $conn->query("INSERT INTO tb_post_eo (nama, jenis_eo, is_custom, path, is_active, created_on, created_by, history) VALUES ('$nama', '$jenis_eo', '$custom_event', '$new_filename', 1, '$createdon', '$id', 2)");
       $last_id = $conn->insert_id;
 
       $insertharga_a = $conn->query("INSERT INTO tb_harga_paket (post_eo_id, is_active, dekorasi_a, event_a, panggung_a, total_a , created_on, created_by, is_paket_a) VALUES ('$last_id', 1, '$dekorasi_a', '$event_a', '$panggung_a', '$total_a', '$createdon', '$id', 1)");

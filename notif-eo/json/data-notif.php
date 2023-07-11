@@ -36,7 +36,7 @@ $columns = array(
     'db' => 'created_on', 
     'dt' => 1,
     'formatter' => function($d, $row){
-      return date('d-m-Y H:m', strtotime($d));
+      return date('d-m-Y H:i', strtotime($d));
     }
   ),
   array('db' => 'custom', 'dt' => 2),

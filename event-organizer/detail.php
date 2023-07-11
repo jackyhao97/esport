@@ -142,7 +142,8 @@
       
 
       <div class="text-end mt-5">
-        <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" onclick="register(<?=$row['ideo']?>,<?=$user?>)">Register</a>
+        <a class="btn btn-lg btn-dark text-end me-3" name="btn_register" id="btn_register" onclick="register(<?=$row['ideo']?>,<?=$user?>)">Register</a>
+        <a class="btn btn-lg btn-light text-end" name="btn_back" id="btn_back" href="../event-organizer">Back</a>
       </div>
     </div>
 
@@ -174,6 +175,7 @@
   
                 if (res.success) {
                   alert('Anda berhasil register EO.');
+                  window.location = '../event-organizer';
                 }
                 else {
                   alert('Anda gagal register EO.');

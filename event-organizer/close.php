@@ -5,8 +5,9 @@
 	if (isset($_POST['id'])) {
 		$id = $_POST['id'];
     $data = $conn->query("DELETE FROM tb_post_eo WHERE id = '$id'");
+    $data2 = $conn->query("DELETE FROM tb_harga_paket WHERE post_eo_id = '$id'");
 	
-		if ($data) {
+		if ($data && $data2) {
       $res['success'] = 1;
 		}
 		else {
