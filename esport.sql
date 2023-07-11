@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jul 2023 pada 15.53
+-- Waktu pembuatan: 11 Jul 2023 pada 15.47
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -126,7 +126,6 @@ INSERT INTO `tb_genre` (`id`, `genre`, `deskripsi`, `is_active`) VALUES
 CREATE TABLE `tb_harga_paket` (
   `id` int(11) NOT NULL,
   `post_eo_id` int(11) NOT NULL,
-  `deskripsi_harga` text NOT NULL,
   `is_active` int(1) NOT NULL,
   `created_on` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
@@ -145,11 +144,11 @@ CREATE TABLE `tb_harga_paket` (
 -- Dumping data untuk tabel `tb_harga_paket`
 --
 
-INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `deskripsi_harga`, `is_active`, `created_on`, `created_by`, `dekorasi_a`, `event_a`, `panggung_a`, `total_a`, `dekorasi_b`, `event_b`, `panggung_b`, `total_b`, `is_paket_a`) VALUES
-(1, 2, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-04-21 00:00:00', 6, 1750000, 2500000, 3000000, 7250000, 0, 0, 0, 0, 1),
-(3, 2, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 00:00:00', 6, 0, 0, 0, 0, 1250000, 1500000, 2000000, 4750000, 0),
-(8, 4, 'Dekorasi : Rp. 1.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.000.000\r\nTotal : Rp. 4.750.000', 1, '2023-05-01 07:37:43', 7, 1250000, 1500000, 2000000, 4750000, 0, 0, 0, 0, 1),
-(9, 4, 'Dekorasi : Rp. 2.250.000\r\nEvent : Rp. 1.500.000\r\nPanggung : Rp. 2.500.000\r\nTotal : Rp. 6.250.000', 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 1750000, 2500000, 3000000, 7250000, 0);
+INSERT INTO `tb_harga_paket` (`id`, `post_eo_id`, `is_active`, `created_on`, `created_by`, `dekorasi_a`, `event_a`, `panggung_a`, `total_a`, `dekorasi_b`, `event_b`, `panggung_b`, `total_b`, `is_paket_a`) VALUES
+(1, 2, 1, '2023-04-21 00:00:00', 6, 1750000, 2500000, 3000000, 7250000, 0, 0, 0, 0, 1),
+(3, 2, 1, '2023-05-01 00:00:00', 6, 0, 0, 0, 0, 1250000, 1500000, 2000000, 4750000, 0),
+(8, 4, 1, '2023-05-01 07:37:43', 7, 1250000, 1500000, 2000000, 4750000, 0, 0, 0, 0, 1),
+(9, 4, 1, '2023-05-01 07:37:43', 7, 0, 0, 0, 0, 1750000, 2500000, 3000000, 7250000, 0);
 
 -- --------------------------------------------------------
 
@@ -473,7 +472,7 @@ ALTER TABLE `tb_genre`
 -- AUTO_INCREMENT untuk tabel `tb_harga_paket`
 --
 ALTER TABLE `tb_harga_paket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_bobot`
@@ -485,7 +484,7 @@ ALTER TABLE `tb_history_bobot`
 -- AUTO_INCREMENT untuk tabel `tb_history_eo`
 --
 ALTER TABLE `tb_history_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_event`
@@ -503,7 +502,7 @@ ALTER TABLE `tb_jenis_event`
 -- AUTO_INCREMENT untuk tabel `tb_post_eo`
 --
 ALTER TABLE `tb_post_eo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sample`
