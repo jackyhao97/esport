@@ -33,6 +33,7 @@
               <th></th>
               <th></th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
         </table>
@@ -181,6 +182,7 @@
         table.columns(7).visible(false);
         table.columns(8).visible(false);
         table.columns(9).visible(false);
+        table.columns(10).visible(false);
         
         
         if (<?=$id?> == 14) table.columns(4).visible(true)

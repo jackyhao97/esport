@@ -16,11 +16,15 @@ $rowakun = $queryakun->fetch_array();
 $akunuser = $rowakun['nama'];
 $tipeuser = $rowakun['tipe'];
 
-function BuildAction($data, $is_verified) {
-  $component = $is_verified == 0 ? '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>' : '';
+
+function BuildAction($data, $is_verified, $id_user) {
+  global $tipeuser;
+
+  $component = ($is_verified == 0 && $tipeuser == 'admin') ? '<a class="btn btn-sm btn-primary" onclick="initVerif('.$data.')" title="Verifikasi"><i class="fa-solid fa-check"></i></a>' : '';
 
   return $component;
 }
+
 
 function BuildActionUser($data, $is_verified) {
   $component = $is_verified == 0 ? '<a class="btn btn-sm btn-primary" onclick="initVerifUser('.$data.')" title="Verifikasi User"><i class="fa-solid fa-check"></i></a>' : '';
@@ -71,15 +75,6 @@ else {
     ) temp 
     EOT;
 }
-
-// Query dibawah untuk ambil register event yang dilakukan sendiri
-// UNION ALL 
-// SELECT 
-//   he.`id`, he.`event_id`, ev.`nama`, he.`history`, he.`created_on`, accou.`nama` as user FROM `tb_history_event` he 
-// LEFT JOIN `tb_account` accou ON he.created_by = accou.id 
-// LEFT JOIN `tb_event` ev ON he.event_id = ev.id WHERE accou.nama = "$akunuser"
-
-
 
 $primaryKey = 'id';
 
@@ -143,7 +138,7 @@ $columns = array(
     'dt' => 4,
     'formatter' => function($d, $row) use ($func_apply_3) {
       if ($row[1] == 1)
-        return $func_apply_3($d, $row[3]);
+        return $func_apply_3($d, $row[3], $row[10]);
       else
         return '';
     }
@@ -152,7 +147,8 @@ $columns = array(
   array('db' => 'nomor', 'dt' => 6),
   array('db' => 'email', 'dt' => 7),
   array('db' => 'custom', 'dt' => 8),
-  array('db' => 'paketa', 'dt' => 9)
+  array('db' => 'paketa', 'dt' => 9),
+  array('db' => 'userid', 'dt' => 10)
 );
 
 

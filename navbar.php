@@ -12,9 +12,24 @@
         <li class="nav-item me-3">
           <a class="nav-link text-light" href="<?=BASE_URL.DS.'event/'?>"><i class="fa-solid fa-calendar me-1"></i> EVENT</a>
         </li>
+        <?php
+          if (isset($_SESSION['username'])) {
+            if($_SESSION['username'] != "eo") {
+        ?>
         <li class="nav-item me-3">
           <a class="nav-link text-light" href="<?=BASE_URL.DS.'create-event/'?>">Create Event</a>
         </li>
+        <?php
+            }
+          }
+          else {
+        ?>
+        <li class="nav-item me-3">
+          <a class="nav-link text-light" href="<?=BASE_URL.DS.'create-event/'?>">Create Event</a>
+        </li>
+        <?php
+          }
+        ?>
         <li class="nav-item me-3">
           <a class="nav-link text-light" href="<?=BASE_URL.DS.'event-organizer/'?>">Event Organizer</a>
         </li>

@@ -1,26 +1,10 @@
 <?php 
   session_start();
   require_once '../config.php';
-  $id = isset($_SESSION['id']) ? $_SESSION['id'] : header("location:../login/");
+  $id = isset($_SESSION['id']) && $_SESSION['username'] != "eo" ? $_SESSION['id'] : header("location:../login/");
 
   if (isset($_POST["btn_submit"])) {
-    // $genreMoba = isset($_POST['genre-moba']) ? 1 : 0;
-    // $genreFps = isset($_POST['genre-fps']) ? 1 : 0;
-    // $genreBattleRoyale = isset($_POST['genre-battle-royale']) ? 1 : 0;
-    // $genreFighting = isset($_POST['genre-fighting']) ? 1 : 0;
-    // $genreTalkshow = isset($_POST['genre-talkshow']) ? 1 : 0;
-    // $genre_game = $genreMoba . "," . $genreFps . "," . $genreBattleRoyale . "," . $genreFighting . "," . $genreTalkshow;
-
-    // $genregameMoba = isset($_POST['genre-moba']) ? "moba" : "";
-    // $genregameFps = isset($_POST['genre-fps']) ? "fps" : "";
-    // $genregameBattleRoyale = isset($_POST['genre-battle-royale']) ? "battle-royale" : "";
-    // $genregameFighting = isset($_POST['genre-fighting']) ? "fighting" : "";
-    // $genregameTalkshow = isset($_POST['genre-talkshow']) ? "talkshow" : "";
-    // $genre_games = $genregameMoba . "," . $genregameFps . "," . $genregameBattleRoyale . "," . $genregameFighting . "," . $genregameTalkshow;
-    
-
     $genre_games = isset($_POST['genre-game']) ? $_POST['genre-game'] : "";
-
     $nama = isset($_POST['txt_nama']) ? mysqli_real_escape_string($conn, $_POST['txt_nama']) : '';
     $tipe_event = isset($_POST['txt_tipe_event']) ? $_POST['txt_tipe_event'] : '';
     $jenis_event = isset($_POST['txt_jenis_event']) ? $_POST['txt_jenis_event'] : '';
