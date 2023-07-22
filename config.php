@@ -8,6 +8,7 @@ $uri .= $_SERVER['HTTP_HOST'];
 
 define('BASE_URL', $uri . "/esport");
 define('DS', '/');
+date_default_timezone_set('Asia/Jakarta');
 
 $servername = "localhost";
 $username = "root";
