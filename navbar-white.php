@@ -9,32 +9,38 @@
         <li class="nav-item me-3">
           <a class="nav-link text-dark" aria-current="page" href="<?= BASE_URL . DS . 'berita/' ?>"><i class="fa-solid fa-newspaper me-1"></i> BERITA</a>
         </li>
-        <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'event/' ?>"><i class="fa-solid fa-calendar me-1"></i> EVENT</a>
-        </li>
         <?php
-        if (isset($_SESSION['username'])) {
-          if ($_SESSION['username'] != "eo") {
+        if (isset($_SESSION['username'])) :
         ?>
+          <li class="nav-item me-3">
+            <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'event/' ?>"><i class="fa-solid fa-calendar me-1"></i> EVENT</a>
+          </li>
+          <?php
+          if (isset($_SESSION['username'])) {
+            if ($_SESSION['tipe'] != "3") {
+          ?>
+              <li class="nav-item me-3">
+                <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'create-event/' ?>">Create Event</a>
+              </li>
+            <?php
+            }
+          } else {
+            ?>
             <li class="nav-item me-3">
               <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'create-event/' ?>">Create Event</a>
             </li>
           <?php
           }
-        } else {
           ?>
           <li class="nav-item me-3">
-            <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'create-event/' ?>">Create Event</a>
+            <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'event-organizer/' ?>">Event Organizer</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'history/' ?>">History</a>
           </li>
         <?php
-        }
+        endif;
         ?>
-        <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'event-organizer/' ?>">Event Organizer</a>
-        </li>
-        <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'history/' ?>">History</a>
-        </li>
       </ul>
       <ul class="navbar-nav flex-row justify-content-between mt-5 mt-sm-0">
         <?php
@@ -62,14 +68,16 @@
           </li>
         <?php
         endif;
+        if (isset($_SESSION['username'])) :
         ?>
-        <li class="nav-item me-3">
-          <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'notifikasi/' ?>"><i class="fa-regular fa-bell"></i></a>
-        </li>
-        <?php
+          <li class="nav-item me-3">
+            <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'notifikasi/' ?>"><i class="fa-regular fa-bell"></i></a>
+          </li>
+          <?php
+        endif;
         if (isset($_SESSION['username'])) {
           if ($_SESSION['username'] == "admin") {
-        ?>
+          ?>
             <li class="nav-item me-3">
               <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'verif-user/' ?>"><i class="fa-regular fa-user"></i></a>
             </li>
@@ -79,7 +87,7 @@
         ?>
         <?php
         if (isset($_SESSION['username'])) {
-          if ($_SESSION['username'] == "eo") {
+          if ($_SESSION['tipe'] == "3") {
         ?>
             <li class="nav-item me-3">
               <a class="nav-link text-dark" href="<?= BASE_URL . DS . 'notif-eo/' ?>"><i class="fa-regular fa-user"></i></a>
@@ -98,11 +106,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Logout</h5>
+        <h5 class="modal-title text-dark">Logout</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Apakah anda yakin untuk logout?</p>
+        <p class="text-dark">Apakah anda yakin untuk logout?</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

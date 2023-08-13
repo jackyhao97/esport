@@ -41,16 +41,17 @@ $usercreated = $row['usercreated'];
           <li class="breadcrumb-item" style="background: #efefef;padding: 10px;border-radius: 10px 0 0 10px;"><a href="./"><i class="fa-solid fa-calendar" style="color: #676161;"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page" style="background: #efefef;padding: 10px;border-radius: 0 10px 10px 0;"><?= $row['nama'] ?></li>
         </div>
+        <div class="">
+          <a class="btn btn-dark text-end" name="btn_rate" id="btn_rate" data-bs-toggle="modal" data-bs-target="#modalRate">Rate</a>
 
-        <?php
-        if ($usercreated == $user) :
-        ?>
-          <div class="">
+          <?php
+          if ($usercreated == $user) :
+          ?>
             <button type="button" class="btn btn-dark" onclick="closeEvent(<?= $row['id'] ?>)">Close Event</button>
-          </div>
-        <?php
-        endif;
-        ?>
+          <?php
+          endif;
+          ?>
+        </div>
       </ol>
     </nav>
     <img src="<?= BASE_URL . DS . 'assets/img/event/' . $row['path'] ?>" alt="<?= $row['nama'] ?>" class="w-100">
@@ -120,7 +121,7 @@ $usercreated = $row['usercreated'];
       $rowcount = mysqli_num_rows($queryregister);
 
       if ($rowcount == 0) {
-        if ($_SESSION['username'] != "eo") {
+        if ($_SESSION['tipe'] != "3") {
       ?>
           <a class="btn btn-lg btn-dark text-end" name="btn_register" id="btn_register" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</a>
       <?php
@@ -166,6 +167,41 @@ $usercreated = $row['usercreated'];
         </div>
       </div>
 
+      <div class="modal fade" id="modalRate" tabindex="-1" aria-labelledby="modalRateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalRateLabel">Rate Event</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="" method="post" id="frm_rate_event">
+              <div class="modal-body">
+                <div class="row mb-3 align-items-center">
+                  <label for="txt_rate" class="form-label col-sm-3 text-center">Rate</label>
+                  <div class="col-sm-8">
+                    <select class="form-select" aria-label="Default select example" id="txt_rate" name="txt_rate">
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-dark" onclick="rateEvent(<?= $row['id'] ?>,<?= $user ?>)">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -194,7 +230,6 @@ $usercreated = $row['usercreated'];
           const formData = new FormData(document.getElementById("frm_register"));
           formData.append('id', id);
           formData.append('user', user);
-          console.log(formData);
           $.ajax({
             type: "post",
             url: "register.php",
@@ -214,6 +249,35 @@ $usercreated = $row['usercreated'];
             }
           });
         }
+      }
+    }
+
+    // Untuk rate event
+    function rateEvent(id, user) {
+      const conf = confirm(`Rate event ini?`);
+
+      if (conf) {
+        const formData = new FormData(document.getElementById("frm_rate_event"));
+        formData.append('id', id);
+        formData.append('user', user);
+        $.ajax({
+          type: "post",
+          url: "rate.php",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: (data) => {
+            const res = $.parseJSON(data);
+
+            if (res.success) {
+              alert('Anda berhasil rate event ini.');
+              $("#modalRate").modal("hide");
+              location.reload();
+            } else {
+              alert('Anda gagal rate event ini. Silahkan coba lagi.');
+            }
+          }
+        });
       }
     }
 
