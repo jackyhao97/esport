@@ -179,7 +179,19 @@ $usercreated = $row['usercreated'];
                 <div class="row mb-3 align-items-center">
                   <label for="txt_rate" class="form-label col-sm-3 text-center">Rate</label>
                   <div class="col-sm-8">
-                    <select class="form-select" aria-label="Default select example" id="txt_rate" name="txt_rate">
+                    <div class="rate">
+                      <input type="radio" id="star5" name="txt_rate" value="5" />
+                      <label for="star5" title="text">5 stars</label>
+                      <input type="radio" id="star4" name="txt_rate" value="4" />
+                      <label for="star4" title="text">4 stars</label>
+                      <input type="radio" id="star3" name="txt_rate" value="3" />
+                      <label for="star3" title="text">3 stars</label>
+                      <input type="radio" id="star2" name="txt_rate" value="2" />
+                      <label for="star2" title="text">2 stars</label>
+                      <input type="radio" id="star1" name="txt_rate" value="1" />
+                      <label for="star1" title="text">1 star</label>
+                    </div>
+                    <!-- <select class="form-select" aria-label="Default select example" id="txt_rate" name="txt_rate">
                       <option value="1" selected>1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -190,7 +202,7 @@ $usercreated = $row['usercreated'];
                       <option value="8">8</option>
                       <option value="9">9</option>
                       <option value="10">10</option>
-                    </select>
+                    </select> -->
                   </div>
                 </div>
               </div>

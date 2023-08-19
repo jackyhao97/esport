@@ -17,7 +17,7 @@ if (isset($_POST["tipe"])) {
                     <div class="card">
                       <img src="' . $path . '" class="card-img-top" alt="' . $nama . '">
                       <div class="card-body">
-                        <p class="card-text">Rating : ' . $rating . '</p>
+                        <p class="card-text">Rating : ' . $rating . '/5</p>
                         <p class="card-text fw-bold">' . $nama . '</p>
                       </div>
                     </div>
@@ -38,7 +38,7 @@ if (isset($_POST["tipe"])) {
                     <div class="card">
                       <img src="' . $path . '" class="card-img-top" alt="' . $nama . '">
                       <div class="card-body">
-                        <p class="card-text">Rating : ' . $rating . '</p>
+                        <p class="card-text">Rating : ' . $rating . '/5</p>
                         <p class="card-text fw-bold">' . $nama . '</p>
                       </div>
                     </div>

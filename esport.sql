@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Agu 2023 pada 11.03
+-- Waktu pembuatan: 15 Agu 2023 pada 17.08
 -- Versi server: 10.4.8-MariaDB
 -- Versi PHP: 7.3.11
 
@@ -52,7 +52,8 @@ INSERT INTO `tb_account` (`id`, `nama`, `username`, `password`, `email`, `tipe`,
 (7, 'jeffry', 'jeffry', '0192023a7bbd73250516f069df18b500', 'jeffry@gmail.com', 2, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41', 1),
 (14, 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'admin@gmail.com', 1, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41', 1),
 (15, 'eo', 'eo', '0192023a7bbd73250516f069df18b500', 'eo@gmail.com', 3, '08124545454', 'user.png', 1, '2023-04-01 16:07:08', '2023-05-12 20:15:41', 1),
-(20, 'eoo', 'eoo', '0192023a7bbd73250516f069df18b500', 'eoo@gmail.com', 3, '081245456565', '', 1, '2023-08-03 20:48:02', '0000-00-00 00:00:00', 1);
+(20, 'eoo', 'eoo', '0192023a7bbd73250516f069df18b500', 'eoo@gmail.com', 3, '081245456565', '', 1, '2023-08-03 20:48:02', '0000-00-00 00:00:00', 1),
+(21, 'neweo', 'neweo', '0192023a7bbd73250516f069df18b500', 'new@gmail.com', 3, '081245456565', '', 1, '2023-08-07 20:10:14', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -170,14 +171,6 @@ CREATE TABLE `tb_history_bobot` (
 --
 
 INSERT INTO `tb_history_bobot` (`id`, `event_id`, `bobot`, `created_on`, `created_by`) VALUES
-(1837, 25, '0.9999', '2023-07-22 07:08:24', 7),
-(1838, 23, '0.0000', '2023-07-22 07:08:24', 7),
-(1839, 16, '0.0000', '2023-07-22 07:08:24', 7),
-(1840, 15, '0.0000', '2023-07-22 07:08:24', 7),
-(1841, 14, '0.0000', '2023-07-22 07:08:24', 7),
-(1842, 13, '0.0000', '2023-07-22 07:08:24', 7),
-(1843, 12, '0.8000', '2023-07-22 07:08:24', 7),
-(1844, 11, '0.1491', '2023-07-22 07:08:24', 7),
 (1909, 25, '0.0000', '2023-07-22 12:15:49', 6),
 (1910, 23, '0.0000', '2023-07-22 12:15:49', 6),
 (1911, 16, '0.3780', '2023-07-22 12:15:49', 6),
@@ -209,7 +202,15 @@ INSERT INTO `tb_history_bobot` (`id`, `event_id`, `bobot`, `created_on`, `create
 (1977, 14, '0.9999', '2023-08-03 20:54:28', 15),
 (1978, 13, '0.1667', '2023-08-03 20:54:28', 15),
 (1979, 12, '0.0000', '2023-08-03 20:54:28', 15),
-(1980, 11, '0.1361', '2023-08-03 20:54:28', 15);
+(1980, 11, '0.1361', '2023-08-03 20:54:28', 15),
+(2165, 25, '0.0000', '2023-08-13 14:31:11', 7),
+(2166, 23, '0.0000', '2023-08-13 14:31:11', 7),
+(2167, 16, '0.1543', '2023-08-13 14:31:11', 7),
+(2168, 15, '0.0000', '2023-08-13 14:31:11', 7),
+(2169, 14, '0.9999', '2023-08-13 14:31:11', 7),
+(2170, 13, '0.1667', '2023-08-13 14:31:11', 7),
+(2171, 12, '0.0000', '2023-08-13 14:31:11', 7),
+(2172, 11, '0.1361', '2023-08-13 14:31:11', 7);
 
 -- --------------------------------------------------------
 
@@ -311,6 +312,33 @@ CREATE TABLE `tb_post_eo` (
 INSERT INTO `tb_post_eo` (`id`, `nama`, `jenis_eo`, `is_custom`, `path`, `history`, `is_active`, `created_on`, `created_by`) VALUES
 (2, 'First Organizer EO', '1', 1, 'EO_198_1680705453.PNG', 2, 1, '2023-04-05 16:37:33', 15),
 (4, 'One Up Event Organizer', '1', 1, 'EO_663_1682919463.PNG', 2, 1, '2023-05-01 07:37:43', 15);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_rating`
+--
+
+CREATE TABLE `tb_rating` (
+  `id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_rating`
+--
+
+INSERT INTO `tb_rating` (`id`, `event_id`, `rating`, `total`) VALUES
+(1, 15, 10, 1),
+(2, 23, 10, 1),
+(3, 11, 10, 1),
+(4, 12, 10, 1),
+(5, 13, 10, 1),
+(6, 14, 10, 1),
+(7, 16, 10, 1),
+(8, 25, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -438,6 +466,12 @@ ALTER TABLE `tb_post_eo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tb_rating`
+--
+ALTER TABLE `tb_rating`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `tb_sample`
 --
 ALTER TABLE `tb_sample`
@@ -463,13 +497,13 @@ ALTER TABLE `tb_tipe_user`
 -- AUTO_INCREMENT untuk tabel `tb_account`
 --
 ALTER TABLE `tb_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_event`
 --
 ALTER TABLE `tb_event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_genre`
@@ -487,7 +521,7 @@ ALTER TABLE `tb_harga_paket`
 -- AUTO_INCREMENT untuk tabel `tb_history_bobot`
 --
 ALTER TABLE `tb_history_bobot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1981;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2173;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_history_eo`
@@ -512,6 +546,12 @@ ALTER TABLE `tb_jenis_event`
 --
 ALTER TABLE `tb_post_eo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_rating`
+--
+ALTER TABLE `tb_rating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sample`
