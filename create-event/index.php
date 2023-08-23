@@ -25,7 +25,7 @@ if (isset($_POST["btn_submit"])) {
     $insert = $conn->query("INSERT INTO tb_event (nama, tipe, jenis, prize_pool, max_slot, lokasi, is_active, created_on, created_by, path, tgl_event_awal, tgl_event_akhir, history, genre_game) VALUES ('$nama', '$tipe_event', '$jenis_event', '$prize_pool', '$max_slot', '$lokasi', 1, '$createdon', '$id', '$new_filename', '$tgl_event_awal', '$tgl_event_akhir', 1, '$genre_games')");
     $last_id = $conn->insert_id;
 
-    $insert_rating = $conn->query("INSERT INTO tb_rating (event_id, rating, total) VALUES ('$last_id', 0, 0)");
+    $insert_rating = $conn->query("INSERT INTO tb_rating (event_id, rating, total) VALUES ('$last_id', '5', '1')");
 
     if ($insert && $insert_rating && $upload) {
       echo "<script>alert('Event berhasil ditambah dan akan diverifikasi oleh admin!')</script>";

@@ -26,7 +26,7 @@ if (isset($_POST["tipe"])) {
   } else {
     // untuk menarik data pada kategori hot
     $user = $_POST["user"];
-    $result = $conn->query("SELECT ev.nama, ev.path, ev.id as idevent, hb.bobot, rt.rating, hb.created_on, rt.total FROM `tb_event` ev LEFT join tb_history_bobot hb ON ev.id = hb.event_id LEFT JOIN tb_rating rt ON ev.id = rt.event_id WHERE hb.created_by = '$user' and ev.is_verified = 1 ORDER BY bobot DESC, rating DESC, created_on DESC");
+    $result = $conn->query("SELECT ev.nama, ev.path, ev.id as idevent, hb.bobot, rt.rating, hb.created_on, rt.total FROM `tb_event` ev LEFT join tb_history_bobot hb ON ev.id = hb.event_id LEFT JOIN tb_rating rt ON ev.id = rt.event_id WHERE hb.created_by = '$user' and ev.is_verified = 1 ORDER BY rating/total DESC, bobot DESC, created_on DESC");
     // SELECT ev.nama, ev.path, ev.id as idevent, hb.bobot, hb.created_on FROM `tb_event` ev LEFT join tb_history_bobot hb ON ev.id = hb.event_id WHERE hb.created_by = '$user' and ev.is_verified = 1 ORDER BY bobot DESC, created_on DESC
     while ($row = $result->fetch_array()) {
       $path = BASE_URL . DS . 'assets/img/event/' . $row['path'];
